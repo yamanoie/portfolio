@@ -10,9 +10,12 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require font-awesome
  *= require_tree .
  *= require_self
  */
+
+
 * {
 	margin: 0;
 	padding: 0;
@@ -42,9 +45,10 @@
 nav {
 }
 
-nav li{
+nav a{
 	font-size: 15px;
-	margin: 0 4em;
+	text-decoration: none;
+
 }
 
 nav ul {
@@ -53,6 +57,23 @@ nav ul {
 	list-style-type: none;
 	align-items: center;
 	justify-content: center;
+}
+
+.nav-home {
+	margin: 0 2em;
+
+
+}
+
+.nav-sign-up {
+	margin: 0 2em;
+
+
+}
+
+.nav-login {
+	margin: 0 2em;
+
 }
 
 

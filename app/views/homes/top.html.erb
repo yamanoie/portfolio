@@ -17,9 +17,18 @@
         </div>
         <nav>
           <ul>
-            <!-- link_toに変える -->
-            <li><a href="/">Top</a></li>
-            <li><a href="/">Sign up</a></li>
+            <div class="nav-home">
+              <%= fa_icon "home" %>
+              <%= link_to "Top", root_path %>
+            </div>
+            <div class="nav-sign-up">
+              <%= fa_icon "user-plus"%>
+              <%= link_to "Sign up", new_user_registration_path %>
+            </div>
+            <div class="nav-login">
+              <%= fa_icon "sign-in"%>
+              <%= link_to "Log in", new_user_session_path %>
+            </div>
           </ul>
         </nav>
       </header>
