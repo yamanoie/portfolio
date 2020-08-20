@@ -7,13 +7,7 @@
 	box-sizing: border-box;
 }
 
-.wrapper {
-	background-color: #FFFFEE;
-}
-
-.section {
-	height: 700px;
-}
+/*トップページヘッダー&メインセクション*/
 
 .mainvisual {
 	height: 100%;
@@ -21,3 +15,24 @@
 	background-size: 100%;
 }
 
+.shake-hands {
+	height: 500px;
+}
+
+.catch-copy {
+	font-size: 100px;
+	text-align: center;
+	margin-top: 200px;
+	font-family: 'Sawarabi Mincho', sans-serif;
+}
+
+/*ーーーーーーーーーーーーーーーー*/
+
+.wrapper {
+	background-color: #FFFFEE;
+}
+
+
+.section {
+	height: 700px;
+}
