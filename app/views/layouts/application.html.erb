@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Segurado</title>
+    <title>Segurado!</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -9,7 +9,27 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  <header class="header">
+    <div class="header-logo">
+      <a href="/" title="header-logo">
+        <img src="/assets/logo.jpg" alt="[Logo]whale shark">
+      </a>
+    </div>
+    <nav>
+    <ul>
+      <li><a href="/">Top</a></li>
+      <li><a href="/">Sign up</a></li>
+    </ul>
+    </nav>
+  </header>
   <body>
     <%= yield %>
   </body>
+  <footer>
+    <div class="footer-logo">
+      <a href="/" title="footer-logo">
+        <img src="/assets/logo2.jpg" alt="[Logo]whale shark">
+      </a>
+    </div>
+  </footer>
 </html>
