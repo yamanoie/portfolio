@@ -7,7 +7,7 @@
 .mainvisual {
 	height: 100%;
 	background-image: url(/assets/shakehands.jpg);
-	background-size: 100%;
+	background-size: cover;
 }
 
 .shake-hands {
@@ -23,6 +23,13 @@
 
 /*ーーーーーーーーーーーーーーーー*/
 
+.about-section {
+	background-color: white;
+	height: 700px;
+
+}
+
+
 .about-text {
 	font-size: 80px;
 	text-align: center;
@@ -30,9 +37,18 @@
 	font-family: 'Sawarabi Mincho', sans-serif;
 }
 
+.about-sub-text {
+	font-size: 30px;
+	text-align: center;
+	font-family: 'Sawarabi Mincho', sans-serif;
+	padding-top: 50px;
+
+
+}
+
 .post-section {
 	display: flex;
-	background-color: white;
+	background-color: #FFFFEE;
 	justify-content: center;
 	align-items: center;
 	height: 700px;
@@ -93,6 +109,6 @@
 }
 
 .big-char {
-	font-size: 80px;
+	font-size: 100px;
 	font-weight: bold;
 }
