@@ -39,8 +39,6 @@
 }
 
 
-
-
 .post-img {
 	background-image: url(/assets/cebu.jpg);
 	height: 400px;
@@ -68,27 +66,20 @@
 	justify-content: center;
 	align-items: center;
 	height: 700px;
-
-
-
 }
 
 
 .recruit-img {
 	background-image: url(/assets/japan.jpg);
 	height: 500px;
-	background-size: contain;
+	background-size:100% 100%;
 	border-radius: 50% 50% 50% 50%;
 	height: 400px;
 	width: 400px;
-
-
 }
 
 .recruit-text {
 	margin: 0 6em;
-
-
 }
 
 .recruit-text p {
