@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :timeoutable, :trackable
 
   has_many :posts, dependent: :destroy
+  attachment :image
+
 end

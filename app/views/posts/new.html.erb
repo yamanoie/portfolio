@@ -1,3 +1,20 @@
 <div class="body">
-	
+	<div class="container">
+		<div class="row">
+			<div class="">
+				<h2>Post</h2>
+					<div class="">
+						<%= form_with model:@post,local: true do |f| %>
+						<%= f.attachment_field :image %>
+						<%= f.label :text, "enter the text"%>
+						<%= f.text_area :text,:placeholder => "What are you doing now?" %>
+						<%= f.submit "Post", class: "btn btn-info" %>
+						<% end %>
+					</div>
+				
+			</div>
+			
+		</div>
+		
+	</div>
 </div>
