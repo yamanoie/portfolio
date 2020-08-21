@@ -1,0 +1,18 @@
+<div class="body">
+	<div class="container">
+		<div class="row">
+			<div class="">
+				<h2>Edit Post</h2>
+					<div class="">
+						<%= form_with model:@post,local: true do |f| %>
+						<%= f.attachment_field :image %>
+						<%= f.label :text, "enter the text"%>
+						<%= f.text_area :text %>
+						<%= f.submit "Update", class: "btn btn-info" %>
+						<%= link_to "Delete", root_path,method: :delete,class: "btn btn-danger" %>
+						<% end %>
+					</div>
+			</div>
+		</div>
+	</div>
+</div>

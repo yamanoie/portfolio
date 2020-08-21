@@ -1,0 +1,22 @@
+<div class="body">
+	<div class="container">
+		<div class="row">
+			<div class="">
+				<!-- あとで消す -->
+				<h2>Your Post</h2>
+				<!-- 　　　　　　　 -->
+					<div class="">
+					  <%= attachment_image_tag @post.user, :image_id %>
+					  <%= link_to user_path(@post) do %>
+					  	<%= @post.user.name %>
+					  <% end %>
+					  <%= fa_icon "heart"%>
+              		  <%= fa_icon "heart-o"%>
+              		  <%= attachment_image_tag @post, :image_id %>
+              		  <%= @post.text %>
+              		  <%= @post.created_at %>
+					</div>
+			</div>
+		</div>
+	</div>
+</div>
