@@ -17,31 +17,38 @@
     </div>
     <nav>
     <ul>
+      <% if user_signed_in? %>
+        <div class="nav-list">
+            <%= fa_icon "home" %>
+            <%= link_to "Home", posts_path %>
+         </div>
 
-       <div class="nav-list">
-          <%= fa_icon "home" %>
-          <%= link_to "Top", root_path %>
-       </div>
-       <div class="nav-list">
-          <%= fa_icon "user-plus"%>
-          <%= link_to "Sign up", new_user_registration_path %>
-        </div>
-        <div class="nav-list">
-          <%= fa_icon "sign-in"%>
-          <%= link_to "Log in", new_user_session_path %>
-        </div>
-        <div class="nav-list">
-          <%= fa_icon "user-circle-o" %>
-          <%= link_to "My page", root_path %>
-       </div>
-       <div class="nav-list">
-          <%= fa_icon "handshake-o" %>
-          <%= link_to "Recruit", root_path %>
-       </div>
-       <div class="nav-list">
-          <%= fa_icon "sign-out" %>
-          <%= link_to "Log out", root_path %>
-       </div>
+          <div class="nav-list">
+            <%= fa_icon "user-circle-o" %>
+            <%= link_to "My page",posts_path%>
+         </div>
+         <div class="nav-list">
+            <%= fa_icon "handshake-o" %>
+            <%= link_to "Recruit", posts_path %>
+         </div>
+         <div class="nav-list">
+            <%= fa_icon "sign-out" %>
+            <%= link_to "Log out", destroy_user_session_path %>
+         </div>
+       <% else %>
+         <div class="nav-list">
+            <%= fa_icon "home" %>
+            <%= link_to "Top", root_path %>
+         </div>
+         <div class="nav-list">
+            <%= fa_icon "user-plus"%>
+            <%= link_to "Sign up", new_user_registration_path %>
+          </div>
+          <div class="nav-list">
+            <%= fa_icon "sign-in"%>
+            <%= link_to "Log in", new_user_session_path %>
+          </div>
+        <% end %>
     </ul>
     </nav>
   </header>
