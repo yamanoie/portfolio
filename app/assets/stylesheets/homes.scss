@@ -1,11 +1,6 @@
 // Place all the styles related to the homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
 
 /*トップページヘッダー&メインセクション*/
 
@@ -37,50 +32,66 @@
 
 .post-section {
 	display: flex;
-
+	background-color: white;
+	justify-content: center;
+	align-items: center;
+	height: 700px;
 }
+
+
 
 
 .post-img {
 	background-image: url(/assets/cebu.jpg);
-	height: 500px;
-	width: 40%;
+	height: 400px;
+	width: 400px;
 	background-size: cover;
+	border-radius: 50% 50% 50% 50%;
 
 
 }
 
 .post-text {
-	background-color: white;
-	
+	margin: 0 6em;
 
 }
 
 .post-text p {
 	font-size: 50px;
+	align-items: center;
+
 }
 
-.matching-section {
+.recruit-section {
 	display: flex;
+	background-color: #00FFFF;
+	justify-content: center;
+	align-items: center;
+	height: 700px;
+
+
+
 }
 
 
-.matching-img {
+.recruit-img {
 	background-image: url(/assets/japan.jpg);
 	height: 500px;
-	width: 40%;
 	background-size: contain;
-
-
+	border-radius: 50% 50% 50% 50%;
+	height: 400px;
+	width: 400px;
 
 
 }
 
-.matching-text {
-	background-color: white;
+.recruit-text {
+	margin: 0 6em;
+
+
 }
 
-.matching-text p {
+.recruit-text p {
 	font-size: 50px;
 }
 
@@ -88,4 +99,9 @@
 
 .section {
 	height: 700px;
+}
+
+.big-char {
+	font-size: 80px;
+	font-weight: bold;
 }
