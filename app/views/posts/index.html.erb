@@ -1,0 +1,20 @@
+<div class="body">
+	<div class="container">
+		<div class="row">
+			<div col-md-8 col-sm-offset-2>
+				<h2>Latest posts</h2>
+				<% @posts.each do |post| %>
+				<%= attachment_image_tag post.user, :image_id %>
+				<%= post.user.name %>
+              	<%= fa_icon "heart"%>
+              	<%= fa_icon "heart-o"%>
+              	<%= post.text %>
+              	<!-- コメント数 -->
+              	<%= attachment_image_tag post, :image_id %>
+              	<% end %>
+			</div>
+			
+		</div>
+		
+	</div>
+</div>
