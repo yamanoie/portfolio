@@ -17,18 +17,31 @@
     </div>
     <nav>
     <ul>
-       <div class="nav-home">
+
+       <div class="nav-list">
           <%= fa_icon "home" %>
           <%= link_to "Top", root_path %>
        </div>
-       <div class="nav-sign-up">
+       <div class="nav-list">
           <%= fa_icon "user-plus"%>
           <%= link_to "Sign up", new_user_registration_path %>
         </div>
-        <div class="nav-login">
+        <div class="nav-list">
           <%= fa_icon "sign-in"%>
           <%= link_to "Log in", new_user_session_path %>
         </div>
+        <div class="nav-list">
+          <%= fa_icon "user-circle-o" %>
+          <%= link_to "My page", root_path %>
+       </div>
+       <div class="nav-list">
+          <%= fa_icon "handshake-o" %>
+          <%= link_to "Recruit", root_path %>
+       </div>
+       <div class="nav-list">
+          <%= fa_icon "sign-out" %>
+          <%= link_to "Log out", root_path %>
+       </div>
     </ul>
     </nav>
   </header>

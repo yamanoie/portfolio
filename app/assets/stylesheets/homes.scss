@@ -11,7 +11,7 @@
 
 .mainvisual {
 	height: 100%;
-	background-image: url(/assets/roman-kraft-0EVKn3-5JSU-unsplash.jpg);
+	background-image: url(/assets/shakehands.jpg);
 	background-size: 100%;
 }
 
@@ -28,9 +28,62 @@
 
 /*ーーーーーーーーーーーーーーーー*/
 
-.wrapper {
-	background-color: #FFFFEE;
+.about-text {
+	font-size: 80px;
+	text-align: center;
+	padding-top: 200px;
+	font-family: 'Sawarabi Mincho', sans-serif;
 }
+
+.post-section {
+	display: flex;
+
+}
+
+
+.post-img {
+	background-image: url(/assets/cebu.jpg);
+	height: 500px;
+	width: 40%;
+	background-size: cover;
+
+
+}
+
+.post-text {
+	background-color: white;
+	
+
+}
+
+.post-text p {
+	font-size: 50px;
+}
+
+.matching-section {
+	display: flex;
+}
+
+
+.matching-img {
+	background-image: url(/assets/japan.jpg);
+	height: 500px;
+	width: 40%;
+	background-size: contain;
+
+
+
+
+}
+
+.matching-text {
+	background-color: white;
+}
+
+.matching-text p {
+	font-size: 50px;
+}
+
 
 
 .section {

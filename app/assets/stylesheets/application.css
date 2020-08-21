@@ -20,7 +20,13 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+
 }
+
+.body {
+	background-color: #FFFFEE;
+}
+
 
 
 /*ヘッダー*/
@@ -59,22 +65,14 @@ nav ul {
 	justify-content: center;
 }
 
-.nav-home {
+
+
+.nav-list {
 	margin: 0 2em;
 
 
 }
 
-.nav-sign-up {
-	margin: 0 2em;
-
-
-}
-
-.nav-login {
-	margin: 0 2em;
-
-}
 
 
 /*フッター*/
