@@ -1,17 +1,17 @@
 <div class="body">
 	<div class="container">
 		<div class="row">
-			<div class="">
-				<h2>Post</h2>
-					<div class="">
+			<div class="box col-xs-offset-3 col-xs-5">
+				<h2 class="title">New Post</h2>
 						<%= form_with model:@post,local: true do |f| %>
-						<%= f.attachment_field :image %>
-						<%= f.label :text, "enter the text"%>
-						<%= f.text_area :text,:placeholder => "What are you doing now?" %>
-						<%= f.submit "Post", class: "btn btn-info" %>
+						<div class="upload-image">
+							<%= f.attachment_field :image %>
+						</div>
+						<%= f.text_area :text,:placeholder => "　What are you doing now?", rows: "5",cols: "60" %>
+						<div>
+							<%= f.submit "Post", class: "btn-post btn btn-info" %>
+						</div>
 						<% end %>
-					</div>
-				
 			</div>
 			
 		</div>
