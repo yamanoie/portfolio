@@ -12,15 +12,17 @@
               		  <%= attachment_image_tag @post, :image, :fill, 300, 400 %>
               		  <%= @post.text %>
               		  <%= @post.created_at.strftime("%Y-%m-%d %H:%M") %>
-              		  <% if user_signed_in? %>
+              		  <% if @post.user_id == current_user.id %>
               		  	<%= link_to "Edit" , edit_post_path(@post), class: "btn btn-primary" %>
-              		  	<% end %>
+              		  <% end %>
 					</div>
 			</div>
 		</div>
 	</div>
 	<!-- コメント一覧 -->
+	<h2> 3 Comments</h2>
 	<!-- 　　　　　　 -->
 	<!-- コメントフォーム -->
+	<h2> Comment Form </h2>
 	<!-- 　　　　　　　　 -->
 </div>

@@ -6,7 +6,7 @@
 				<%= image_tag "/assets/logo-post.jpg",class: "logo-post" %>
 			<% end %>
 			<!-- 　　　　　　　 -->
-			
+
 			<!-- ランキング   -->
 			<!--            -->
 			　　<div col-md-8 col-sm-offset-2>
@@ -24,6 +24,7 @@
 	              	
 		            <%= link_to "more",post_path(post) %>
 	              	<!-- コメント数 -->
+	              	 3 comments
 	              	<%= post.created_at.strftime("%Y-%m-%d %H:%M") %>
 	              	<%= attachment_image_tag post, :image , :fill, 200,300 %>
 	              	<% end %>

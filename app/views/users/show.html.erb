@@ -30,7 +30,17 @@
 			</div>
 		</div>
 		<!-- 投稿一覧 -->
-
+		<h2>xxx`s All Posts</h2>
+		<div class="row">
+		  <% @posts.each do |post| %>
+			<%= fa_icon "heart"%>
+            <%= fa_icon "heart-o"%>
+            <%= attachment_image_tag post, :image, :fill, 300, 400 %>
+            <%= post.text %>
+            <%= post.created_at.strftime("%Y-%m-%d %H:%M") %>
+          <% end %>
+			
+		</div>
 		<!-- 　　　　 -->
 	</div>
 </div>
