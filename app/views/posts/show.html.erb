@@ -2,19 +2,19 @@
 	<div class="container">
 		<div class="row">
 			<div class="">
-				<!-- あとで消す -->
-				<h2>Your Post</h2>
-				<!-- 　　　　　　　 -->
 					<div class="">
-					  <%= attachment_image_tag @post.user, :image_id %>
+					  <%= attachment_image_tag @post.user, :image, :fill, 60, 60, fallback: "no-image.jpg", size:"60x60" %>
 					  <%= link_to user_path(@post) do %>
 					  	<%= @post.user.name %>
 					  <% end %>
 					  <%= fa_icon "heart"%>
               		  <%= fa_icon "heart-o"%>
-              		  <%= attachment_image_tag @post, :image_id %>
+              		  <%= attachment_image_tag @post, :image, :fill, 300, 400 %>
               		  <%= @post.text %>
-              		  <%= @post.created_at %>
+              		  <%= @post.created_at.strftime("%Y-%m-%d %H:%M") %>
+              		  <% if user_signed_in? %>
+              		  	<%= link_to "Edit" , edit_post_path(@post), class: "btn btn-primary" %>
+              		  	<% end %>
 					</div>
 			</div>
 		</div>

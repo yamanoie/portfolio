@@ -1,27 +1,30 @@
 <div class="body">
 	<div class="post-index container">
 		<div class="row">
-			<div col-md-8 col-sm-offset-2>
-				<%= link_to new_post_path do %>
+			<!-- 新規投稿ボタン -->
+			<%= link_to new_post_path do %>
 				<%= image_tag "/assets/logo-post.jpg",class: "logo-post" %>
-				<% end %>
-				<h2>Latest posts</h2>
-				<% @posts.each do |post| %>
-				<%= attachment_image_tag post.user, :image, :fill, 60, 60, fallback: "no-image.jpg", size:"60x60" %>
-				<%= link_to user_path(post) do %>
-					<%= post.user.name %>
-				<% end %>
-              	<%= fa_icon "heart"%>
-              	<%= fa_icon "heart-o"%>
-              	<!-- いいね数 -->
-              	<%= post.text %>
-              	<!-- コメント数 -->
-              	<%= post.created_at %>
-              	<%= attachment_image_tag post, :image , :fill, 300,400 %>
-              	<% end %>
-			</div>
-			
+			<% end %>
+			<!-- 　　　　　　　 -->
+			　　<div col-md-8 col-sm-offset-2>
+					<h2>Latest posts</h2>
+					<% @posts.each do |post| %>
+					<%= attachment_image_tag post.user, :image, :fill, 60, 60, fallback: "no-image.jpg", size:"60x60" %>
+					<%= link_to user_path(post) do %>
+						<%= post.user.name %>
+					<% end %>
+	              	<%= fa_icon "heart"%>
+	              	<%= fa_icon "heart-o"%>
+	              	<!-- いいね数 -->
+		            <%= post.text %>
+
+	              	
+		            <%= link_to "more",post_path(post) %>
+	              	<!-- コメント数 -->
+	              	<%= post.created_at.strftime("%Y-%m-%d %H:%M") %>
+	              	<%= attachment_image_tag post, :image , :fill, 200,300 %>
+	              	<% end %>
+			　　</div>
 		</div>
-		
 	</div>
 </div>
