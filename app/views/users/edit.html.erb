@@ -1,0 +1,17 @@
+<div class="body">
+	<div class="container">
+		<div class="row">
+			<div class="">
+				<h2>Edit User</h2>
+					<div class="">
+						<%= form_with model:@user,local: true do |f| %>
+						<%= f.attachment_field :image %>
+						<%= f.text_field :name %>
+						<%= f.text_area :profile, rows: "4", cols: "40" %>
+						<%= f.submit "Update", class: "btn btn-info" %>
+						<% end %>
+					</div>
+			</div>
+		</div>
+	</div>
+</div>
