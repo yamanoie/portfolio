@@ -1,13 +1,13 @@
 <div class="body">
 	<div class="container">
 		<div class="row">
-			<div class="box col-xs-offset-3 col-xs-5">
+			<div class="box col-xs-offset-4 col-xs-4">
 				<h2 class="title">New Post</h2>
 						<%= form_with model:@post,local: true do |f| %>
 						<div class="upload-image">
 							<%= f.attachment_field :image %>
 						</div>
-						<%= f.text_area :text,:placeholder => "　What are you doing now?", rows: "5",cols: "60" %>
+						<%= f.text_area :text,:placeholder => "　What are you doing now?", rows: "5",cols: "50" %>
 						<div>
 							<%= f.submit "Post", class: "btn-post btn btn-info" %>
 						</div>

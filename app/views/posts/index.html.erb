@@ -7,7 +7,7 @@
 				<% end %>
 				<h2>Latest posts</h2>
 				<% @posts.each do |post| %>
-				<%= attachment_image_tag post.user, :image_id %>
+				<%= attachment_image_tag post.user, :image, :fill, 60, 60, fallback: "no-image.jpg", size:"60x60" %>
 				<%= link_to user_path(post) do %>
 					<%= post.user.name %>
 				<% end %>
@@ -17,7 +17,7 @@
               	<%= post.text %>
               	<!-- コメント数 -->
               	<%= post.created_at %>
-              	<%= attachment_image_tag post, :image_id %>
+              	<%= attachment_image_tag post, :image , :fill, 300,400 %>
               	<% end %>
 			</div>
 			

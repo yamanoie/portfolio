@@ -11,9 +11,7 @@
 
   <header class="header">
     <div class="header-logo">
-      <a href="/" title="header-logo">
         <img src="/assets/logo.jpg" alt="[Logo]whale shark">
-      </a>
     </div>
     <nav>
     <ul>
@@ -25,7 +23,7 @@
 
           <div class="nav-list">
             <%= fa_icon "user-circle-o" %>
-            <%= link_to "My page",posts_path%>
+            <%= link_to "My page",user_path(current_user)%>
          </div>
          <div class="nav-list">
             <%= fa_icon "handshake-o" %>
@@ -33,13 +31,8 @@
          </div>
          <div class="nav-list">
             <%= fa_icon "sign-out" %>
-            <%= link_to "Log out", destroy_user_session_path %>
+            <%= link_to "Log out", destroy_user_session_path,method: :delete %>
          </div>
-         <div class="nav-list top-profile">
-            <%= attachment_image_tag current_user, :image, :fill, 60, 60, fallback: "no-image.jpg", size:"60x60" %>
-            <p>Welcome</p>
-            <%= link_to current_user.name, user_path(current_user) %>
-          </div>
        <% else %>
          <div class="nav-list">
             <%= fa_icon "home" %>
@@ -49,8 +42,22 @@
             <%= fa_icon "user-plus"%>
             <%= link_to "Sign up", new_user_registration_path %>
           </div>
+          <div class="nav-list">
+              <%= fa_icon "sign-in"%>
+              <%= link_to "Log in", new_user_session_path %>
+          </div>
         <% end %>
     </ul>
+    <!-- プロフィール -->
+    <% if user_signed_in? %>
+      <div class="user-box">
+              <%= attachment_image_tag current_user, :image, :fill, 60, 60, fallback: "no-image.jpg", size:"60x60" %>
+              <p>Welcome!</p>
+              <%= link_to current_user.name, user_path(current_user),class: "user-name" %>
+              <span class="fa fa-bell"></span>
+      </div>
+    <% end %>
+    <!-- 　　　　　　　　　 -->
     </nav>
   </header>
   <body>

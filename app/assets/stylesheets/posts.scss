@@ -26,17 +26,18 @@
     background: #e4fcff;
     border-top: solid 6px #1dc1d6;
     box-shadow: 0 3px 4px rgba(0, 0, 0, 0.32);
+    position: relative;
 }
 
 .title {
-	margin-left: 5em;
+	text-align: center;
 }
 
 
 .upload-image {
-	margin: 2em 0 2em 19em;
+	margin: 2em auto;
 }
 
 .btn-post {
-	margin-left: 27em
+	margin-left: 310px;
 }

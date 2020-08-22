@@ -1,3 +1,49 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/*ユーザープロフィール*/
+
+.user-box {
+	padding: 0.5em 1em;
+    margin: 2em 0;
+    border: double 5px #4ec4d3;
+    height: 80px;
+    width: 210px;
+    position: fixed;
+	right: 180px;
+	top: 100px;
+	display: flex;
+	background-color: none;
+	flex-direction: column;
+	flex-wrap: wrap;
+}
+
+.user-box p {
+	text-align: center;
+	font-family: 'Sawarabi Mincho', sans-serif;
+}
+
+.user-name {
+	text-align: center;
+}
+
+
+.fa-bell {
+	position: relative;
+}
+
+.badge:after{
+  content:"";
+  position: absolute;
+  background: #fff;
+  height:6px;
+  width:6px;
+  top:-2px;
+  right:-5px;
+  text-align: center;
+  border-radius: 50%;
+  color:white;
+}
+
+/*------------------------*/
