@@ -16,15 +16,24 @@
 					<%= link_to user_path(post) do %>
 						<%= post.user.name %>
 					<% end %>
-	              	<%= fa_icon "heart"%>
-	              	<%= fa_icon "heart-o"%>
-	              	<!-- いいね数 -->
+					<!--          いいね       -->
+					<% if post.liked_by?(current_user) %>
+						<%= link_to post_likes_path(post),method: :delete do %>
+		              		<%= fa_icon "heart",style: "color=: red;"%>
+		              		<%= post.likes.count %>
+		              	<% end %>
+		            <% else %>
+		            	<%= link_to post_likes_path(post),method: :post do %>
+	              			<%= fa_icon "heart-o"%>
+	              			<%= post.likes.count %>
+	              			<% end %>
+	              	<% end %>
+	              	<!-- 　　　　　             -->
 		            <%= post.text %>
-
-	              	
 		            <%= link_to "more",post_path(post) %>
 	              	<!-- コメント数 -->
 	              	 3 comments
+                    <%= fa_icon "calendar" %>
 	              	<%= post.created_at.strftime("%Y-%m-%d %H:%M") %>
 	              	<%= attachment_image_tag post, :image , :fill, 200,300 %>
 	              	<% end %>
