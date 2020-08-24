@@ -8,10 +8,48 @@
 			<!-- 　　　　　　　 -->
 
 			<!-- ランキング   -->
-			<!--            -->
+			<h2>Posts Best 3</h2>
+			 <%= @all_ranks.each.with_index(1) do |post, i| %>
+			 	<h2  class="rank">
+			 		<img src="/assets/gold.png">
+			 		<!-- <img src="/assets/silver.png"> -->
+			 		<!-- <img src="/assets/bronz.png"> -->
+			 		Best #{i}
+			 	</h2>
+	 			<%= attachment_image_tag post.user, :image, :fill, 60, 60, fallback: "no-image.jpg", size:"60x60" %>
+				<%= link_to user_path(post.user.id) do %>
+					<%= post.user.name %>
+				<% end %>
+				<!--          いいね       -->
+				<% if post.liked_by?(current_user) %>
+					<%= link_to post_likes_path(post),method: :delete do %>
+              			<%= fa_icon "heart",style: "color=: red;"%>
+              			<%= post.likes.count %>
+              		<% end %>
+           		 <% else %>
+            		<%= link_to post_likes_path(post),method: :post do %>
+          			<%= fa_icon "heart-o"%>
+          			<%= post.likes.count %>
+          		 <% end %>
+          	 <% end %>
+	              	<!-- 　　　　　             -->
+		            <%= post.text %>
+	              	<!-- コメント数 -->
+	              	<%= fa_icon "comment-o" %>
+	              	 <%= post.comments.count %> Comments
+	              	 <!--       -->
+                    <%= fa_icon "calendar" %>
+	              	<%= post.created_at.strftime("%Y-%m-%d %H:%M") %>
+	              	<%= attachment_image_tag post, :image , :fill, 200,300 %>
+		            <%= link_to "more",post_path(post) %>
+	              	<% end %>
+			<!--       ランキングここまで     -->
+
+			<!-- 　　　　　　　　　投稿一覧　　　　　　　　 -->
 			　　<div col-md-8 col-sm-offset-2>
 					<h2>Latest posts</h2>
 					<% @posts.each do |post| %>
+					<h2></h2>
 					<%= attachment_image_tag post.user, :image, :fill, 60, 60, fallback: "no-image.jpg", size:"60x60" %>
 					<%= link_to user_path(post.user.id) do %>
 						<%= post.user.name %>
@@ -40,6 +78,7 @@
 		            <%= link_to "more",post_path(post) %>
 	              	<% end %>
 			　　</div>
+			<!-- 　　投稿一覧ここまで　　　　　　　　　　　　　　　　　　　 -->
 		</div>
 	</div>
 </div>
