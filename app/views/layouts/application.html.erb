@@ -66,10 +66,25 @@
     <%= yield %>
   </body>
   <footer>
-    <div class="footer-logo">
-      <a href="/" title="footer-logo">
-        <img src="/assets/logo2.jpg" alt="[Logo]whale shark">
-      </a>
+    <div class="row">
+      <div class="col-xs-offset-2">
+             <a href="/" title="footer-logo col-xs-2">
+                 <img src="/assets/logo2.jpg" alt="[Logo]whale shark">
+             </a>
+      <div class="contact_form col-xs-offset-7">
+            <h2>Contact Form</h2>
+            <%= form_with model: @contact,local: true do |f| %>
+            <%= f.label "Name" %><br>
+            <%= f.text_field :name %>
+            <%= f.label "Email" %><br>
+            <%= f.text_field :email %>
+            <%= f.label "Content" %><br>
+            <%= f.text_area :content %>
+            <%= f.submit "Send Email",class: "btn btn-success"%>
+            <% end %>
+        </div>
+      </div>
+      </div>
     </div>
   </footer>
 </html>
