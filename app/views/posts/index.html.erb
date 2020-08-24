@@ -13,7 +13,7 @@
 					<h2>Latest posts</h2>
 					<% @posts.each do |post| %>
 					<%= attachment_image_tag post.user, :image, :fill, 60, 60, fallback: "no-image.jpg", size:"60x60" %>
-					<%= link_to user_path(post) do %>
+					<%= link_to user_path(post.user.id) do %>
 						<%= post.user.name %>
 					<% end %>
 					<!--          いいね       -->
@@ -30,12 +30,14 @@
 	              	<% end %>
 	              	<!-- 　　　　　             -->
 		            <%= post.text %>
-		            <%= link_to "more",post_path(post) %>
 	              	<!-- コメント数 -->
-	              	 3 comments
+	              	<%= fa_icon "comment-o" %>
+	              	 <%= post.comments.count %> Comments
+	              	 <!--       -->
                     <%= fa_icon "calendar" %>
 	              	<%= post.created_at.strftime("%Y-%m-%d %H:%M") %>
 	              	<%= attachment_image_tag post, :image , :fill, 200,300 %>
+		            <%= link_to "more",post_path(post) %>
 	              	<% end %>
 			　　</div>
 		</div>

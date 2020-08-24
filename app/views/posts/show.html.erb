@@ -32,9 +32,33 @@
 		</div>
 	</div>
 	<!-- コメント一覧 -->
-	<h2> 3 Comments</h2>
+	<% if @post.comments.blank? %>
+		<h2>no comments</h2>
+		<h2>
+	<% else %>
+		<h2><%= @post.comments.count %>
+		Comments
+		</h2>
+	<% end %>
+
+	<% @post.comments.each do |comment| %>
+	<%= attachment_image_tag comment.user, :image, :fill, 60, 60, fallback: "no-image.jpg", size:"60x60" %>
+	<%= link_to user_path(comment.user) do %>
+		<%= comment.user.name %>
+	<% end %>
+	<%= comment.created_at.strftime("%Y-%m-%d %H:%M") %>
+	<%= comment.comment %>
+	<% if comment.user == current_user %>
+		<%= link_to "Delete", post_comment_path(@post, comment),method: :delete ,class: "btn btn-danger" %>
+	<% end %>
+	<% end %>
+
 	<!-- 　　　　　　 -->
 	<!-- コメントフォーム -->
 	<h2> Comment Form </h2>
+	<%= form_with model:[@post,@comment], local: true do |f| %>
+		<%= f.text_area :comment, rows: "5",cols: "40",placeholder: "comment here" %>
+		<%= f.submit "Comment", class: "btn btn-primary" %>
+	<% end %>
 	<!-- 　　　　　　　　 -->
 </div>
