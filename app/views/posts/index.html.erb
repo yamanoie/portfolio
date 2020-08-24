@@ -6,15 +6,18 @@
 				<%= image_tag "/assets/logo-post.jpg",class: "logo-post" %>
 			<% end %>
 			<!-- 　　　　　　　 -->
-
 			<!-- ランキング   -->
 			<h2>Posts Best 3</h2>
-			 <%= @all_ranks.each.with_index(1) do |post, i| %>
+			 <% @all_ranks.each.with_index(1) do |post, i| %>
 			 	<h2  class="rank">
-			 		<img src="/assets/gold.png">
-			 		<!-- <img src="/assets/silver.png"> -->
-			 		<!-- <img src="/assets/bronz.png"> -->
-			 		Best #{i}
+			 		<% if i == 1 then %>
+			 		  <img src="/assets/gold.png">
+			 		<% elsif i == 2 then %>
+			 		  <img src="/assets/silver.png">
+			 		<% elsif i == 3 then %>
+			 		  <img src="/assets/bronz.png">
+			 		<% end %>
+			 		Best <%= i%>
 			 	</h2>
 	 			<%= attachment_image_tag post.user, :image, :fill, 60, 60, fallback: "no-image.jpg", size:"60x60" %>
 				<%= link_to user_path(post.user.id) do %>
@@ -49,7 +52,7 @@
 			　　<div col-md-8 col-sm-offset-2>
 					<h2>Latest posts</h2>
 					<% @posts.each do |post| %>
-					<h2></h2>
+					<h1></h1>
 					<%= attachment_image_tag post.user, :image, :fill, 60, 60, fallback: "no-image.jpg", size:"60x60" %>
 					<%= link_to user_path(post.user.id) do %>
 						<%= post.user.name %>
