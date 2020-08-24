@@ -1,14 +1,22 @@
 <div class="body">
 	<div class="container">
 		<div class="row">
-			<div class="">
-				<h2>Edit User</h2>
-					<div class="">
+			<div class="box col-xs-offset-4 col-xs-4">
+				<h2 class="title">Edit User</h2>
+					<div class="user_edit">
 						<%= form_with model:@user,local: true do |f| %>
-						<%= f.attachment_field :image %>
-						<%= f.text_field :name %>
-						<%= f.text_area :profile, rows: "4", cols: "40" %>
-						<%= f.submit "Update", class: "btn btn-info" %>
+							<%= f.attachment_field :image ,class: "upload-image"%>
+						<div class="name_field">
+							<%= f.label "Name" %><br >
+							<%= f.text_field :name %>
+						</div>
+						<div class="profile_field">
+							<%= f.label "Profile" %><br >
+							<%= f.text_area :profile, rows: "4", cols: "40" %>
+						</div>
+						<div class="update_btn">
+							<%= f.submit "Update", class: "btn btn-info" %>
+						</div>
 						<% end %>
 					</div>
 			</div>
