@@ -1,72 +1,80 @@
 <div class="body">
 	<div class="container">
+	<!--        パンくずリスト      -->
 		<div class="row">
 			<div class="col-xs-2">
-				<!-- パンくずリスト -->
 				<ol class="breadcrumb">
 					<li><%= link_to "Home", posts_path,class: "glyphicon glyphicon-home" %></li>
 					<li class="active">Post</li>
 				</ol>
-				<!-- 　　　　　　　 -->
-			</div>
-			<div class="">
-					<div class="">
-					  <%= attachment_image_tag @post.user, :image, :fill, 60, 60, fallback: "no-image.jpg", size:"60x60" %>
-					  <%= link_to user_path(@post) do %>
-					  	<%= @post.user.name %>
-					  <% end %>
-					<!-- 　　　　いいね　　　 -->
-					  <% if @post.liked_by?(current_user) %>
-						<%= link_to post_likes_path(@post),method: :delete do %>
-		              		<%= fa_icon "heart",style: "color=: red;"%>
-		              		<%= @post.likes.count %>
-		              	<% end %>
-		              <% else %>
-		            	<%= link_to post_likes_path(@post),method: :post do %>
-	              			<%= fa_icon "heart-o"%>
-	              			<%= @post.likes.count %>
-	              		<% end %>
-	              	  <% end %>
-	              	<!-- 　　　　　　　 -->
-              		  <%= attachment_image_tag @post, :image, :fill, 300, 400 %>
-              		  <%= @post.text %>
-            		  <%= fa_icon "calendar" %>
-              		  <%= @post.created_at.strftime("%Y-%m-%d %H:%M") %>
-              		  <% if @post.user_id == current_user.id %>
-              		  	<%= link_to "Edit" , edit_post_path(@post), class: "btn btn-primary" %>
-              		  <% end %>
-					</div>
 			</div>
 		</div>
-	</div>
+	<!-- 　　　　　　　      -->
+	<!--     投稿詳細　　　　 -->
+		<div class="post_detail row">
+			<div class="col-xs-offset-3 col-xs-5">
+			  <%= attachment_image_tag @post.user, :image, :fill, 60, 60, fallback: "no-image.jpg", size:"60x60" %>
+			  <%= link_to user_path(@post) do %>
+			  	<%= @post.user.name %>
+			  <% end %>
+			<!-- 　　　　いいね　　　 -->
+			  <% if @post.liked_by?(current_user) %>
+				<%= link_to post_likes_path(@post),method: :delete do %>
+              		<%= fa_icon "heart",style: "color=: red;"%>
+              		<%= @post.likes.count %>
+              	<% end %>
+              <% else %>
+            	<%= link_to post_likes_path(@post),method: :post do %>
+          			<%= fa_icon "heart-o"%>
+          			<%= @post.likes.count %>
+          		<% end %>
+          	  <% end %>
+          	<!-- 　　　　　　　 -->
+      		  <%= attachment_image_tag @post, :image, :fill, 300, 400 %>
+      		  <%= @post.text %>
+    		  <%= fa_icon "calendar" %>
+      		  <%= @post.created_at.strftime("%Y-%m-%d %H:%M") %>
+      		  <% if @post.user_id == current_user.id %>
+      		  	<%= link_to "Edit" , edit_post_path(@post), class: "btn btn-primary" %>
+      		  <% end %>
+			</div>
+		</div>
+	<!-- 　　　投稿詳細　ここまで　　　　 -->
 	<!-- コメント一覧 -->
-	<% if @post.comments.blank? %>
-		<h2>no comments</h2>
-		<h2>
-	<% else %>
-		<h2><%= @post.comments.count %>
-		Comments
-		</h2>
-	<% end %>
-
-	<% @post.comments.each do |comment| %>
-	<%= attachment_image_tag comment.user, :image, :fill, 60, 60, fallback: "no-image.jpg", size:"60x60" %>
-	<%= link_to user_path(comment.user) do %>
-		<%= comment.user.name %>
-	<% end %>
-	<%= comment.created_at.strftime("%Y-%m-%d %H:%M") %>
-	<%= comment.comment %>
-	<% if comment.user == current_user %>
-		<%= link_to "Delete", post_comment_path(@post, comment),method: :delete ,class: "btn btn-danger" %>
-	<% end %>
-	<% end %>
-
-	<!-- 　　　　　　 -->
+		<div class="comment_index row">
+			<div class="col-xs-offset-3 col-xs-6">
+				<% if @post.comments.blank? %>
+					<h2 class="title">- No comments -</h2>
+					<h2>
+				<% else %>
+					<h2 class="title">- <%= @post.comments.count %>
+					Comments -
+					</h2>
+				<% end %>
+				<% @post.comments.each do |comment| %>
+				<%= attachment_image_tag comment.user, :image, :fill, 60, 60, fallback: "no-image.jpg", size:"60x60" %>
+				<%= link_to user_path(comment.user) do %>
+					<%= comment.user.name %>
+				<% end %>
+    		  	<%= fa_icon "calendar" %>
+				<%= comment.created_at.strftime("%Y-%m-%d %H:%M") %>
+				<%= comment.comment %>
+				<% if comment.user == current_user %>
+					<%= link_to "Delete", post_comment_path(@post, comment),method: :delete ,class: "btn btn-danger" %>
+				<% end %>
+				<% end %>
+	        </div>
+	    </div>
+	<!-- 　　　　    　　 -->
 	<!-- コメントフォーム -->
-	<h2> Comment Form </h2>
-	<%= form_with model:[@post,@comment], local: true do |f| %>
-		<%= f.text_area :comment, rows: "5",cols: "40",placeholder: "comment here" %>
-		<%= f.submit "Comment", class: "btn btn-primary" %>
-	<% end %>
+	    <div class="comment_form row">
+			<div class="col-xs-offset-4 col-xs-4">
+				<h2 class="title">- Comment Form -</h2>
+				<%= form_with model:[@post,@comment], local: true do |f| %>
+					<%= f.text_area :comment, rows: "5",cols: "50",placeholder: "comment here" %><br>
+					<%= f.submit "Comment", class: "btn btn-primary" %>
+				<% end %>
+			</div>
+		</div>
 	<!-- 　　　　　　　　 -->
 </div>
