@@ -1,6 +1,14 @@
 <div class="match">
  <div class="container">
 	<div class="row">
+		<div class="col-xs-2">
+				<!-- パンくずリスト -->
+				<ol class="breadcrumb">
+					<li><%= link_to "Home", posts_path %></li>
+					<li class="active">Recruit</li>
+				</ol>
+				<!-- 　　　　　　　 -->
+			</div>
 		<div class="">
 			<h2>Recruit　List</h2>
 			<% @matches.each do |match| %>

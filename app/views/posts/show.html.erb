@@ -1,6 +1,14 @@
 <div class="body">
 	<div class="container">
 		<div class="row">
+			<div class="col-xs-2">
+				<!-- パンくずリスト -->
+				<ol class="breadcrumb">
+					<li><%= link_to "Home", posts_path %></li>
+					<li class="active">Post</li>
+				</ol>
+				<!-- 　　　　　　　 -->
+			</div>
 			<div class="">
 					<div class="">
 					  <%= attachment_image_tag @post.user, :image, :fill, 60, 60, fallback: "no-image.jpg", size:"60x60" %>

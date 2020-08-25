@@ -1,9 +1,16 @@
 <div class="body">
 	<div class="container">
 		<div class="row">
-			<!-- 通知一覧 -->
-			<!-- 　　　　 -->
-			<div class="">
+			<div class="col-xs-2">
+				<!-- パンくずリスト -->
+				<ol class="breadcrumb">
+					<li><%= link_to "Home", posts_path %></li>
+					<li class="active">My page</li>
+				</ol>
+				<!-- 　　　　　　　 -->
+			</div>
+
+
 					<div class="">
 					  <%= link_to posts_path do %>
 					  	<%= fa_icon "envelope 3x" %>
@@ -27,8 +34,10 @@
               		  	<%= link_to "Edit" , edit_user_path(current_user), class: "btn btn-primary" %>
               		  <% end %>
 					</div>
-			</div>
 		</div>
+		<!-- 通知一覧 -->
+			<h2>Notification</h2>
+			<!-- 　　　　 -->
 		<!-- 投稿一覧 -->
 		<h2>xxx`s All Posts</h2>
 		<div class="row">
@@ -55,6 +64,7 @@
             <% end %>
           <% end %>
 		</div>
+	</div>
 		<!-- 　　　　 -->
 		<!-- マッチング投稿一覧 -->
 		<h2>xxx`s Recruite posts</h2>

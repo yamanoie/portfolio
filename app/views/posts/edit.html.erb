@@ -1,6 +1,15 @@
 <div class="body">
 	<div class="container">
 		<div class="row">
+			<!-- パンくずリスト -->
+			<div class="col-xs-3">
+				<ol class="breadcrumb">
+					<li><%= link_to "Home", posts_path %></li>
+					<li><%= link_to "My page", user_path(current_user) %></li>
+					<li class="active">Post Edit</li>
+				</ol>
+			</div>
+			<!-- 　　　　　　　 -->
 			<div class="box col-xs-offset-4 col-xs-4">
 				<h2 class="title">Edit Post</h2>
 					<div class="edit_post">
