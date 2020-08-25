@@ -1,0 +1,52 @@
+<div class="match">
+ <div class="container">
+	<div class="row">
+		<div class="">
+			<h2>Recruit　List</h2>
+			<% @matches.each do |match| %>
+				<h2></h2>
+				<%= attachment_image_tag match.user, :image, :fill, 60, 60, fallback: "no-image.jpg", size:"60x60" %>
+				<%= link_to user_path(match.user.id) do %>
+					<%= match.user.name%>
+				<% end %>
+				<% if match.occupation == true %>
+					<%= fa_icon "users" %>
+					<p>Search Students</p>
+				<% else %>
+					<%= fa_icon "graduation-cap" %>
+					<p>Search Teachers</p>
+				<% end %>
+				<%= match.title%>
+				<%= match.text%>
+                <%= fa_icon "calendar" %>
+	            <%= match.created_at.strftime("%Y-%m-%d %H:%M") %>
+	            <%= link_to posts_path do %>
+					<%= fa_icon "envelope 2x" %>
+				<% end %>
+				<% if match.user.id == current_user.id %>
+					<%= link_to "Edit", edit_match_path(match),class: "btn btn-success" %>
+				<% end %>
+				<% end %>
+		</div>
+
+			<div class="recruit_form">
+				<h2>Rcruit Form</h2>
+				<%= form_with model:@match, local: true do |f| %>
+				<%= f.radio_button :occupation, :true,checked: true %>
+				<%= f.label :occupation, "Search Students" %>
+				<%= f.radio_button :occupation, :false %>
+				<%= f.label :occupation, "Search Teachers" %>
+
+				<%= f.label :title, "Title" %><br />
+				<%= f.text_field :title %>
+				<%= f.label :text, "Text" %><br />
+				<%= f.text_area :text, rows: "5", cols: "40" %>
+				<%= f.submit "Post", class: "btn btn-primary"%>
+				<% end %>
+			</div>
+
+		
+	</div>
+	
+</div>
+</div>

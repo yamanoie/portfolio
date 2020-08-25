@@ -1,0 +1,22 @@
+<div class="match">
+	<div class="container">
+		<div class="row">
+			<div class="">
+				<h2>Edit Your Post</h2>
+				<%= form_with model:@match, local: true do |f| %>
+				<%= f.radio_button :occupation, :true,checked: true %>
+				<%= f.label :occupation, "Search Students" %>
+				<%= f.radio_button :occupation, :false %>
+				<%= f.label :occupation, "Search Teachers" %>
+				<%= f.label :title, "Title" %><br />
+				<%= f.text_field :title %>
+				<%= f.label :text, "Text" %><br />
+				<%= f.text_area :text, rows: "5", cols: "40" %>
+				<%= f.submit "Update", class: "btn btn-primary"%>
+				<%= link_to "Delete", match_path,method: :delete,class: "btn btn-danger" %>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>
+
