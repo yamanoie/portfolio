@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :initialize_contact, only: [:show, :edit]
 
 	def show
 		@user = User.find(params[:id])

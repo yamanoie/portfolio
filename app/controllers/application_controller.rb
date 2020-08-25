@@ -14,4 +14,9 @@ class ApplicationController < ActionController::Base
     posts_path
 	end
 
+	def initialize_contact
+		@contact = Contact.new
+	end
+
+
 end

@@ -66,14 +66,20 @@
     <%= yield %>
   </body>
   <footer>
+    <!-- 　ロゴ　　　 -->
     <div class="row">
       <div class="col-xs-offset-2">
              <a href="/" title="footer-logo col-xs-2">
                  <img src="/assets/logo2.jpg" alt="[Logo]whale shark">
              </a>
+      </div>
+    </div>
+    <!--           -->
+    <!--    問合せフォーム -->
+    <div class="row">
       <div class="contact_form col-xs-offset-7">
             <h2>Contact Form</h2>
-            <%= form_with model: @contact,local: true do |f| %>
+            <%= form_with model: @contact,url: contacts_path,local: true do |f| %>
             <%= f.label "Name" %><br>
             <%= f.text_field :name %>
             <%= f.label "Email" %><br>
@@ -84,7 +90,5 @@
             <% end %>
         </div>
       </div>
-      </div>
-    </div>
   </footer>
 </html>

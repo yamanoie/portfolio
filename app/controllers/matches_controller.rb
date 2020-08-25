@@ -1,4 +1,6 @@
 class MatchesController < ApplicationController
+  before_action :initialize_contact, only: [:index, :edit]
+
   def index
   	@matches = Match.all
   	@match = Match.new

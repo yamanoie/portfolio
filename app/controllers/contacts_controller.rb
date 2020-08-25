@@ -2,8 +2,8 @@ class ContactsController < ApplicationController
 	def create
 		@contact = Contact.new(contact_params)
 		if @contact.save
-			ContactMiler.contact_mail(@contact).deliver
-			redirect_to request.refere
+			ContactMailer.contact_mail(@contact).deliver
+			redirect_to request.referer
 		end
 	end
 

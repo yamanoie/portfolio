@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :initialize_contact, only: [:index, :edit, :show]
 
   def index
   	@posts = Post.all

@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   end
   resources :users, only: [:show, :edit, :update]
   resources :matches, only: [:index, :update, :destroy, :create, :edit]
+  resources :contacts, only: [:create]
 end
