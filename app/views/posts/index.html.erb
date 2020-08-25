@@ -1,13 +1,24 @@
 <div class="body">
 	<div class="post-index container">
-		<div class="row">
 			<!-- 新規投稿ボタン -->
 			<%= link_to new_post_path do %>
 				<%= image_tag "/assets/logo-post.jpg",class: "logo-post" %>
 			<% end %>
 			<!-- 　　　　　　　 -->
+				<!--  パンくずリスト    -->
+		<div class="row">
+			<div class="col-xs-2">
+				<ol class="breadcrumb">
+					<li class=" glyphicon glyphicon-home active ">"Home"</li>
+				</ol>
+			</div>
+		</div>
+				<!-- 　  　　　　　　 -->
 			<!-- ランキング   -->
-			<h2>Posts Best 3</h2>
+		<div class="row">
+			<div class="col-xs-offset-3 col-xs-5">
+				
+			<h2 class="title">- Best 3 -</h2>
 			 <% @all_ranks.each.with_index(1) do |post, i| %>
 			 	<h2  class="rank">
 			 		<% if i == 1 then %>
@@ -46,11 +57,14 @@
 	              	<%= attachment_image_tag post, :image , :fill, 200,300 %>
 		            <%= link_to "more",post_path(post) %>
 	              	<% end %>
+				</div>
+			</div>
 			<!--       ランキングここまで     -->
 
 			<!-- 　　　　　　　　　投稿一覧　　　　　　　　 -->
-			　　<div col-md-8 col-sm-offset-2>
-					<h2>Latest posts</h2>
+			<div class="post_index row">
+			　　<div class="col-xs-offset-3 col-xs-5">
+					<h2 class="title">- Latest posts -</h2>
 					<% @posts.each do |post| %>
 					<h1></h1>
 					<%= attachment_image_tag post.user, :image, :fill, 60, 60, fallback: "no-image.jpg", size:"60x60" %>
@@ -81,6 +95,7 @@
 		            <%= link_to "more",post_path(post) %>
 	              	<% end %>
 			　　</div>
+			</div>
 			<!-- 　　投稿一覧ここまで　　　　　　　　　　　　　　　　　　　 -->
 		</div>
 	</div>
