@@ -1,4 +1,18 @@
 ActiveAdmin.register User do
+  index do
+    column :id
+    column :image_id
+    #  do |user|
+    #   image_tag(user.image_id)
+    # end
+    column :name
+    column :country
+    column :profile
+    column :like
+    column :post
+    column :created_at
+    column :current_sign_in_at
+  end
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters

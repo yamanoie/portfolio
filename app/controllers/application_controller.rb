@@ -7,11 +7,21 @@ class ApplicationController < ActionController::Base
 	end
 
 	def after_sign_in_path_for(resource)
-    posts_path
+		case resource
+		when User
+    		posts_path
+    	when AdminUser
+			stored_location_for(resource) ||
+		     if resource.is_a?(AdminUser)
+		       root_path
+		     else
+		       super
+		     end
+      	end
 	end
 
 	def after_sign_up_path_for(resource)
-    posts_path
+    	posts_path
 	end
 
 	def initialize_contact
