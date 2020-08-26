@@ -1,91 +1,104 @@
 <div class="body">
 	<div class="container">
+		<!-- パンくずリスト -->
 		<div class="row">
-			<div class="col-xs-2">
-				<!-- パンくずリスト -->
+			<div class="col-xs-3">
 				<ol class="breadcrumb">
 					<li><%= link_to "Home", posts_path,class: "glyphicon glyphicon-home" %></li>
 					<li class="active">My page</li>
 				</ol>
-				<!-- 　　　　　　　 -->
 			</div>
-
-
-					<div class="">
-					  <%= link_to posts_path do %>
-					  	<%= fa_icon "envelope 3x" %>
-					  <% end %>
-					  <%= attachment_image_tag @user, :image, :fill, 120, 120, fallback: "no-image.jpg", size:"120x120" %>
-					 [Name]
-					  <%= @user.name %>
-					  [Country]
-					  <% if @user.country == true %>
-					  	Philipins
-					  <% else %>
-					  	Japan
-					  <% end %>
-					  [Profile]
-					  <% if @user.profile == nil %>
-					  	 [no self-introduction]
-					  <% else %>
-              		  	<%= @user.profile %>
-              		  	<% end %>
-              		  <% if @user.id == current_user.id %>
-              		  	<%= link_to "Edit" , edit_user_path(current_user), class: "btn btn-primary" %>
-              		  <% end %>
-					</div>
 		</div>
+		<!-- 　　　　　　　 -->
+		<!--        プロフィール　　　　 -->
+		<div class="margin-container row">
+			<div class="col-xs-offset-3 col-xs-5">
+				<h2 class="title">xxx`s Profile </h2>
+				  <%= link_to posts_path do %>
+				  	<%= fa_icon "envelope 3x" %>
+				  <% end %>
+				  <%= attachment_image_tag @user, :image, :fill, 120, 120, fallback: "no-image.jpg", size:"120x120" %>
+				 [Name]
+				  <%= @user.name %>
+				  [Country]
+				  <% if @user.country == true %>
+				  	Philipins
+				  <% else %>
+				  	Japan
+				  <% end %>
+				  [Profile]
+				  <% if @user.profile == nil %>
+				  	 [no self-introduction]
+				  <% else %>
+	      		  	<%= @user.profile %>
+	      		  	<% end %>
+	      		  <% if @user.id == current_user.id %>
+	      		  	<%= link_to "Edit" , edit_user_path(current_user), class: "btn btn-primary" %>
+	      		  <% end %>
+			</div>
+		</div>
+		<!-- 　　　　プロフィール　　ここまで　　 -->
 		<!-- 通知一覧 -->
-			<h2>Notification</h2>
-			<!-- 　　　　 -->
-		<!-- 投稿一覧 -->
-		<h2>xxx`s All Posts</h2>
-		<div class="row">
-		  <% @posts.each do |post| %>
-		  <!-- 　　　　　　いいね　　　　　 -->
-			<% if post.liked_by?(current_user) %>
-				<%= link_to post_likes_path(post),method: :delete do %>
-		            <%= fa_icon "heart",style: "color=: red;"%>
-		            <%= post.likes.count %>
-		        <% end %>
-		    <% else %>
-		        <%= link_to post_likes_path(post),method: :post do %>
-          			<%= fa_icon "heart-o"%>
-          			<%= post.likes.count %>
-          		<% end %>
-	        <% end %>
-	       <!-- 　　　　　　　　　 -->
-            <%= attachment_image_tag post, :image, :fill, 300, 400 %>
-            <%= post.text %>
-            <%= fa_icon "calendar" %>
-            <%= post.created_at.strftime("%Y-%m-%d %H:%M") %>
-            <% if post.user_id == current_user.id %>
-                <%= link_to "Edit" , edit_post_path(post), class: "btn btn-success" %>
-            <% end %>
-          <% end %>
+		<div class="margin-container row">
+			<div class="col-xs-offset-3">
+				<h2>Notification</h2>
+			</div>
 		</div>
-	</div>
-		<!-- 　　　　 -->
-		<!-- マッチング投稿一覧 -->
-		<h2>xxx`s Recruite posts</h2>
-		 <% @matches.each do |match| %>
-			 <% if match == nil %>
-			 	<p>There is no Recruite post</p>
-			 <% else %>
-			 	<% if match.occupation == true %>
-					<%= fa_icon "users" %>
-					<p>Search Students</p>
-				<% else %>
-					<%= fa_icon "graduation-cap" %>
-					<p>Search Teachers</p>
-				<% end %>
-			 	<%= match.title %>
-			 	<%= match.text %>
-			 	<%= match.created_at.strftime("%Y-%m-%d %H:%M") %>
-			 <% end %>
-			 <% if match.user.id == current_user.id %>
-					<%= link_to "Edit", edit_match_path(match),class: "btn btn-success" %>
-			 <% end %>
-		<% end %>
-	</div>
+		<!--    　　　　 -->
+		<!--         投稿一覧         -->
+		<div class="margin-container　row">
+			<div class=" col-xs-offset-3">
+				<h2>- xxx`s All Posts -</h2>
+				  <% @posts.each do |post| %>
+				  <!-- 　　　　　　いいね　　　　　 -->
+					<% if post.liked_by?(current_user) %>
+						<%= link_to post_likes_path(post),method: :delete do %>
+				            <%= fa_icon "heart",style: "color=: red;"%>
+				            <%= post.likes.count %>
+				        <% end %>
+				    <% else %>
+				        <%= link_to post_likes_path(post),method: :post do %>
+		          			<%= fa_icon "heart-o"%>
+		          			<%= post.likes.count %>
+		          		<% end %>
+			        <% end %>
+			       <!-- 　　　　　　　　　 -->
+		            <%= attachment_image_tag post, :image, :fill, 300, 400 %>
+		            <%= post.text %>
+		            <%= fa_icon "calendar" %>
+		            <%= post.created_at.strftime("%Y-%m-%d %H:%M") %>
+		            <%= link_to "more",post_path(post) %>
+		            <% if post.user_id == current_user.id %>
+		                <%= link_to "Edit" , edit_post_path(post), class: "btn btn-success" %>
+		            <% end %>
+                  <% end %>
+		    </div>
+	    </div>
+		<!-- 　　　    投稿一覧　ここまで　 -->
+		<!--       マッチング投稿一覧        -->
+		<div class="margin-container row">
+			<div class="col-xs-offset-3">
+				<h2>xxx`s Recruite posts</h2>
+				 <% @matches.each do |match| %>
+					 <% if match == nil %>
+					 	<p>There is no Recruite post</p>
+					 <% else %>
+					 	<% if match.occupation == true %>
+							<%= fa_icon "users" %>
+							<p>Search Students</p>
+						<% else %>
+							<%= fa_icon "graduation-cap" %>
+							<p>Search Teachers</p>
+						<% end %>
+					 	<%= match.title %>
+					 	<%= match.text %>
+					 	<%= match.created_at.strftime("%Y-%m-%d %H:%M") %>
+					 <% end %>
+					 <% if match.user.id == current_user.id %>
+							<%= link_to "Edit", edit_match_path(match),class: "btn btn-success" %>
+					 <% end %>
+				 <% end %>
+		    </div>
+	    </div>
+	    <!-- 　　　　　　　　　　　　       　 -->
 </div>

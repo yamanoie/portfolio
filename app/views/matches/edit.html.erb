@@ -1,15 +1,19 @@
 <div class="match">
 	<div class="container">
-		<div class="row">
 		<!--       パンくずリスト     -->
-				<ol class="bread_crumb_recruit breadcrumb col-xs-4">
+		<div class="row">
+			<div class="col-xs-4">
+				<ol class="bread_crumb_recruit breadcrumb">
 					<li><%= link_to "Home", posts_path,class: "glyphicon glyphicon-home" %></li>
 					<li><%= link_to "Recruit", matches_path %></li>
 					<li class="active">Edit Post</li>
 				</ol>
+			</div>
+		</div>
 		<!--        　　　　　　      -->
-			<div class="">
-				<h2>Edit Your Post</h2>
+		<div class="margin-container row">
+			<div class="col-xs-offset-2">
+				<h2 class="title">- Edit Your Post -</h2>
 				<%= form_with model:@match, local: true do |f| %>
 				<%= f.radio_button :occupation, :true,checked: true %>
 				<%= f.label :occupation, "Search Students" %>

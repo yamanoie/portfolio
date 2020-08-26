@@ -11,8 +11,9 @@
 		</div>
 	<!-- 　　　　　　　      -->
 	<!--     投稿詳細　　　　 -->
-		<div class="post_detail row">
+		<div class="margin-container row">
 			<div class="col-xs-offset-3 col-xs-5">
+				<h2 class="title"> xxx`s Post</h2>
 			  <%= attachment_image_tag @post.user, :image, :fill, 60, 60, fallback: "no-image.jpg", size:"60x60" %>
 			  <%= link_to user_path(@post) do %>
 			  	<%= @post.user.name %>
@@ -41,7 +42,7 @@
 		</div>
 	<!-- 　　　投稿詳細　ここまで　　　　 -->
 	<!-- コメント一覧 -->
-		<div class="comment_index row">
+		<div class="margin-container row">
 			<div class="col-xs-offset-3 col-xs-6">
 				<% if @post.comments.blank? %>
 					<h2 class="title">- No comments -</h2>
@@ -67,7 +68,7 @@
 	    </div>
 	<!-- 　　　　    　　 -->
 	<!-- コメントフォーム -->
-	    <div class="comment_form row">
+	    <div class="margin-container row">
 			<div class="col-xs-offset-4 col-xs-4">
 				<h2 class="title">- Comment Form -</h2>
 				<%= form_with model:[@post,@comment], local: true do |f| %>
