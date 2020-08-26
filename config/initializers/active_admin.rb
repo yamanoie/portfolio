@@ -340,6 +340,10 @@ module ActiveAdmin
         column(attribute){ |model| model[attribute] ? "Philipins" : "Japan"}
       end
 
+      def bool_column2(attribute)
+        column(attribute){ |model| model[attribute] ? "Search student" : "Search teacher"}
+      end
+
     end
   end
 end

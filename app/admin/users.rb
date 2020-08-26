@@ -7,8 +7,6 @@ ActiveAdmin.register User do
     column :name
     bool_column :country
     column :profile
-    column :like
-    column :post
     column :created_at
     column :current_sign_in_at
   end
