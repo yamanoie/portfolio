@@ -5,7 +5,7 @@ ActiveAdmin.register User do
       image_tag attachment_url(user, :image, :fill, 100, 100)
     end
     column :name
-    column :country
+    bool_column :country
     column :profile
     column :like
     column :post

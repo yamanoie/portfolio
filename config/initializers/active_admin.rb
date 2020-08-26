@@ -332,4 +332,15 @@ ActiveAdmin.setup do |config|
   # You can switch to using Webpacker here.
   #
   # config.use_webpacker = true
+module ActiveAdmin
+  module Views
+    class TableFor
+
+      def bool_column(attribute)
+        column(attribute){ |model| model[attribute] ? "Philipins" : "Japan"}
+      end
+
+    end
+  end
+end
 end
