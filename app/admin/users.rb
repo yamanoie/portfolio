@@ -1,10 +1,9 @@
 ActiveAdmin.register User do
   index do
     column :id
-    column :image_id
-    #  do |user|
-    #   image_tag(user.image_id)
-    # end
+    column :image_id do |user|
+      image_tag attachment_url(user, :image, :fill, 100, 100)
+    end
     column :name
     column :country
     column :profile
@@ -28,5 +27,4 @@ ActiveAdmin.register User do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  
 end
