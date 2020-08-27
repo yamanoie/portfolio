@@ -6,7 +6,7 @@
 
 .mainvisual {
 	height: 100%;
-	background-image: url(/assets/shakehands.jpg);
+	background-image: image-url("shakehands.jpg");
 	background-size: cover;
 }
 
@@ -56,7 +56,7 @@
 
 
 .post-img {
-	background-image: url(/assets/cebu.jpg);
+	background-image: image-url("cebu.jpg");
 	height: 400px;
 	width: 400px;
 	background-size: cover;
@@ -86,7 +86,7 @@
 
 
 .recruit-img {
-	background-image: url(/assets/japan.jpg);
+	background-image: image-url("japan.jpg");
 	height: 500px;
 	background-size:100% 100%;
 	border-radius: 50% 50% 50% 50%;
