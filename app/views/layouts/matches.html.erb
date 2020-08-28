@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Segurado!Rectuit</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <header class="header_recruit">
+    <!-- 　　　　　ロゴ　　　　 -->
+    <div class="header-logo">
+        <img src="/assets/logo.jpg" alt="[Logo]whale shark">
+    </div>
+    <!-- 　　　　　　　　　　　 -->
+    <nav>
+    <ul>
+      <% if user_signed_in? %>
+        <div class="nav-list">
+            <%= fa_icon "home" %>
+            <%= link_to "Home", posts_path %>
+         </div>
+
+          <div class="nav-list">
+            <%= fa_icon "user-circle-o" %>
+            <%= link_to "My page",user_path(current_user)%>
+         </div>
+         <div class="nav-list">
+            <%= fa_icon "handshake-o" %>
+            <%= link_to "Recruit", matches_path %>
+         </div>
+         <div class="nav-list">
+            <%= fa_icon "sign-out" %>
+            <%= link_to "Log out", destroy_user_session_path,method: :delete %>
+         </div>
+       <% else %>
+         <div class="nav-list">
+            <%= fa_icon "home" %>
+            <%= link_to "Top", root_path %>
+         </div>
+         <div class="nav-list">
+            <%= fa_icon "user-plus"%>
+            <%= link_to "Sign up", new_user_registration_path %>
+          </div>
+          <div class="nav-list">
+              <%= fa_icon "sign-in"%>
+              <%= link_to "Log in", new_user_session_path %>
+          </div>
+        <% end %>
+    </ul>
+    <!-- プロフィール -->
+    <% if user_signed_in? %>
+      <div class="user-box">
+              <%= attachment_image_tag current_user, :image, :fill, 60, 60, fallback: "no-image.jpg", size:"60x60" %>
+              <p>Welcome!</p>
+              <%= link_to current_user.name, user_path(current_user),class: "user-name" %>
+              <span class="fa fa-bell"></span>
+      </div>
+    <% end %>
+    <!-- 　　　　　　　　　 -->
+    </nav>
+  </header>
+  <body>
+    <%= yield %>
+  </body>
+  <footer>
+    <p id="page-top"><a href="#"><span class="glyphicon glyphicon-upload" aria-hidden="true"></span></a></p>
+    <!-- 　ロゴ　　　 -->
+    <div class="row">
+      <div class="footer-logo col-xs-offset-2">
+             <a href="/" title="footer-logo col-xs-2">
+                 <img src="/assets/logo2.jpg" alt="[Logo]whale shark">
+             </a>
+      </div>
+    </div>
+    <!--           -->
+    <!--    問合せフォーム -->
+    <div class="row">
+      <div class="contact_form col-xs-offset-7">
+            <h2>Contact Form</h2>
+            <%= form_with model: @contact,url: contacts_path,local: true do |f| %>
+            <%= f.label "Name" %><br>
+            <%= f.text_field :name %>
+            <%= f.label "Email" %><br>
+            <%= f.text_field :email %>
+            <%= f.label "Content" %><br>
+            <%= f.text_area :content %>
+            <%= f.submit "Send Email",class: "btn btn-success"%>
+            <% end %>
+        </div>
+      </div>
+  </footer>
+</html>

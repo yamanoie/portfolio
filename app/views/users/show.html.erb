@@ -9,14 +9,28 @@
 				</ol>
 			</div>
 		</div>
-		<!-- 　　　　　　　 -->
+		<!-- 　　　　　　 -->
+		<!--     メッセージアイコン -->
+		<% unless current_user.id == @user.id %>
+			<% if @isRoom == true %>
+				<%= link_to posts_path do %>
+					<%= fa_icon "envelope 3x" %>
+				<% end %>
+			<% else %>
+				<%= form_with model: @room, local: true do |f| %>
+					<%= fields_for @entry do |e| %>
+						<%= e.hidden_field :user_id, value: @user.id %>
+					<% end %>
+					<%= f.submit "Start"%>
+				<% end %>
+			<% end %>
+			<% end %>
+		<% end %>
+		<!-- 　　　　　　　　　　 -->
 		<!--        プロフィール　　　　 -->
 		<div class="margin-container row">
 			<div class="col-xs-offset-3 col-xs-5">
 				<h2 class="title"><%= @user.name%>`s Profile </h2>
-				  <%= link_to posts_path do %>
-				  	<%= fa_icon "envelope 3x" %>
-				  <% end %>
 				  <%= attachment_image_tag @user, :image, :fill, 120, 120, fallback: "no-image.jpg", size:"120x120" %>
 				 [Name]
 				  <%= @user.name %>
@@ -101,4 +115,5 @@
 		    </div>
 	    </div>
 	    <!-- 　　　　　　　　　　　　       　 -->
+   </div>
 </div>
