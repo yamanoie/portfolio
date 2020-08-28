@@ -17,3 +17,20 @@
 //= require jquery
 //= require bxslider
 //= require bootstrap-sprockets
+
+jQuery(document).ready(function($){
+	$('.bxslider').bxSlider({
+		auto: true,
+		speed: 1000,
+		pause: 2000,
+		randomStart: true,
+		autoHover: true,
+		autoStart: true,
+		infiniteLoop: true,
+		slideWidth: 500,
+		moveSlides: 5,
+		pager: true,
+		nextText: 'Next',
+		prevText: 'Prev'
+	});
+});

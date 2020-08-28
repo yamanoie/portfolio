@@ -15,6 +15,21 @@
 		</div>
 				<!-- 　  　　　　　　 -->
 				<!-- 　　　　　スライダー　　　　 -->
+		<ul class="bxslider">
+			<% @posts.each do |post| %>
+				<li>
+					<%= link_to post_path(post) do%>
+					  <% if post.image.present? %>
+					    <%= attachment_image_tag post, :image, :fill, 500, 300 %>
+					    <%= post.user.name %>
+              			<%= fa_icon "heart",style: "color=: red;"%>
+          				<%= post.likes.count %>
+					  <% end %>
+					<% end %>
+				</li>
+			<% end %>
+		</ul>
+
 				<!-- 　　　　　　　　　　　 -->
 			<!-- ランキング   -->
 		<div class="row">
