@@ -13,7 +13,7 @@
 		<!--        プロフィール　　　　 -->
 		<div class="margin-container row">
 			<div class="col-xs-offset-3 col-xs-5">
-				<h2 class="title">xxx`s Profile </h2>
+				<h2 class="title"><%= @user.name%>`s Profile </h2>
 				  <%= link_to posts_path do %>
 				  	<%= fa_icon "envelope 3x" %>
 				  <% end %>
@@ -48,7 +48,7 @@
 		<!--         投稿一覧         -->
 		<div class="margin-container　row">
 			<div class=" col-xs-offset-3">
-				<h2>- xxx`s All Posts -</h2>
+				<h2>- <%= @user.name %>`s All Posts -</h2>
 				  <% @posts.each do |post| %>
 				  <!-- 　　　　　　いいね　　　　　 -->
 					<% if post.liked_by?(current_user) %>
@@ -78,10 +78,10 @@
 		<!--       マッチング投稿一覧        -->
 		<div class="margin-container row">
 			<div class="col-xs-offset-3">
-				<h2>xxx`s Recruite posts</h2>
+				<h2>- <%= @user.name %>`s Recruite posts -</h2>
 				 <% @matches.each do |match| %>
-					 <% if match == nil %>
-					 	<p>There is no Recruite post</p>
+					 <% if match.nil? %>
+					 	There is no Recruite post
 					 <% else %>
 					 	<% if match.occupation == true %>
 							<%= fa_icon "users" %>

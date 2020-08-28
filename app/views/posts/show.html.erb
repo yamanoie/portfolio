@@ -13,7 +13,7 @@
 	<!--     投稿詳細　　　　 -->
 		<div class="margin-container row">
 			<div class="col-xs-offset-3 col-xs-5">
-				<h2 class="title"> xxx`s Post</h2>
+				<h2 class="title">-  <%= @post.user.name %>`s Post -</h2>
 			  <%= attachment_image_tag @post.user, :image, :fill, 60, 60, fallback: "no-image.jpg", size:"60x60" %>
 			  <%= link_to user_path(@post) do %>
 			  	<%= @post.user.name %>
