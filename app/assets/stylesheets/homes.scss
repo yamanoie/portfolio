@@ -24,9 +24,16 @@
 /*ーーーーーーーーーーーーーーーー*/
 
 .about-section {
+	opacity: 0;
+	transform: translate(0, 50px);
+	transition: all 1500ms;
 	background-color: white;
 	height: 700px;
+}
 
+.about-section.scrollin {
+	opacity: 1;
+	transform: translate(0, 0);
 }
 
 
@@ -47,12 +54,21 @@
 }
 
 .post-section {
+	opacity: 0;
+	transform: translate(0, 50px);
+	transition: all 1500ms;
 	display: flex;
 	background-color: #FFFFEE;
 	justify-content: center;
 	align-items: center;
 	height: 700px;
 }
+
+.post-section.scrollin {
+	opacity: 1;
+	transform: translate(0, 0);
+}
+
 
 
 .post-img {
@@ -77,12 +93,21 @@
 }
 
 .recruit-section {
+	opacity: 0;
+	transform: translate(0, 50px);
+	transition: all 1500ms;
 	display: flex;
 	background-color: #00FFFF;
 	justify-content: center;
 	align-items: center;
 	height: 700px;
 }
+
+.recruit-section.scrollin {
+	opacity: 1;
+	transform: translate(0, 0);
+}
+
 
 
 .recruit-img {
