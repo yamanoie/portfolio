@@ -117,6 +117,29 @@ footer {
 	background-color: #00FFFF;
 	border:1px solid gray;
 }
+#page-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 30px;
+}
+
+#page-top a {
+    display: block;
+    background: yellow;
+    color: black;
+    width: 70px;
+    height: 70px;
+    padding: 20px 0;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50% 50% 50% 50%;
+}
+
+#page-top a:hover {
+    background: #99FFCC;
+    text-decoration: none;
+}
 
 /*各コンテナ*/
 

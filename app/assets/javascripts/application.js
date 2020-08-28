@@ -18,6 +18,8 @@
 //= require bxslider
 //= require bootstrap-sprockets
 
+// スライダー
+
 jQuery(document).ready(function($){
 	$('.bxslider').bxSlider({
 		auto: true,
@@ -28,9 +30,30 @@ jQuery(document).ready(function($){
 		autoStart: true,
 		infiniteLoop: true,
 		slideWidth: 500,
-		moveSlides: 5,
-		pager: true,
-		nextText: 'Next',
-		prevText: 'Prev'
+		moveSlides: 5
+		// pager: true,
+		// nextText: 'Next',
+		// prevText: 'Prev'
 	});
+});
+
+
+// トップスクロール
+
+$(function () {
+    var topBtn = $('#page-top');
+    topBtn.hide();
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 500) {
+            topBtn.fadeIn();
+        } else {
+            topBtn.fadeOut();
+        }
+    });
+    topBtn.click(function () {
+        $('body,html').animate({
+            scrollTop: 0
+        }, 500);
+        return false;
+    });
 });
