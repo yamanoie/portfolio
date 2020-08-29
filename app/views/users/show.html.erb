@@ -11,18 +11,15 @@
 		</div>
 		<!-- 　　　　　　 -->
 		<!--     メッセージアイコン -->
-		
+
 		<% unless @user.id == current_user.id %>
 			<% if @isRoom == true %>
-				<%= link_to posts_path do %>
+				<%= link_to room_path(@roomId) do %>
 					<%= fa_icon "envelope 3x" %>
 				<% end %>
 			<% else %>
-				<%= form_with model: @room, local: true do |f| %>
-					<%= fields_for @entry do |e| %>
-						<%= e.hidden_field :user_id, value: @user.id %>
-					<% end %>
-					<%= f.submit "Message"%>
+				<%= link_to rooms_path(@roomId, entry: { user_id: @user.id}), method: :post do %>
+					<%= fa_icon "envelope-o 3x" %>
 				<% end %>
 			<% end %>
 		<% end %>

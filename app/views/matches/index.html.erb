@@ -31,9 +31,6 @@
 					<%= match.text%>
 	                <%= fa_icon "calendar" %>
 		            <%= match.created_at.strftime("%Y-%m-%d %H:%M") %>
-		            <%= link_to posts_path do %>
-						<%= fa_icon "envelope 2x" %>
-					<% end %>
 					<% if match.user.id == current_user.id %>
 						<%= link_to "Edit", edit_match_path(match),class: "btn btn-success" %>
 					<% end %>

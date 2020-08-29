@@ -15,26 +15,22 @@
 		</div>
 				<!-- 　  　　　　　　 -->
 				<!-- 　　　　　スライダー　　　　 -->
-		<ul class="bxslider">
+		<div class="bxslider">
 			<% @posts.each do |post| %>
-				<li>
-					<%= link_to post_path(post) do%>
-					  <% if post.image.present? %>
-					    <%= attachment_image_tag post, :image, :fill, 500, 300 %>
-					    <%= post.user.name %>
-              			<%= fa_icon "heart",style: "color=: red;"%>
-          				<%= post.likes.count %>
-					  <% end %>
-					<% end %>
-				</li>
+	    		<% if post.image.present? %>
+						<%= link_to post_path(post) do%>
+						    <%= attachment_image_tag post, :image %>
+						    <%= post.user.name %>
+	              			<%= fa_icon "heart",style: "color=: red;"%>
+	          				<%= post.likes.count %>
+						<% end %>
+				<% end %>
 			<% end %>
-		</ul>
-
+		</div>
 				<!-- 　　　　　　　　　　　 -->
 			<!-- ランキング   -->
 		<div class="row">
 			<div class="col-xs-offset-3 col-xs-5">
-				
 			<h2 class="title">- Best 3 -</h2>
 			 <% @all_ranks.each.with_index(1) do |post, i| %>
 			 	<h2  class="rank">
@@ -47,7 +43,7 @@
 			 		<% end %>
 			 		Best <%= i%>
 			 	</h2>
-	 			<%= attachment_image_tag post.user, :image, :fill, 60, 60, fallback: "no-image.jpg", size:"60x60" %>
+	 			<%= attachment_image_tag post.user, :image,  fallback: "no-image.jpg", size:"60x60" %>
 				<%= link_to user_path(post.user.id) do %>
 					<%= post.user.name %>
 				<% end %>
@@ -71,7 +67,7 @@
 	              	 <!--       -->
                     <%= fa_icon "calendar" %>
 	              	<%= post.created_at.strftime("%Y-%m-%d %H:%M") %>
-	              	<%= attachment_image_tag post, :image , :fill, 200,300 %>
+	              	<%= attachment_image_tag post, :image %>
 		            <%= link_to "more",post_path(post) %>
 	              	<% end %>
 				</div>
@@ -84,7 +80,7 @@
 					<h2 class="title">- Latest posts -</h2>
 					<% @posts.each do |post| %>
 					<h1></h1>
-					<%= attachment_image_tag post.user, :image, :fill, 60, 60, fallback: "no-image.jpg", size:"60x60" %>
+					<%= attachment_image_tag post.user, :image, fallback: "no-image.jpg", size:"60x60" %>
 					<%= link_to user_path(post.user.id) do %>
 						<%= post.user.name %>
 					<% end %>
@@ -108,7 +104,7 @@
 	              	 <!--       -->
                     <%= fa_icon "calendar" %>
 	              	<%= post.created_at.strftime("%Y-%m-%d %H:%M") %>
-	              	<%= attachment_image_tag post, :image , :fill, 200,300 %>
+	              	<%= attachment_image_tag post, :image  %>
 		            <%= link_to "more",post_path(post) %>
 	              	<% end %>
 			　　</div>
@@ -117,3 +113,6 @@
 		</div>
 	</div>
 </div>
+ <script>
+
+  </script>

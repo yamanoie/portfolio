@@ -11,9 +11,9 @@
  * It is generally better to create a new file per style scope.
  *
  *= require font-awesome
+ *= require_self
  *= require bxslider
  *= require_tree .
- *= require_self
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
@@ -41,13 +41,7 @@
 }
 
 
-/*スライダー*/
 
-.bxslider {
-	height: 400px;
-	max-width: auto;
-	display: inline;
-}
 
 /*ヘッダー*/
 .header {
@@ -157,3 +151,8 @@ footer {
 	margin: 100px 0;
 }
 
+.attachment.post.image{
+	width: 500px;
+    height: 300px;
+    object-fit: cover;
+}

@@ -12,28 +12,26 @@
 //
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
-//= require_tree .
 //= require jquery
 //= require bxslider
 //= require bootstrap-sprockets
 
 // スライダー
 
-jQuery(document).ready(function($){
+$(function(){
 	$('.bxslider').bxSlider({
 		auto: true,
 		speed: 1000,
-		pause: 2000,
+		pause: 3000,
 		randomStart: true,
 		autoHover: true,
 		autoStart: true,
 		infiniteLoop: true,
 		slideWidth: 500,
-		moveSlides: 5
-		// pager: true,
-		// nextText: 'Next',
-		// prevText: 'Prev'
+		moveSlides: 5,
+		pager: true,
+		nextText: 'Next',
+		prevText: 'Prev'
 	});
 });
 

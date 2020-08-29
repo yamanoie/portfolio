@@ -8,4 +8,11 @@ class MessagesController < ApplicationController
 			redirect_back(fallback_location: posts_path)
 		end
 	end
+
+	def destroy
+		message = Message.find(params[:id])
+		message.destroy
+		redirect_to request.referer
+	end
+
 end
