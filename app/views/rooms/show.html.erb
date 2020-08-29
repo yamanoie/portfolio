@@ -1,6 +1,16 @@
 <div class="body">
   <div class="container">
+      <!-- パンくずリスト -->
     <div class="row">
+      <div class="col-xs-3">
+        <ol class="breadcrumb">
+          <li><%= link_to "Home", posts_path,class: "glyphicon glyphicon-home" %></li>
+          <li><%= link_to "Users", users_path,class: "glyphicon glyphicon-home" %></li>
+          <li class="active">Message</li>
+        </ol>
+      </div>
+    </div>
+    <!-- 　　　　　　 -->
     <h2 class="title">- Message -</h2>
     <% @entries.each do |e| %>
     <div class="user-name">

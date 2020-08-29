@@ -27,6 +27,12 @@
             <%= fa_icon "user-circle-o" %>
             <%= link_to "My page",user_path(current_user)%>
          </div>
+
+         <div class="nav-list">
+            <%= fa_icon "users" %>
+            <%= link_to "Users", users_path %>
+          </div>
+
          <div class="nav-list">
             <%= fa_icon "handshake-o" %>
             <%= link_to "Recruit", matches_path %>

@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   	resource :likes, only: [:create, :destroy]
   	resources :comments, only: [:create, :destroy]
   end
-  resources :users, only: [:show, :edit, :update]
+  resources :users, only: [:show, :edit, :update, :index]
   resources :matches, only: [:index, :update, :destroy, :create, :edit]
   resources :contacts, only: [:create]
   resources :messages, only: [:create]
