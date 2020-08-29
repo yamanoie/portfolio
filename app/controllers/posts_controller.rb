@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :initialize_contact, only: [:index, :edit, :show]
 
   def index
-  	@posts = Post.page(params[:page]).per(8)
+  	@posts = Post.page(params[:page]).per(8).order(created_at: "DESC")
     @all_ranks = Post.find(Like.group(:post_id).order("count(post_id) desc").limit(3).pluck(:post_id))
 
   end

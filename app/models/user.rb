@@ -12,6 +12,11 @@ class User < ApplicationRecord
   has_many :entries, dependent: :destroy
   attachment :image
 
+  validates :name, presence: true
+  validates :email, presence: true
+  validates :country, inclusion: { in: [true, false] }
+
+
   def like_sum
     sum = 0
     posts.each do |post|
