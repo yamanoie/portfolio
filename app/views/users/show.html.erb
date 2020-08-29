@@ -11,7 +11,8 @@
 		</div>
 		<!-- 　　　　　　 -->
 		<!--     メッセージアイコン -->
-		<% unless current_user.id == @user.id %>
+		
+		<% unless @user.id == current_user.id %>
 			<% if @isRoom == true %>
 				<%= link_to posts_path do %>
 					<%= fa_icon "envelope 3x" %>
@@ -21,9 +22,8 @@
 					<%= fields_for @entry do |e| %>
 						<%= e.hidden_field :user_id, value: @user.id %>
 					<% end %>
-					<%= f.submit "Start"%>
+					<%= f.submit "Message"%>
 				<% end %>
-			<% end %>
 			<% end %>
 		<% end %>
 		<!-- 　　　　　　　　　　 -->
