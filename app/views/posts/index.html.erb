@@ -107,6 +107,7 @@
 	              	<%= attachment_image_tag post, :image  %>
 		            <%= link_to "more",post_path(post) %>
 	              	<% end %>
+	              	<%= paginate @posts %>
 			　　</div>
 			</div>
 			<!-- 　　投稿一覧ここまで　　　　　　　　　　　　　　　　　　　 -->

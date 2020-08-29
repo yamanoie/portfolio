@@ -2,7 +2,7 @@ class MatchesController < ApplicationController
   before_action :initialize_contact, only: [:index, :edit]
 
   def index
-  	@matches = Match.all
+  	@matches = Match.page(params[:page]).per(6)
   	@match = Match.new
   end
 
