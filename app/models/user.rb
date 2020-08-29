@@ -12,4 +12,12 @@ class User < ApplicationRecord
   has_many :entries, dependent: :destroy
   attachment :image
 
+  def like_sum
+    sum = 0
+    posts.each do |post|
+      sum += post.likes.count
+    end
+    sum
+  end
+
 end

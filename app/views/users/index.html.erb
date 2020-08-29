@@ -11,22 +11,50 @@
 		</div>
 		<!--          -->
 		<div class="row">
-			<div class="">
-				<h2>All Users</h2>
-				<% @users.each do |user| %>
-					<%= attachment_image_tag user, :image, :fill, 60, 60, fallback: "no-image.jpg", size:"60x60" %>
-					<%= link_to user_path(user) do %>
-						<%= user.name %>
-					<% end %>
-					<% if user.country == true %>
-						Philipins
-					<% else %>
-						Japan
-					<% end %>
-					last login
-					<%= user.current_sign_in_at %>
-				<% end %>
+			<div class="col-xs-offset-2 col-xs-7">
+			<h2 class="title">- All Users -</h2>
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th></th>
+							<th>Name</th>
+							<th>Country</th>
+							<th>All Likes</th>
+							<th>Last Login</th>
+						</tr>
+					</thead>
+					<tbody>
+						<% @users.each do |user| %>
+						<tr>
+							<td>
+								<%= attachment_image_tag user, :image, :fill, 60, 60, fallback: "no-image.jpg", size:"60x60" %>
+							</td>
+
+							<td style="vertical-align: middle;">
+								<%= link_to user_path(user) do %>
+									<%= user.name %>
+								<% end %>
+							</td>
+							<td style="vertical-align: middle;">
+								<% if user.country == true %>
+									Philipins
+								<% else %>
+									Japan
+								<% end %>
+							</td>
+							<td style="vertical-align: middle;">
+								<%= user.like_sum %>
+							</td>
+							<td style="vertical-align: middle;">
+								<%= user.current_sign_in_at.strftime("%Y-%m-%d %H:%M") %>
+							</td>
+						</tr>
+						<% end %>
+					</tbody>
+				</table>
 			</div>
+			</div>
+		   </div>
 		</div>
 	</div>
 </div>
