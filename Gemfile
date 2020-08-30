@@ -78,3 +78,4 @@ end
 gem 'bxslider-rails'
 gem 'kaminari'
 gem 'data-confirm-modal'
+gem 'ransack'

@@ -12,6 +12,18 @@
 			</div>
 		</div>
 	<!-- 　　　　　　　 -->
+	<!-- 　　　　検索　　　　 -->
+	<%= search_form_for @search do |f| %>
+		<%= f.label :"Search students" %>
+		<%= f.radio_button :occupation_eq,true %>
+		<%= f.label :"Search teachers" %>
+		<%= f.radio_button :occupation_eq,false %>
+		<%= f.label :"Both" %>
+		<%= f.radio_button :occupation_eq,'', {checked: true} %>
+		<%= f.submit "Search" %>
+	<% end %>
+
+	<!-- 　　　　　　　　　　　　 -->
 		<!--    投稿一覧　　  -->
 		<div class="margin-container row">
 			<div class="col-xs-offset-3">
@@ -37,7 +49,6 @@
 						<%= link_to "Edit", edit_match_path(match),class: "btn btn-success" %>
 					<% end %>
 					<% end %>
-					<%= paginate @matches %>
 			</div>
 		</div>
 		<!-- 　　　　　　　　　　 -->

@@ -2,7 +2,8 @@ class MatchesController < ApplicationController
   before_action :initialize_contact, only: [:index, :edit]
 
   def index
-  	@matches = Match.page(params[:page]).per(6).order(created_at: "DESC")
+    @search = Match.ransack(params[:q])
+    @matches = @search.result.includes(:user).page(params[:page]).per(6).order(created_at: "DESC")
   	@match = Match.new
   end
 
