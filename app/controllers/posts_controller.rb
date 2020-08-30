@@ -21,7 +21,7 @@ class PostsController < ApplicationController
   	post = Post.new(post_params)
   	post.user_id = current_user.id
   	post.save
-  	redirect_to posts_path
+  	redirect_to posts_path,notice: "You posted"
   end
 
   def edit
@@ -30,7 +30,7 @@ class PostsController < ApplicationController
 
   def update
   	post = Post.find(params[:id])
-  	post.update(post_params)
+  	post.update(post_params),notice: "Post has been updated"
   	redirect_to post_path(post)
   end
 

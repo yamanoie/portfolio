@@ -9,7 +9,7 @@ class MatchesController < ApplicationController
   def create
   	match = Match.new(match_params)
   	match.user_id = current_user.id
-  	match.save
+  	match.save,notice: "You posted"
   	redirect_to matches_path
   end
 
@@ -19,7 +19,7 @@ class MatchesController < ApplicationController
 
   def update
   	match = Match.find(params[:id])
-  	match.update(match_params)
+  	match.update(match_params),notice: "Post has been updated"
   	redirect_to matches_path
   end
 
