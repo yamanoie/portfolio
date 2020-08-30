@@ -77,3 +77,4 @@ group :production do
 end
 gem 'bxslider-rails'
 gem 'kaminari'
+gem 'data-confirm-modal'

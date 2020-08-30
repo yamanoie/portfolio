@@ -26,7 +26,7 @@ class UsersController < ApplicationController
 	end
 
 	def index
-		@users = User.page(params[:page]).per(1)
+		@users = User.page(params[:page]).per(8).order(current_sign_in_at: "DESC")
 	end
 
 	def edit
