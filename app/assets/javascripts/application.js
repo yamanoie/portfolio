@@ -10,12 +10,13 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require data-confirm-modal
 //= require rails-ujs
 //= require activestorage
 //= require jquery
 //= require bxslider
 //= require bootstrap-sprockets
+//= require data-confirm-modal
+
 
 // スライダー
 
