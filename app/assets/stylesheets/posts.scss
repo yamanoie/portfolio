@@ -1,6 +1,19 @@
 // Place all the styles related to the Posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.box_design {
+ margin: 2em auto;
+ padding: 1em 1.5em;
+ width: 90%; /*幅の調節*/
+ color: #777777; /* 文字色 */
+ background-color: #fff; /* 背景色 */
+ border: 4px solid #f6bfbc; /*線の太さ・色*/
+ border-radius: 3em .8em 3em .7em/.9em 2em .8em 3em;
+}
+
+
+
+
 
 .logo-post {
 	border-radius: 50% 50% 50% 50%;

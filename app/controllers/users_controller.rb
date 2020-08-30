@@ -3,8 +3,8 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find(params[:id])
-		@posts = Post.where(user_id: @user.id)
-		@matches = Match.where(user_id: @user.id)
+		@posts = Post.where(user_id: @user.id).page(params[:page]).per(4)
+		@matches = Match.where(user_id: @user.id).page(params[:page]).per(4)
 		@currentUserEntry = Entry.where(user_id: current_user.id)
 		@userEntry = Entry.where(user_id: @user.id)
 		unless @user.id == current_user.id
@@ -35,8 +35,8 @@ class UsersController < ApplicationController
 
 	def update
 		@user = User.find(params[:id])
-		@user.update(user_params),notice: "User updated"
-		redirect_to user_path(@user)
+		@user.update(user_params)
+		redirect_to user_path(@user),notice: "User updated"
 	end
 
 	private

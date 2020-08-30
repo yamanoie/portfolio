@@ -19,67 +19,69 @@
 
 				<!-- 　　　　　スライダー　　　　 -->
 		<div class="bxslider">
-			<% @posts.each do |post| %>
-	    		<% if post.image.present? %>
-						<%= link_to post_path(post) do%>
-						    <%= attachment_image_tag post, :image %>
-						    <%= post.user.name %>
-	              			<%= fa_icon "heart",style: "color=: red;"%>
-	          				<%= post.likes.count %>
-						<% end %>
+			<% @slider_posts.each do |post| %>
+					<%= link_to post_path(post) do%>
+				    <%= attachment_image_tag post, :image %>
+					<%= post.user.name %>
+		      		<%= fa_icon "heart",style: "color=: red;"%>
+		  			<%= post.likes.count %>
 				<% end %>
 			<% end %>
 		</div>
 				<!-- 　　　　　　　　　　　 -->
 			<!-- ランキング   -->
+	<hr>
 		<div class="row">
 			<div class="col-xs-offset-3 col-xs-5">
 			<h2 class="title">- Best 3 -</h2>
-			 <% @all_ranks.each.with_index(1) do |post, i| %>
-			 	<h2  class="rank">
-			 		<% if i == 1 then %>
-			 		  <img src="/assets/gold.png">
-			 		<% elsif i == 2 then %>
-			 		  <img src="/assets/silver.png">
-			 		<% elsif i == 3 then %>
-			 		  <img src="/assets/bronz.png">
-			 		<% end %>
-			 		Best <%= i%>
-			 	</h2>
-	 			<%= attachment_image_tag post.user, :image,  fallback: "no-image.jpg", size:"60x60" %>
-				<%= link_to user_path(post.user.id) do %>
-					<%= post.user.name %>
-				<% end %>
-				<!--          いいね       -->
-				<% if post.liked_by?(current_user) %>
-					<%= link_to post_likes_path(post),method: :delete do %>
-              			<%= fa_icon "heart",style: "color=: red;"%>
-              			<%= post.likes.count %>
-              		<% end %>
-           		 <% else %>
-            		<%= link_to post_likes_path(post),method: :post do %>
-          			<%= fa_icon "heart-o"%>
-          			<%= post.likes.count %>
-          		 <% end %>
-          	 <% end %>
-	              	<!-- 　　　　　             -->
-		            <%= post.text %>
-	              	<!-- コメント数 -->
-	              	<%= fa_icon "comment-o" %>
-	              	 <%= post.comments.count %> Comments
-	              	 <!--       -->
-                    <%= fa_icon "calendar" %>
-	              	<%= post.created_at.strftime("%Y-%m-%d %H:%M") %>
-	              	<%= attachment_image_tag post, :image %>
-		            <%= link_to "more",post_path(post) %>
-	              	<% end %>
+				 <% @all_ranks.each.with_index(1) do |post, i| %>
+			  <div class="post_content">
+				 	<h2  class="rank">
+				 		<% if i == 1 then %>
+				 		  <img src="/assets/gold.png">
+				 		<% elsif i == 2 then %>
+				 		  <img src="/assets/silver.png">
+				 		<% elsif i == 3 then %>
+				 		  <img src="/assets/bronz.png">
+				 		<% end %>
+				 		Best <%= i%>
+				 	</h2>
+		 			<%= attachment_image_tag post.user, :image,  fallback: "no-image.jpg", size:"60x60" %>
+					<%= link_to user_path(post.user.id) do %>
+						<%= post.user.name %>
+					<% end %>
+					<!--          いいね       -->
+					<% if post.liked_by?(current_user) %>
+						<%= link_to post_likes_path(post),method: :delete do %>
+	              			<%= fa_icon "heart",style: "color=: red;"%>
+	              			<%= post.likes.count %>
+	              		<% end %>
+	           		 <% else %>
+	            		<%= link_to post_likes_path(post),method: :post do %>
+	          			<%= fa_icon "heart-o"%>
+	          			<%= post.likes.count %>
+	          		 <% end %>
+	          	 <% end %>
+		              	<!-- 　　　　　             -->
+			            <%= post.text %>
+		              	<!-- コメント数 -->
+		              	<%= fa_icon "comment-o" %>
+		              	 <%= post.comments.count %> Comments
+		              	 <!--       -->
+	                    <%= fa_icon "calendar" %>
+		              	<%= post.created_at.strftime("%Y-%m-%d %H:%M") %>
+		              	<%= attachment_image_tag post, :image %>
+			            <%= link_to "more",post_path(post) %>
+		              	<% end %>
+	              </div>
 				</div>
 			</div>
 			<!--       ランキングここまで     -->
 
 			<!-- 　　　　　　　　　投稿一覧　　　　　　　　 -->
+		<hr>
 			<div class="margin-container row">
-			　　<div class="col-xs-offset-3 col-xs-5">
+			　　<div class="col-xs-offset-3 col-xs-7">
 					<h2 class="title">- Latest posts -</h2>
 					<% @posts.each do |post| %>
 					<h1></h1>

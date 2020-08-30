@@ -9,8 +9,8 @@ class MatchesController < ApplicationController
   def create
   	match = Match.new(match_params)
   	match.user_id = current_user.id
-  	match.save,notice: "You posted"
-  	redirect_to matches_path
+  	match.save
+  	redirect_to matches_path,notice: "You posted"
   end
 
   def edit
@@ -19,14 +19,14 @@ class MatchesController < ApplicationController
 
   def update
   	match = Match.find(params[:id])
-  	match.update(match_params),notice: "Post has been updated"
-  	redirect_to matches_path
+  	match.update(match_params)
+  	redirect_to matches_path,notice: "Post has been updated"
   end
 
   def destroy
   	match = Match.find(params[:id])
   	match.destroy
-  	redirect_to matches_path
+  	redirect_to matches_path,notice: "Post has been deleted"
   end
 
 private

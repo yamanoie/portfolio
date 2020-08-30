@@ -2,8 +2,9 @@ class PostsController < ApplicationController
   before_action :initialize_contact, only: [:index, :edit, :show]
 
   def index
-  	@posts = Post.page(params[:page]).per(8).order(created_at: "DESC")
+  	@posts = Post.includes(:user).order(created_at: "DESC").page(params[:page]).per(8)
     @all_ranks = Post.find(Like.group(:post_id).order("count(post_id) desc").limit(3).pluck(:post_id))
+    @slider_posts = Post.where.not(image_id: nil).limit(8)
 
   end
 
@@ -30,14 +31,14 @@ class PostsController < ApplicationController
 
   def update
   	post = Post.find(params[:id])
-  	post.update(post_params),notice: "Post has been updated"
-  	redirect_to post_path(post)
+  	post.update(post_params)
+  	redirect_to post_path(post),notice: "Post has been updated"
   end
 
   def destroy
   	post = Post.find(params[:id])
   	post.destroy
-  	redirect_to posts_path
+  	redirect_to posts_path,notice: "Post has been deleted"
 
   end
 

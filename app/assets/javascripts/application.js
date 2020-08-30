@@ -24,16 +24,14 @@ $(function(){
 	$('.bxslider').bxSlider({
 		auto: true,
 		speed: 1000,
-		pause: 3000,
+		pause: 4000,
 		randomStart: true,
 		autoHover: true,
 		autoStart: true,
 		infiniteLoop: true,
-		slideWidth: 500,
-		moveSlides: 5,
+		slideWidth: 800,
 		pager: true,
-		nextText: 'Next',
-		prevText: 'Prev'
+        touchEnabled: false
 	});
 });
 

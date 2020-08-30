@@ -13,17 +13,24 @@
       </div>
     </div>
     <!-- 　　　　　　 -->
+    <!-- 　　　　ユーザー　　　　　 -->
     <h2 class="title">- Message -</h2>
     <% @entries.each do |e| %>
     <div class="user-name">
-    <strong>
-        <%= attachment_image_tag e.user, :image, :fill, 100, 100,  fallback: "no-image.jpg", size:"100x100" %>
-        <a class="rooms-user-link" href="/users/<%= e.user.id %>">
-            <%= e.user.name %>
-        </a>
-    </strong>
-    </div>
+        <div>
+          <%= attachment_image_tag e.user, :image, :fill, 100, 100,  fallback: "no-image.jpg", size:"100x100" %>
+        </div>
+        <div>
+          <strong>
+          <a class="rooms-user-link" href="/users/<%= e.user.id %>">
+              <%= e.user.name %>
+          </a>
+          </strong>
+        </div>
+      </div>
     <% end %>
+    <!-- 　　　　　　　　　　 -->
+    <!-- 　　　　メッセージ一覧　　　 -->
     <hr>
     <div class="chats">
          <div class="chat">
@@ -43,7 +50,10 @@
                     </div>
                 <% end %>
             <% end %>
+         <%= paginate @messages %>
           </div>
+          <!-- 　　　　　　　　 -->
+          <!-- 　　　メッセージフォーム　　　　　 -->
           <div class="posts">
             <%= form_with model: @message,local: true do |f| %>
             <%= f.text_field :message, placeholder: "input your message" , size: 70, class:"form-text-field" %>
@@ -52,6 +62,7 @@
             <% end %>
           </div>
     </div>
+    <!-- 　　　　　　　　 -->
     </div>
   </div>
 </div>

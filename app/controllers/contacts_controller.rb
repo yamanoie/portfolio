@@ -1,9 +1,9 @@
 class ContactsController < ApplicationController
 	def create
 		@contact = Contact.new(contact_params)
-		if @contact.save,notice: "You sent an email to the admin"
+		if @contact.save
 			ContactMailer.contact_mail(@contact).deliver
-			redirect_to request.referer
+			redirect_to request.referer,notice: "You sent an email to the admin"
 		end
 	end
 
