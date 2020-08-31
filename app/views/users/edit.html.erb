@@ -15,26 +15,35 @@
 		<%= render "shared/simple_profile" %>
 				<!-- 　　　　　　　　　 -->
 		<div class="margin-container row">
-			<div class="box col-xs-offset-4 col-xs-4">
-			<h2 class="title"><%= fa_icon "cog" %>  Edit User</h2>
-				<div class="user_edit">
-					<%= form_with model:@user,local: true do |f| %>
-						<%= attachment_image_tag @user, :image, fallback: "no-image.jpg", size: "100x100", class: "user-preview"%>
-						<%= f.attachment_field :image ,class: "upload-image", id: "new-edit-image" %>
-					<div class="name_field">
-						<%= f.label "Name" %><br >
-						<%= f.text_field :name %>
+			<div class="edit-user box col-xs-offset-2 col-xs-7">
+			<h2 class="title"><%= fa_icon "cog" %>  Edit User <%= fa_icon "cog" %></h2>
+				<div class="user_edit row">
+					<div class="col-xs-offset-2 col-xs-5">
+						<%= form_with model:@user,local: true do |f| %>
+						<%= attachment_image_tag @user, :image, fallback: "no-image.jpg", size: "400x300",class: "user-preview"%>
+						<%= f.attachment_field :image ,class: "upload-image", id: "edit-user-image" %>
 					</div>
-					<div class="profile_field">
-						<%= f.label "Profile" %><br >
-						<%= f.text_area :profile, rows: "4", cols: "40" %>
+				</div>
+				<div class="row">
+					<div class="col-xs-offset-2 col-xs-4">
+						<div class="name_field">
+							<%= f.label "Name" ,class: "contorol-label" %><br >
+							<%= f.text_field :name ,class: "form-control"%>
+						</div>
 					</div>
-					<div class="update_btn">
+					<div class="col-xs-offset-2 col-xs-8">
+						<div class="form-group profile-field">
+							<%= f.label "Profile" ,class: "contorol-label" %><br >
+							<%= f.text_area :profile, class: "form-control", rows: "6" %>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="update-btn col-xs-offset-8">
 						<%= f.submit "Update", class: "btn btn-info" %>
 					</div>
-					<% end %>
 				</div>
-				</div>
+						<% end %>
 			</div>
 		</div>
 	</div>

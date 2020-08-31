@@ -5,7 +5,8 @@ class CommentsController < ApplicationController
 		comment = current_user.comments.new(comment_params)
 		comment.post_id = post.id
 		comment.save
-		post.create_notification_comment(current_user, comment.id)
+		# binding.pry
+		comment.post.create_notification_comment!(current_user, comment.id)#通知
 		redirect_to post_path(post),notice: "You commented"
 	end
 

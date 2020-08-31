@@ -62,13 +62,18 @@
 /*------------------------*/
 
 /*ユーザー編集*/
-.user_edit {
-  display: flex;
-  justify-content: center;
+.edit-user {
+  height: 800px;
 }
 
-.update_btn {
-  margin:0 0 0 auto;
+
+.update-btn {
+  /*margin-top: 2em;*/
+  /*margin-bottom: 2em;*/
+}
+
+.profile-field {
+  margin-top: 1em;
 }
 
  /*ユーザー詳細*/
