@@ -18,6 +18,39 @@
 //= require data-confirm-modal
 
 
+
+
+// 画像プレビュー
+$(function(){
+    $('#edit-user-image').on('change', function(e) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            $(".user-preview").attr('src', e.target.result);
+        }
+        reader.readAsDataURL(e.target.files[0]);
+    });
+});
+
+$(function(){
+    $('#new-post-image').on('change', function(e) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            $(".post-preview").attr('src', e.target.result);
+        }
+        reader.readAsDataURL(e.target.files[0]);
+    });
+});
+
+$(function(){
+    $('#edit-post-image').on('change', function(e) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            $(".edit-post-preview").attr('src', e.target.result);
+        }
+        reader.readAsDataURL(e.target.files[0]);
+    });
+});
+
 // スライダー
 
 $(function(){

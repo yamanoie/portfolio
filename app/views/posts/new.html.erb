@@ -17,7 +17,8 @@
 					<div class="new_post">
 						<%= form_with model:@post,local: true do |f| %>
 						<div class="upload-image">
-							<%= f.attachment_field :image %>
+							<%= attachment_image_tag @post, :image, fallback: "no_image_post.jpg", size: "100x100", class: "post-preview"%>
+							<%= f.attachment_field :image, id: "new-post-image" %>
 						</div>
 						<%= f.text_area :text,:placeholder => "　What are you doing now?", rows: "5",cols: "50" %>
 						<div>

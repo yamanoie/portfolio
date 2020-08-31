@@ -18,7 +18,8 @@
 				<h2 class="title">Edit Post</h2>
 					<div class="edit_post">
 						<%= form_with model:@post,local: true do |f| %>
-						<%= f.attachment_field :image ,class: "upload-image" %>
+						<%= attachment_image_tag @post, :image, fallback: "no_image_post.jpg", size: "100x100", class: "edit-post-preview"%>
+						<%= f.attachment_field :image ,class: "upload-image", id: "edit-post-image"%>
 						<%= f.text_area :text , rows: "4", cols: "40"%>
 						<%= f.submit "Update", class: "btn btn-info" %>
 						<%= link_to "Delete", post_path,method: :delete,data: {confirm: "Are you sure you want to delete it?",cancel:"No",commit:"Yes"},title:"Confirmation" ,class: "btn btn-danger" %>

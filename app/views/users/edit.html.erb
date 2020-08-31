@@ -19,7 +19,8 @@
 			<h2 class="title"><%= fa_icon "cog" %>  Edit User</h2>
 				<div class="user_edit">
 					<%= form_with model:@user,local: true do |f| %>
-						<%= f.attachment_field :image ,class: "upload-image"%>
+						<%= attachment_image_tag @user, :image, fallback: "no-image.jpg", size: "100x100", class: "user-preview"%>
+						<%= f.attachment_field :image ,class: "upload-image", id: "new-edit-image" %>
 					<div class="name_field">
 						<%= f.label "Name" %><br >
 						<%= f.text_field :name %>
