@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 		@user = User.find(params[:id])
 		@posts = Post.where(user_id: @user.id).page(params[:page]).per(4)
 		@matches = Match.where(user_id: @user.id).page(params[:page]).per(4)
+		# DM機能
 		@currentUserEntry = Entry.where(user_id: current_user.id)
 		@userEntry = Entry.where(user_id: @user.id)
 		unless @user.id == current_user.id
@@ -22,6 +23,11 @@ class UsersController < ApplicationController
 				@room = Room.new
 				@entry = Entry.new
 			end
+	  	end
+	  	#通知
+	  	@notifications = current_user.passive_notifications.page(params[:page]).per(4)
+	  	@notifications.where(checked: false).each do |notification|
+	  		notification.update_attributes(checked: true)
 	  	end
 	end
 
