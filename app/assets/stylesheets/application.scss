@@ -19,6 +19,8 @@
  @import "bootstrap";
 
 
+
+
 .tabledata {
 	font-size: 17px;
 }
@@ -105,6 +107,15 @@ footer {
 	height: 500px;
 	padding-top: 100px;
 }
+
+/* 通知ボタン*/
+.btn-default >.badge-notify{
+   background:red;
+   position:relative;
+   top: 7px;
+   left: -62px;
+}
+
 
 /*パンくず*/
 

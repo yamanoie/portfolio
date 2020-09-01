@@ -1,0 +1,2 @@
+class RemoveActionFromNotification < ApplicationRecord
+end

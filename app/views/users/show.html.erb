@@ -56,6 +56,9 @@
 				<h2>Notification</h2>
 				<% notifications = @notifications.where.not(visitor_id: current_user.id) %>
 				<% if notifications.exists? %>
+					<% @notifications.each do |notification| %>
+						<%= render "shared/notifications", notification: notification %>
+					<% end %>
 					<%= paginate notifications %>
 				<% else %>
 					<p>No notifications</p>

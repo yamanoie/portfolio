@@ -1,0 +1,2 @@
+class AddActionToNotification < ApplicationRecord
+end
