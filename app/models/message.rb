@@ -14,5 +14,8 @@ class Message < ApplicationRecord
 		notification.save if notification.valid?
 	end
 
+	from  = Time.current.at_beginning_of_day
+	to    = (from + 3.day).at_end_of_day
+	new_message = Messaege.where(user_id: currnt_user.id).where(created_at: from...to)
 
 end

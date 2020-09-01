@@ -54,6 +54,12 @@
 		<div class="margin-container row">
 			<div class="col-xs-offset-3">
 				<h2>Notification</h2>
+				<% notifications = @notifications.where.not(visitor_id: current_user.id) %>
+				<% if notifications.exists? %>
+					<%= paginate notifications %>
+				<% else %>
+					<p>No notifications</p>
+				<% end %>
 			</div>
 		</div>
 		<!--    　　　　 -->
@@ -118,6 +124,4 @@
 	    </div>
 	    <!-- 　　　　　　　　　　　　       　 -->
    </div>
-   <p><%= current_user.inspect %></p>
-   <p><%= @notifications.inspect %></p>
 </div>

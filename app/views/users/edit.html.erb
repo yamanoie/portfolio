@@ -16,11 +16,11 @@
 				<!-- 　　　　　　　　　 -->
 		<div class="margin-container row">
 			<div class="edit-user box col-xs-offset-2 col-xs-7">
-			<h2 class="title"><%= fa_icon "cog" %>  Edit User <%= fa_icon "cog" %></h2>
+			<h2 class="title">- <%= fa_icon "cog" %>  Edit User -</h2>
 				<div class="user_edit row">
 					<div class="col-xs-offset-2 col-xs-5">
 						<%= form_with model:@user,local: true do |f| %>
-						<%= attachment_image_tag @user, :image, fallback: "no-image.jpg", size: "400x300",class: "user-preview"%>
+						<%= attachment_image_tag @user, :image, fallback: "no-image.jpg", size: "430x300",class: "user-preview"%>
 						<%= f.attachment_field :image ,class: "upload-image", id: "edit-user-image" %>
 					</div>
 				</div>
