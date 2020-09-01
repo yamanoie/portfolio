@@ -15,19 +15,33 @@
 		<%= render "shared/simple_profile" %>
 				<!-- 　　　　　　　　　 -->
 		<div class="margin-container row">
-			<div class="col-xs-offset-2">
-				<h2 class="title">- Edit Your Post -</h2>
+			<div class="box col-xs-offset-3 col-xs-6">
+				<h2 class="title">- <%= fa_icon "cog" %>Edit Your Post -</h2>
 				<%= form_with model:@match, local: true do |f| %>
-				<%= f.radio_button :occupation, :true,checked: true %>
-				<%= f.label :occupation, "Search Students" %>
-				<%= f.radio_button :occupation, :false %>
-				<%= f.label :occupation, "Search Teachers" %>
-				<%= f.label :title, "Title" %><br />
-				<%= f.text_field :title %>
-				<%= f.label :text, "Text" %><br />
-				<%= f.text_area :text, rows: "5", cols: "40" %>
-				<%= f.submit "Update", class: "btn btn-primary"%>
-				<%= link_to "Delete", match_path,method: :delete, data: {confirm: "Are you sure you want to delete it?",cancel:"No",commit:"Yes"},title:"Confirmation", class: "btn btn-danger" %>
+				<div class="row">
+					<div class="match-new-occupation col-xs-offset-2">
+						<%= f.radio_button :occupation, :true,checked: true %>
+						<%= fa_icon "users" %>
+						<%= f.label :occupation, "Search Students　" %>
+						<%= f.radio_button :occupation, :false %>
+						<%= fa_icon "graduation-cap" %>
+						<%= f.label :occupation, "Search Teachers" %>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-offset-2 col-xs-8">
+						<%= f.label :title, "Title" %><br />
+						<%= f.text_field :title, class: "form-control" %>
+						<%= f.label :text, "Text" %><br />
+						<%= f.text_area :text, class: "form-control", rows: "8", cols: "40" %>
+					</div>
+				</div>
+				<div class="row">
+					<div class="match-margin col-xs-offset-7">
+						<%= f.submit "Update", class: "btn btn-primary"%>
+						<%= link_to "Delete", match_path,method: :delete, data: {confirm: "Are you sure you want to delete it?",cancel:"No",commit:"Yes"},title:"Confirmation", class: "btn btn-danger" %>
+					</div>
+				</div>
 				<% end %>
 			</div>
 		</div>
