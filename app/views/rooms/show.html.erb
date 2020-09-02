@@ -19,13 +19,16 @@
     <!-- 　　　　ユーザー　　　　　 -->
     <div class="row">
       <div class="col-xs-offset-4">
-        <% @entries.each do |e| %>
-        <%= attachment_image_tag e.user, :image, :fill, 100, 100,  fallback: "no-image.jpg", size:"100x100", class: "message-user" %>
+        <% if @room.user_id == current_user.id
+          user = @room.guest
+        else
+          user = @room.user
+        end
+          %>
+        <%= attachment_image_tag user, :image, :fill, 100, 100,  fallback: "no-image.jpg", size:"100x100", class: "message-user" %>
             <strong>
-              <%= link_to e.user.name ,user_path(e.user.id), class: "message-user" %>
+              <%= link_to user.name ,user_path(user.id), class: "message-user" %>
             </strong>
-    <% end %>
-
         </div>
     </div>
     <!-- 　　　　　　　　　　 -->
@@ -37,6 +40,7 @@
           <%= form_with model: @message,local: true do |f| %>
           <%= f.text_area :message, placeholder: "Input your message" , col: "50", class:"form-control" %>
           <%= f.hidden_field :room_id, value: @room.id %>
+          <%= f.hidden_field :visited_id, value: user.id %>
           <div class="row">
             <div class="chat-btn col-xs-offset-9">
               <%= f.submit "Send",class: 'btn btn-success'%>

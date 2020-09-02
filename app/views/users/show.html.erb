@@ -13,12 +13,12 @@
 		<!--     メッセージアイコン -->
 
 		<% unless @user.id == current_user.id %>
-			<% if @isRoom == true %>
-				<%= link_to room_path(@roomId) do %>
+			<% if @room %>
+				<%= link_to room_path(@room) do %>
 					<%= fa_icon "envelope 3x" %>
 				<% end %>
 			<% else %>
-				<%= link_to rooms_path(@roomId, entry: { user_id: @user.id}), method: :post do %>
+				<%= link_to rooms_path(@roomId, room: { guest_id: @user.id}), method: :post do %>
 					<%= fa_icon "envelope-o 3x" %>
 				<% end %>
 			<% end %>
