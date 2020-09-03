@@ -31,13 +31,13 @@
                     <div class="row">
                       <div class="col-xs-offset-8">
                         <%= fa_icon "calendar" %>
-                        <%= m.created_at.strftime("%Y-%m-%d %H:%M")%>
+                        <%= m.created_at.strftime("%Y-%m-%d %H:%M") %>
                       </div>
                     </div>
                     <div class="row">
                       <div class="chat-btn col-xs-offset-10">
                         <% if m.user.id == current_user.id %>
-                         <%= link_to "Delete", message_path(m),method: :delete, remote: true, data: {confirm: "Are you sure you want to delete it?",cancel:"No",commit:"Yes"},title:"Confirmation", class: "btn btn-danger btn-xs"%>
+                         <%= link_to "Delete", message_path(m, page: params[:page]),method: :delete, remote: true, data: {confirm: "Are you sure you want to delete it?",cancel:"No",commit:"Yes"},title:"Confirmation", class: "btn btn-danger btn-xs"%>
                         <% end %>
                       </div>
                     </div>
@@ -45,7 +45,7 @@
                 </div>
                 <% end %>
             <% end %>
-            <%= paginate messages %>
+            <%= paginate messages, params: {controller: 'rooms', action: 'show', id: messages[0].room_id} %>
           </div>
         </div>
       </div>
