@@ -11,6 +11,6 @@ class RoomsController < ApplicationController
 		@room = Room.find(params[:id])
 			@messages = @room.messages.includes(:user).order(created_at: "DESC").page(params[:page]).per(8)
 			@message = Message.new
-			@entries = @room.entries.includes(:user)
+			# @entries = @room.entries.includes(:user)
 	end
 end

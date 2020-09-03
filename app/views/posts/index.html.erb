@@ -54,17 +54,9 @@
 						<%= post.user.name %>
 					<% end %>
 					<!--          いいね       -->
-					<% if post.liked_by?(current_user) %>
-						<%= link_to post_likes_path(post),method: :delete do %>
-	              			<%= fa_icon "heart",style: "color=: red;"%>
-	              			<%= post.likes.count %>
-	              		<% end %>
-	           		 <% else %>
-	            		<%= link_to post_likes_path(post),method: :post do %>
-	          			<%= fa_icon "heart-o"%>
-	          			<%= post.likes.count %>
-	          		 <% end %>
-	          	 	<% end %>
+					<div class="likes_buttons_<%= post.id %>">
+						<%= render partial: "likes/like", locals: {post: post } %>
+					</div>
 		              	<!-- 　　　　　             -->
 			            <%= post.text %>
 		              	<!-- コメント数 -->
@@ -93,17 +85,9 @@
 						<%= post.user.name %>
 					<% end %>
 					<!--          いいね       -->
-					<% if post.liked_by?(current_user) %>
-						<%= link_to post_likes_path(post),method: :delete do %>
-		              		<%= fa_icon "heart",style: "color=: red;"%>
-		              		<%= post.likes.count %>
-		              	<% end %>
-		            <% else %>
-		            	<%= link_to post_likes_path(post),method: :post do %>
-	              			<%= fa_icon "heart-o"%>
-	              			<%= post.likes.count %>
-	              			<% end %>
-	              	<% end %>
+					<div id="likes_buttons_<%= post.id %>">
+						<%= render partial: "likes/like", locals: {post: post} %>
+			  		</div>
 	              	<!-- 　　　　　             -->
 		            <%= post.text %>
 	              	<!-- コメント数 -->

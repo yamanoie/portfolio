@@ -18,7 +18,7 @@
     <h2 class="title">- <%= fa_icon "comments-o" %>  Message -</h2>
     <!-- 　　　　ユーザー　　　　　 -->
     <div class="row">
-      <div class="col-xs-offset-4">
+      <div class="col-xs-offset-5 col-xs-3">
         <% if @room.user_id == current_user.id
           user = @room.guest
         else

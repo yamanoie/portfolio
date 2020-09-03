@@ -30,7 +30,7 @@ class UsersController < ApplicationController
 		# 	end
 	 #  	end
 	  	#通知
-	  	@notifications = current_user.passive_notifications.page(params[:page]).per(4)
+	  	@notifications = current_user.passive_notifications.where.not(message_id: nil).page(params[:page]).per(4)
 	  	@notifications.where(checked: false).each do |notification|
 	  		notification.update_attributes(checked: true)
 	  	end

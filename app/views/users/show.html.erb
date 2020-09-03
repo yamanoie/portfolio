@@ -10,6 +10,12 @@
 			</div>
 		</div>
 		<!-- 　　　　　　 -->
+		<!--   簡易プロフィール -->
+		<% unless current_user.id == @user.id%>
+			<%= render "shared/simple_profile" %>
+		<% end %>
+		<!-- 　　　　　　　 -->
+
 		<!--     メッセージアイコン -->
 
 		<% unless @user.id == current_user.id %>
@@ -50,21 +56,23 @@
 		</div>
 		<!-- 　　　　プロフィール　　ここまで　　 -->
 		<!-- 通知一覧 -->
-		<hr>
-		<div class="margin-container row">
-			<div class="col-xs-offset-3">
-				<h2>Notification</h2>
-				<% notifications = @notifications.where.not(visitor_id: current_user.id) %>
-				<% if notifications.exists? %>
-					<% @notifications.each do |notification| %>
-						<%= render "shared/notifications", notification: notification %>
+		<% if current_user.id == @user.id%>
+			<hr>
+			<div class="margin-container row">
+				<div class="col-xs-offset-3">
+					<h2>Notification</h2>
+					<% notifications = @notifications.where.not(visitor_id: current_user.id) %>
+					<% if notifications.exists? %>
+						<% @notifications.each do |notification| %>
+							<%= render "shared/notifications", notification: notification %>
+						<% end %>
+						<%= paginate notifications %>
+					<% else %>
+						<p>No notifications</p>
 					<% end %>
-					<%= paginate notifications %>
-				<% else %>
-					<p>No notifications</p>
-				<% end %>
+				</div>
 			</div>
-		</div>
+		<% end %>
 		<!--    　　　　 -->
 		<!--         投稿一覧         -->
 		<hr>
@@ -73,17 +81,9 @@
 				<h2>- <%= @user.name %>`s All Posts -</h2>
 				  <% @posts.each do |post| %>
 				  <!-- 　　　　　　いいね　　　　　 -->
-					<% if post.liked_by?(current_user) %>
-						<%= link_to post_likes_path(post),method: :delete do %>
-				            <%= fa_icon "heart",style: "color=: red;"%>
-				            <%= post.likes.count %>
-				        <% end %>
-				    <% else %>
-				        <%= link_to post_likes_path(post),method: :post do %>
-		          			<%= fa_icon "heart-o"%>
-		          			<%= post.likes.count %>
-		          		<% end %>
-			        <% end %>
+					<div id="likes_buttons_<%= post.id %>">
+						<%= render partial: "likes/like", locals: {post: post} %>
+			  		</div>
 			       <!-- 　　　　　　　　　 -->
 		            <%= attachment_image_tag post, :image, :fill, 300, 400 %>
 		            <%= post.text %>

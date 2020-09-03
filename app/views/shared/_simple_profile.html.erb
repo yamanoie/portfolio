@@ -5,6 +5,7 @@
 		  <p>Welcome!</p>
 		  <%= link_to current_user.name, user_path(current_user),class: "user-name" %>
 		  <% link_to user_path(current_user) do %>
+	          	<%= fa_icon "bell-o"%>
 			  <% if unchecked_notifications.any? %>
 			  	<i class="fa fa-circle notification-circle"></i>
 			  <% end %>

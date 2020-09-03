@@ -21,25 +21,25 @@
 
 
 
-# equire File.expand_path(File.dirname(__FILE__) + "/environment")
+require File.expand_path(File.dirname(__FILE__) + "/environment")
 
-# set :output, "log/crontab.log"
+set :output, "log/crontab.log"
 
-# rails_env = ENV['RAILS_ENV'] || :development
+rails_env = ENV['RAILS_ENV'] || :development
 
-# set :environment, :rails_env
+set :environment, :rails_env
 
-# every 1.minute do
-# 	runner Notification.destroy_notification
-# end
+every 1.minute do
+	runner 'Notification.destroy_notification'
+end
 
-# every 1.month do
-# 	runner Notification.destroy_notification
-# end
+every 1.month do
+	runner 'Notification.destroy_notification'
+end
 
-# def destroy_notification
-# 	@notifications = Notification.all
-# 	@notifications.each do |notification|
-# 		notification.destroy
-# 	end
-# end
+def destroy_notification
+	@notifications = Notification.all
+	@notifications.each do |notification|
+		notification.destroy
+	end
+end

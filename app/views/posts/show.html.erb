@@ -24,17 +24,9 @@
 			  	<%= @post.user.name %>
 			  <% end %>
 			<!-- 　　　　いいね　　　 -->
-			  <% if @post.liked_by?(current_user) %>
-				<%= link_to post_likes_path(@post),method: :delete do %>
-              		<%= fa_icon "heart",style: "color=: red;"%>
-              		<%= @post.likes.count %>
-              	<% end %>
-              <% else %>
-            	<%= link_to post_likes_path(@post),method: :post do %>
-          			<%= fa_icon "heart-o"%>
-          			<%= @post.likes.count %>
-          		<% end %>
-          	  <% end %>
+			  <div id="likes_buttons_<%= @post.id %>">
+				<%= render partial: "likes/like", locals: {post: @post} %>
+			  </div>
           	<!-- 　　　　　　　 -->
       		  <%= attachment_image_tag @post, :image, :fill, 300, 400 %>
       		  <%= @post.text %>
@@ -47,42 +39,13 @@
 		</div>
 	<!-- 　　　投稿詳細　ここまで　　　　 -->
 	<!-- コメント一覧 -->
-	<hr>
-		<div class="margin-container row">
-			<div class="col-xs-offset-3 col-xs-6">
-				<% if @post.comments.blank? %>
-					<h2 class="title">- No comments -</h2>
-					<h2>
-				<% else %>
-					<h2 class="title">- <%= @post.comments.count %>
-					Comments -
-					</h2>
-				<% end %>
-				<% @post.comments.each do |comment| %>
-				<%= attachment_image_tag comment.user, :image, :fill, 60, 60, fallback: "no-image.jpg", size:"60x60" %>
-				<%= link_to user_path(comment.user) do %>
-					<%= comment.user.name %>
-				<% end %>
-    		  	<%= fa_icon "calendar" %>
-				<%= comment.created_at.strftime("%Y-%m-%d %H:%M") %>
-				<%= comment.comment %>
-				<% if comment.user == current_user %>
-					<%= link_to "Delete", post_comment_path(@post, comment),method: :delete ,class: "btn btn-danger" %>
-				<% end %>
-				<% end %>
-	        </div>
-	    </div>
+	<div id="comment_area">
+		<%= render partial: "comments/comment", locals: { post: @post} %>
+	</div>
 	<!-- 　　　　    　　 -->
 	<!-- コメントフォーム -->
-	<hr>
-	    <div class="margin-container row">
-			<div class="col-xs-offset-4 col-xs-4">
-				<h2 class="title">- Comment Form -</h2>
-				<%= form_with model:[@post,@comment], local: true do |f| %>
-					<%= f.text_area :comment, rows: "5",cols: "50",placeholder: "comment here" %><br>
-					<%= f.submit "Comment", class: "btn btn-primary" %>
-				<% end %>
-			</div>
-		</div>
+	<div id="comment-form">
+		<%= render partial: "comments/comment_form", locals: { comment: @comment, post: @post }%>
+	</div>
 	<!-- 　　　　　　　　 -->
 </div>

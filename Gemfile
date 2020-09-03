@@ -79,3 +79,4 @@ gem 'bxslider-rails'
 gem 'kaminari'
 gem 'data-confirm-modal'
 gem 'ransack'
+gem 'whenever', require: false
