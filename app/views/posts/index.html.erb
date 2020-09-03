@@ -1,7 +1,7 @@
 <div class="body">
 	<div class="post-index container">
 			<!-- 新規投稿ボタン -->
-			<%= link_to new_post_path do %>
+			<%= link_to new_post_path, data: {"turbolinks" => false} do %>
 				<%= image_tag "/assets/logo-post.jpg",class: "logo-post" %>
 			<% end %>
 			<!-- 　　　　　　　 -->

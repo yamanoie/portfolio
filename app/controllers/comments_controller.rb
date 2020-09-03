@@ -7,14 +7,18 @@ class CommentsController < ApplicationController
 		comment.save
 		# binding.pry
 		comment.post.create_notification_comment!(current_user, comment.id)#通知
-		flash[:notice] = "You commented"
+		respond_to do |format|
+			format.js {flash[:notice] = "You commented"}
+		end
 	end
 
 	def destroy
 		@post = Post.find(params[:post_id])
 		comment = Comment.find(params[:id])
 		comment.destroy
-		flash[:notice] = "Comment has been deleted"
+		respond_to do |format|
+		    format.js {flash[:notice] = "Comment has been deleted"}
+		end
 	end
 
 	private

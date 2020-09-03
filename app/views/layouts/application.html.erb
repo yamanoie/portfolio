@@ -19,7 +19,7 @@
       <% if user_signed_in? %>
         <div class="nav-list">
             <%= fa_icon "home" %>
-            <%= link_to "Home", posts_path %>
+            <%= link_to "Home", posts_path , data: {"turbolinks" => false} %>
          </div>
 
           <div class="nav-list">
