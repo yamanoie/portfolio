@@ -1,1 +1,3 @@
 $("#message_area").html("<%= j(render partial: 'messages/message', locals: { messages: @messages }) %>");
+
+$("#flash_area").html("<%= j(render partial: 'shared/flash', locals: { flash: flash }) %>");

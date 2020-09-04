@@ -1,1 +1,4 @@
 $("#comment_area").html("<%= j(render "comments/comment", locals: {post: @post}) %>");
+
+$("#flash_area").html("<%= j(render partial: 'shared/flash', locals: { flash: flash }) %>");
+

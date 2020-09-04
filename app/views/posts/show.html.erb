@@ -16,7 +16,9 @@
 		<%= render "shared/simple_profile" %>
 				<!-- 　　　　　　　　　 -->
 	<!--       フラッシュメッセージ　　　 -->
+		<div id="flash_area">
 				<%= render partial: "shared/flash" %>
+		</div>
 	<!-- 　　　　　　　　　　　　　 -->
 
 	<!--     投稿詳細　　　　 -->
@@ -47,7 +49,6 @@
 		<%= render partial: "comments/comment", locals: { post: @post} %>
 	</div>
 	<!-- 　　　　    　　 -->
-	<div id="flash_area"></div>
 	<!-- コメントフォーム -->
 	<div id="comment-form">
 		<%= render partial: "comments/comment_form", locals: { comment: @comment, post: @post }%>

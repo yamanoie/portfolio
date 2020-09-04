@@ -5,7 +5,7 @@ class MessagesController < ApplicationController
 		@message.create_notification_message!(current_user,@message.id,params[:message][:visited_id])#通知
 		@room = Room.find(@message.room_id)
 		@messages = @room.messages.includes(:user).order(created_at: "DESC").page(params[:page]).per(8)
-		flash[:notice] = "Message has been sent"
+		flash.now[:success] = "Message has been sent"
 	end
 
 	def destroy
@@ -13,7 +13,7 @@ class MessagesController < ApplicationController
 		@message.destroy
 		@room = Room.find(@message.room_id)
 		@messages = @room.messages.includes(:user).order(created_at: "DESC").page(params[:page]).per(8)
-		flash[:notice] = "Message has been deleted"
+		flash.now[:danger] = "Message has been deleted"
 	end
 
 end

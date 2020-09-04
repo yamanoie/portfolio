@@ -1,7 +1,5 @@
 <div class="match">
  <div class="container">
-				<%= flash[:notice] %>
- 	
 	<!-- パンくずリスト -->
 	<div class="row">
 		<div class="col-xs-3">
@@ -15,6 +13,9 @@
 	<!--   プロフィール -->
 		<%= render "shared/simple_profile" %>
 				<!-- 　　　　　　　　　 -->
+		<!--       フラッシュメッセージ　　　 -->
+		<%= render partial: "shared/flash" %>
+	    <!--                        -->
 	
 		<!--    投稿一覧　　  -->
 		<div class="margin-container row">

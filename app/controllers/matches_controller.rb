@@ -11,7 +11,8 @@ class MatchesController < ApplicationController
   	match = Match.new(match_params)
   	match.user_id = current_user.id
   	match.save
-  	redirect_to matches_path,notice: "You posted"
+    flash[:success] = "You posted"
+  	redirect_to matches_path
   end
 
   def edit
@@ -21,13 +22,15 @@ class MatchesController < ApplicationController
   def update
   	match = Match.find(params[:id])
   	match.update(match_params)
-  	redirect_to matches_path,notice: "Post has been updated"
+    flash[:success] = "Post has been updated"
+  	redirect_to matches_path
   end
 
   def destroy
   	match = Match.find(params[:id])
   	match.destroy
-  	redirect_to matches_path,notice: "Post has been deleted"
+    flash[:danger] = "Post has been deleted"
+  	redirect_to matches_path
   end
 
 private
