@@ -21,9 +21,13 @@ class PostsController < ApplicationController
   def create
   	post = Post.new(post_params)
   	post.user_id = current_user.id
-  	post.save
-    flash[:success] = "You posted newly"
-  	redirect_to posts_path
+  	if post.save
+      flash[:success] = "You posted newly"
+  	  redirect_to posts_path
+    else
+      @post = Post.new
+      render :new
+    end
   end
 
   def edit
