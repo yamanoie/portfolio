@@ -22,7 +22,8 @@ class PostsController < ApplicationController
   	post = Post.new(post_params)
   	post.user_id = current_user.id
   	post.save
-  	redirect_to posts_path,notice: "You posted"
+    flash[:success] = "You posted newly"
+  	redirect_to posts_path
   end
 
   def edit
@@ -32,13 +33,15 @@ class PostsController < ApplicationController
   def update
   	post = Post.find(params[:id])
   	post.update(post_params)
-  	redirect_to post_path(post),notice: "Post has been updated"
+    flash[:success] ="Post has been updated"
+  	redirect_to post_path(post)
   end
 
   def destroy
   	post = Post.find(params[:id])
   	post.destroy
-  	redirect_to posts_path,notice: "Post has been deleted"
+    flash[:danger] = "Post has been deleted"
+  	redirect_to posts_path
 
   end
 

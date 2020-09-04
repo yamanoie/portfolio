@@ -1,3 +1,4 @@
+
 <div class="body">
 	<div class="post-index container">
 			<!-- 新規投稿ボタン -->
@@ -5,8 +6,8 @@
 				<%= image_tag "/assets/logo-post.jpg",class: "logo-post" %>
 			<% end %>
 			<!-- 　　　　　　　 -->
-				<%= flash[:notice] %>
-			
+
+				<%= render partial: "shared/flash" %>
 				<!--  パンくずリスト    -->
 		<div class="row">
 			<div class="col-xs-2">
