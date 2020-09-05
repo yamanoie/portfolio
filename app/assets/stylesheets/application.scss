@@ -119,6 +119,21 @@ footer {
 	background-color: white;
 }
 
+.footer-logo {
+	padding-bottom: 2em;
+	text-align: center;
+}
+
+
+.send-btn {
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+.title-contact {
+	text-align: center;
+	font-size: 30px;
+}
 
 
 /*ログイン・サインイン*/
@@ -217,6 +232,17 @@ footer {
 	 background-color: #fff;
 	 border: 4px solid #f6bfbc;
 	 border-radius: 3em .8em 3em .7em/.9em 2em .8em 3em;
+}
+
+.box-simple {
+	 margin-top: 5em;
+	 margin-bottom: 2em;
+	 padding: 1em;
+	 color: #666666;
+	 border: 2px solid #996633;
+	 background-color: #fff;
+	 box-shadow: -2px 5px 5px #e8d3c7;
+	 border-radius: 20px;
 }
 
 /* 各タイトル*/

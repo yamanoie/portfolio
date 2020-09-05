@@ -62,29 +62,31 @@
   </body>
   <footer>
     <p id="page-top"><a href="#"><span class="glyphicon glyphicon-upload" aria-hidden="true"></span></a></p>
-    <!-- 　ロゴ　　　 -->
-    <div class="row">
-      <div class="footer-logo col-xs-offset-2">
-             <a href="/" title="footer-logo col-xs-2">
-                 <img src="/assets/logo2.jpg" alt="[Logo]whale shark">
-             </a>
-      </div>
-    </div>
-    <!--           -->
+    
     <!--    問合せフォーム -->
     <div class="row">
-      <div class="contact_form col-xs-offset-7">
-            <h2>Contact Form</h2>
+      <div class="box-simple contact_form col-xs-offset-8 col-xs-3">
+            <h2 class="title-contact">- <%= fa_icon "paper-plane-o" %> Contact Form -</h2>
             <%= form_with model: @contact,url: contacts_path,local: true do |f| %>
             <%= f.label "Name" %><br>
-            <%= f.text_field :name %>
+            <%= f.text_field :name, class: "form-control" %>
             <%= f.label "Email" %><br>
-            <%= f.text_field :email %>
+            <%= f.text_field :email, class: "form-control"%>
             <%= f.label "Content" %><br>
-            <%= f.text_area :content %>
-            <%= f.submit "Send Email",class: "btn btn-success"%>
+            <%= f.text_area :content, class: "form-control" %>
+            <%= f.submit "Send Email",class: "send-btn btn btn-success"%>
             <% end %>
         </div>
       </div>
+      <!-- 　ロゴ　　　 -->
+    <div class="row">
+      <div class="footer-logo">
+        <%= link_to posts_path, data: {"turbolinks" => false} do %>
+                 <img src="/assets/logo2.jpg" alt="[Logo]whale shark">
+        <% end %>
+      </div>
+    </div>
+    <!--           -->
   </footer>
 </html>
+
