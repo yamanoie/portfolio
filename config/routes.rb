@@ -14,4 +14,5 @@ Rails.application.routes.draw do
   resources :contacts, only: [:create]
   resources :messages, only: [:create, :destroy]
   resources :rooms, only: [:create, :show]
+  resource :contacts, only: [:new, :create]
 end
