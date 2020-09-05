@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   before_action :initialize_contact, only: [:show, :edit]
   before_action :authenticate_user!, only: [:edit]
+  include EnsureCorrectObjects
+  before_action :ensure_correct_user, only:[:edit, :update]
 
 	def show
 		@user = User.find(params[:id])
@@ -48,9 +50,12 @@ class UsersController < ApplicationController
 
 	def update
 		@user = User.find(params[:id])
-		@user.update(user_params)
-		flash[:success] = "User has been updated"
-		redirect_to user_path(@user)
+		if @user.update(user_params)
+			flash[:success] = "User has been updated"
+			redirect_to user_path(@user)
+		else
+			render :edit
+		end
 	end
 
 	private

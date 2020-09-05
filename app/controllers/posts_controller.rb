@@ -1,6 +1,8 @@
 class PostsController < ApplicationController
   before_action :initialize_contact, only: [:index, :edit, :show]
   before_action :authenticate_user!, only: [:edit]
+  include EnsureCorrectObjects
+  before_action :ensure_correct_post, only: [:destroy,:edit, :update]
 
   def index
   	@posts = Post.includes(:user).order(created_at: "DESC").page(params[:page]).per(8)
@@ -12,7 +14,6 @@ class PostsController < ApplicationController
   def show
   	@post = Post.find(params[:id])
     @comment = Comment.new
-  	
   end
 
   def new
@@ -20,13 +21,12 @@ class PostsController < ApplicationController
   end
 
   def create
-  	post = Post.new(post_params)
-  	post.user_id = current_user.id
-  	if post.save
+  	@post = Post.new(post_params)
+  	@post.user_id = current_user.id
+  	if @post.save
       flash[:success] = "You posted newly"
   	  redirect_to posts_path
     else
-      @post = Post.new
       render :new
     end
   end
@@ -36,10 +36,13 @@ class PostsController < ApplicationController
   end
 
   def update
-  	post = Post.find(params[:id])
-  	post.update(post_params)
-    flash[:success] ="Post has been updated"
-  	redirect_to post_path(post)
+  	@post = Post.find(params[:id])
+  	if @post.update(post_params)
+      flash[:success] ="Post has been updated"
+    	redirect_to post_path(@post)
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -50,11 +53,9 @@ class PostsController < ApplicationController
 
   end
 
-
-
 private
   def post_params
-  	params.require(:post).permit(:text, :image, :user_id)
+  	params.require(:post).permit(:text, :image)
   end
 
 end

@@ -14,6 +14,9 @@
 			<!--   プロフィール -->
 		<%= render "shared/simple_profile" %>
 				<!-- 　　　　　　　　　 -->
+				<!--     エラーメッセージ     -->
+				<%= render "shared/error_messages", model: @user %>
+				<!--                      -->
 		<div class="margin-container row">
 			<div class="edit-user box col-xs-offset-3 col-xs-6">
 			<h2 class="title">- <%= fa_icon "cog" %>  Edit User -</h2>

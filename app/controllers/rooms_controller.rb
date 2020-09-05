@@ -1,5 +1,7 @@
 class RoomsController < ApplicationController
 	before_action :authenticate_user!
+	include EnsureCorrectObjects
+  	before_action :ensure_correct_room, only:[:show]
 
 	def create
 		@room = Room.create(params.require(:room).permit(:guest_id).merge(:user_id => current_user.id))

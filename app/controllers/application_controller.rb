@@ -1,4 +1,4 @@
-class ApplicationController < ActionController::Base
+	class ApplicationController < ActionController::Base
 
 	add_flash_types :auccess, :info, :waring, :danger
 
