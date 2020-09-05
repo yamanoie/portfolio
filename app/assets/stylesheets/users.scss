@@ -24,7 +24,7 @@
   height: 80px;
   width: 210px;
   position:  fixed;
-	right: 180px;
+	right: 70px;
 	top: 150px;
 	display: flex;
 	background-color: none;
@@ -85,5 +85,21 @@
   margin-top: 1em;
 }
 
- /*ユーザー詳細*/
+ /*ユーザーサインイン*/
 
+ .devise-wrapper {
+  height: auto;
+ }
+
+ .actions {
+  margin-top: 1em;
+  margin-bottom: 1em;
+ }
+
+ .country-field {
+  margin-top: 1em;
+ }
+
+.country-btn {
+  font-size: 20px;
+}

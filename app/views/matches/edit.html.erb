@@ -22,7 +22,7 @@
 				<h2 class="title">- <%= fa_icon "cog" %>Edit Your Post -</h2>
 				<%= form_with model:@match, local: true do |f| %>
 				<div class="row">
-					<div class="match-new-occupation col-xs-offset-2">
+					<div class="match-new-occupation col-xs-offset-3">
 						<%= f.radio_button :occupation, :true,checked: true %>
 						<%= fa_icon "users" %>
 						<%= f.label :occupation, "Search Students　" %>

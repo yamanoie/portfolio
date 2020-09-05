@@ -1,18 +1,17 @@
 <div class="body">
   <div class="devise-wrapper container">
     <div class="row">
-      <div class="col-xs-offset-5">
-        <h2>Log in</h2>
-
+      <div class="box-simple col-xs-offset-4 col-xs-4">
+        <h2 class="title">- <%= fa_icon "sign-in" %> Log in -</h2>
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
           <div class="field">
             <%= f.label :email %><br />
-            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
           </div>
 
           <div class="field">
             <%= f.label :password %><br />
-            <%= f.password_field :password, autocomplete: "current-password" %>
+            <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
           </div>
 
           <% if devise_mapping.rememberable? %>
@@ -21,12 +20,12 @@
               <%= f.label :remember_me %>
             </div>
           <% end %>
-
-          <div class="actions">
-            <%= f.submit "Log in" %>
+          <div class="row">
+            <div class="actions col-xs-offset-8">
+              <%= f.submit "Log in", class: "btn btn-success" %>
+            </div>
           </div>
         <% end %>
-
       </div>
     </div>
   </div>
