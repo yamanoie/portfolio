@@ -45,7 +45,9 @@
                 </div>
                 <% end %>
             <% end %>
-            <%= paginate messages, params: {controller: 'rooms', action: 'show', id: messages[0].room_id} %>
+            <% if messages.present? %>
+              <%= paginate messages, params: {controller: 'rooms', action: 'show', id: messages[0].room_id} %>
+            <% end %>
           </div>
         </div>
       </div>

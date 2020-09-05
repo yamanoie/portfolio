@@ -6,9 +6,12 @@ class CommentsController < ApplicationController
 		@post = Post.find(params[:post_id])
 		comment = current_user.comments.new(comment_params)
 		comment.post_id = @post.id
-		comment.save
-		comment.post.create_notification_comment!(current_user, comment.id)#通知
-		flash.now[:success] = "You commented"
+		if comment.save
+			comment.post.create_notification_comment!(current_user, comment.id)#通知
+			flash.now[:success] = "You commented"
+		else
+			flash.now[:danger] = comment.errors.messages[:comment].first
+		end
 	end
 
 	def destroy

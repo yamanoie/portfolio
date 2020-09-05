@@ -3,4 +3,4 @@ $("textarea").val("")
 
 $("#flash_area").html("<%= j(render partial: 'shared/flash', locals: { flash: flash }) %>");
 
-
+$("#error_area").html("<%= j(render 'shared/error_messages', model: @message) %>");

@@ -11,11 +11,16 @@ class MatchesController < ApplicationController
   end
 
   def create
-  	match = Match.new(match_params)
-  	match.user_id = current_user.id
-  	match.save
-    flash[:success] = "You posted"
-  	redirect_to matches_path
+  	@match = Match.new(match_params)
+  	@match.user_id = current_user.id
+  	if @match.save
+      flash[:success] = "You posted"
+    	redirect_to matches_path
+    else
+      @search = Match.ransack(params[:q])
+      @matches = @search.result.includes(:user).page(params[:page]).per(5).order(created_at: "DESC")
+      render :index
+    end
   end
 
   def edit
@@ -23,10 +28,13 @@ class MatchesController < ApplicationController
   end
 
   def update
-  	match = Match.find(params[:id])
-  	match.update(match_params)
-    flash[:success] = "Post has been updated"
-  	redirect_to matches_path
+  	@match = Match.find(params[:id])
+  	if @match.update(match_params)
+      flash[:success] = "Post has been updated"
+    	redirect_to matches_path
+    else
+      render :edit
+    end
   end
 
   def destroy

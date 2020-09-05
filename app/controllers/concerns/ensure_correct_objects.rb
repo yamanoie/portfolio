@@ -28,6 +28,5 @@ module EnsureCorrectObjects
 		end
 	end
 
-	
 
 end

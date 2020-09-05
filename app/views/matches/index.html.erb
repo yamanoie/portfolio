@@ -16,7 +16,9 @@
 		<!--       フラッシュメッセージ　　　 -->
 		<%= render partial: "shared/flash" %>
 	    <!--                        -->
-	
+	    <!--     エラーメッセージ     -->
+		<%= render "shared/error_messages", model: @match %>
+		<!--                      -->
 		<!--    投稿一覧　　  -->
 		<div class="margin-container row">
 			<div class="col-xs-offset-2 col-xs-8">
