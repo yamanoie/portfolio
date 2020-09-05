@@ -48,6 +48,13 @@
 	position: relative;
 }
 
+.fa-circle {
+  font-size: 1px;
+  position: absolute;
+  top: 6px;
+  right: 24px;
+  }
+
 .badge:after{
   content:"";
   position: absolute;

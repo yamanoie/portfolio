@@ -4,9 +4,11 @@
 		  <%= attachment_image_tag current_user, :image, :fill, 60, 60, fallback: "no-image.jpg", size:"60x60" %>
 		  <p>Welcome!</p>
 		  <%= link_to current_user.name, user_path(current_user),class: "user-name" %>
-		  <% link_to user_path(current_user) do %>
-	          	<%= fa_icon "bell-o"%>
-			  <% if unchecked_notifications.any? %>
+		  <%= link_to user_path(current_user) do %>
+		  		<div>
+	          		<%= fa_icon "bell-o"%>
+		  		</div>
+			  <% if exist_unchecked_notifications %>
 			  	<i class="fa fa-circle notification-circle"></i>
 			  <% end %>
 		  <% end %>

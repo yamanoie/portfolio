@@ -13,27 +13,8 @@ class UsersController < ApplicationController
 			@room = @user.rooms.find_by(guest_id: current_user.id)
 		end
 
-		# DM機能
-		# @currentUserEntry = Entry.where(user_id: current_user.id)
-		# @userEntry = Entry.where(user_id: @user.id)
-		# unless @user.id == current_user.id
-		# 	@currentUserEntry.each do |cu|
-		# 		@userEntry.each do |u|
-		# 			if cu.room_id == u.room_id then
-		# 				@isRoom = true
-		# 				@roomId = cu.room_id
-		# 			end
-		# 		end
-		# 	end
-
-		# 	if @isRoom
-		# 	else
-		# 		@room = Room.new
-		# 		@entry = Entry.new
-		# 	end
-	 #  	end
 	  	#通知
-	  	@notifications = current_user.passive_notifications.where.not(message_id: nil).page(params[:page]).per(4)
+	  	@notifications = current_user.passive_notifications.page(params[:page]).per(4)
 	  	@notifications.where(checked: false).each do |notification|
 	  		notification.update_attributes(checked: true)
 	  	end
