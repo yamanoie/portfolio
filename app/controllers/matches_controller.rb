@@ -1,5 +1,6 @@
 class MatchesController < ApplicationController
   before_action :initialize_contact, only: [:index, :edit]
+  before_action :authenticate_user!, only: [:edit]
 
   def index
     @search = Match.ransack(params[:q])

@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :initialize_contact, only: [:show, :edit]
+  before_action :authenticate_user!, only: [:edit]
 
 	def show
 		@user = User.find(params[:id])

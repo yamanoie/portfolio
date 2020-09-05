@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :initialize_contact, only: [:index, :edit, :show]
+  before_action :authenticate_user!, only: [:edit]
 
   def index
   	@posts = Post.includes(:user).order(created_at: "DESC").page(params[:page]).per(8)

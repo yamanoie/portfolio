@@ -1,4 +1,5 @@
 class RoomsController < ApplicationController
+	before_action :authenticate_user!
 
 	def create
 		@room = Room.create(params.require(:room).permit(:guest_id).merge(:user_id => current_user.id))

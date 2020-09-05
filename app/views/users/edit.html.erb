@@ -15,23 +15,27 @@
 		<%= render "shared/simple_profile" %>
 				<!-- 　　　　　　　　　 -->
 		<div class="margin-container row">
-			<div class="edit-user box col-xs-offset-2 col-xs-7">
+			<div class="edit-user box col-xs-offset-3 col-xs-6">
 			<h2 class="title">- <%= fa_icon "cog" %>  Edit User -</h2>
-				<div class="user_edit row">
-					<div class="col-xs-offset-2 col-xs-5">
-						<%= form_with model:@user,local: true do |f| %>
-						<%= attachment_image_tag @user, :image, fallback: "no-image.jpg", size: "430x300",class: "user-preview"%>
-						<%= f.attachment_field :image ,class: "upload-image", id: "edit-user-image" %>
+				<%= form_with model:@user, local: true do |f| %>
+				<div class="row">
+					<div class="upload-image col-xs-offset-1 col-xs-10">
+						<%= attachment_image_tag @user, :image, fallback: "no-image.jpg", class: "user-image user-preview"%>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-xs-offset-2 col-xs-4">
+					<div class="image-field col-xs-offset-2">
+						<%= f.attachment_field :image, id: "edit-user-image" %>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-offset-1 col-xs-4">
 						<div class="name_field">
 							<%= f.label "Name" ,class: "contorol-label" %><br >
 							<%= f.text_field :name ,class: "form-control"%>
 						</div>
 					</div>
-					<div class="col-xs-offset-2 col-xs-8">
+					<div class="col-xs-offset-1 col-xs-9">
 						<div class="form-group profile-field">
 							<%= f.label "Profile" ,class: "contorol-label" %><br >
 							<%= f.text_area :profile, class: "form-control", rows: "6" %>
@@ -39,7 +43,7 @@
 					</div>
 				</div>
 				<div class="row">
-					<div class="update-btn col-xs-offset-8">
+					<div class="update-btn col-xs-offset-9">
 						<%= f.submit "Update", class: "btn btn-info" %>
 					</div>
 				</div>
