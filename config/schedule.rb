@@ -27,9 +27,7 @@ set :output, "log/crontab.log"
 rails_env = ENV['RAILS_ENV'] || :development
 # cronを実行する環境変数をセット
 set :environment, rails_env
-every 1.minute do
-	runner "Notification.destroy_read_notifications"
-end
+
 
 every 1.day do
 	runner "Notification.destroy_read_notifications"

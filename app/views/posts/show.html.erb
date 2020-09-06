@@ -57,7 +57,7 @@
 			  	<div class="row">
 			  		<div class="col-xs-offset-8">
 			  			<%= fa_icon "calendar" %>
-	  		  			<%= @post.created_at.strftime("%Y-%m-%d %H:%M") %>
+		              	<%= create_time_with_country(current_user,@post) %>
 			  		</div>
 			  	</div>
 	          	<div class="row">

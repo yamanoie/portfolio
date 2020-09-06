@@ -66,7 +66,7 @@
 		              	 <%= post.comments.count %> Comments
 		              	 <!--       -->
 	                    <%= fa_icon "calendar" %>
-		              	<%= post.created_at.strftime("%Y-%m-%d %H:%M") %>
+		              	<%= create_time_with_country(current_user, post) %>
 		              	<%= attachment_image_tag post, :image %>
 			            <%= link_to "more",post_path(post) %>
 			        </div>
@@ -97,7 +97,7 @@
 	              	 <%= post.comments.count %> Comments
 	              	 <!--       -->
                     <%= fa_icon "calendar" %>
-	              	<%= post.created_at.strftime("%Y-%m-%d %H:%M") %>
+		            <%= create_time_with_country(current_user, post) %>
 	              	<%= attachment_image_tag post, :image  %>
 		            <%= link_to "more",post_path(post) %>
 	              	<% end %>

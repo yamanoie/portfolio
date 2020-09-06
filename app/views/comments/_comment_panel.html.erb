@@ -17,7 +17,7 @@
 	<div class="row">
 		<div class="col-xs-offset-8">
 			<%= fa_icon "calendar" %>
-			<%= comment.created_at.strftime("%Y-%m-%d %H:%M") %>
+		    <%= create_time_with_country(current_user, comment) %>
 		</div>
 	</div>
 	<div class="row">

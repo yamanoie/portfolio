@@ -24,7 +24,6 @@
 			<% end %>
 		<% end %>
 	<% when "message" then %>
-	<%# if notification.message_id.nil? %>
 		<% if notification.message.user_id == visitor.id %>
 			<strong>SENT A MESSAGE</strong>
 		<% end %>
