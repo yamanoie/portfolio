@@ -22,24 +22,16 @@
 
 
 require File.expand_path(File.dirname(__FILE__) + "/environment")
-
 set :output, "log/crontab.log"
-
+# cronを実行する環境変数
 rails_env = ENV['RAILS_ENV'] || :development
-
-set :environment, :rails_env
-
+# cronを実行する環境変数をセット
+set :environment, rails_env
 every 1.minute do
-	runner 'Notification.destroy_notification'
+	runner "Notification.destroy_read_notifications"
 end
 
-every 1.month do
-	runner 'Notification.destroy_notification'
+every 1.day do
+	runner "Notification.destroy_read_notifications"
 end
 
-def destroy_notification
-	@notifications = Notification.all
-	@notifications.each do |notification|
-		notification.destroy
-	end
-end
