@@ -52,6 +52,16 @@
 
 /*投稿詳細*/
 
+.post-show-image {
+	margin-top: 3em;
+	margin-bottom: 1em;
+}
+
+.post-show-name {
+	text-align: center;
+	margin-left: 42px;
+}
+
 
 
 
@@ -68,5 +78,43 @@
 	margin-bottom: 1em;
 }
 
+
+.post-show-text {
+	margin-bottom: 1em;
+	margin-top: 1em;
+	font-size: 20px;
+}
+
+.like-btn {
+	font-size: 20px;
+}
+
+.post-show-edit-btn {
+	margin-top: 1em;
+}
+
+.post-show-user-image {
+	margin-top: 1em;
+}
+
 /*コメント*/
 
+.comment-btn {
+	margin-bottom: 2em;
+}
+
+.comment-title {
+	text-align: center;
+	font-size: 30px;
+	margin-bottom: 1em;
+}
+
+.comment-delete-btn {
+	margin-top: 1em;
+}
+
+.comment-text {
+	font-size: 20px;
+	word-wrap: break-word;
+	margin-top: 1em;
+}

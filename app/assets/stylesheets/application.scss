@@ -225,9 +225,19 @@ footer {
 }
 
 .box-design {
+
 	 margin: 2em auto;
 	 padding: 1em 1.5em;
-	 width: 90%;
+	 width: 80%;
+	 color: #777777;
+	 background-color: #fff;
+	 border: 4px solid #f6bfbc;
+	 border-radius: 3em .8em 3em .7em/.9em 2em .8em 3em;
+}
+
+.box-design-post {
+	margin-top: 4em;
+	 padding: 1em 1.5em;
 	 color: #777777;
 	 background-color: #fff;
 	 border: 4px solid #f6bfbc;
@@ -257,6 +267,10 @@ footer {
 	text-align: center;
 	margin-bottom: 1em;
 	font-size: 40px;
+	background-color: #DDFFFF;
+	border-radius: 5px;
+	border: 1px solid #f6bfbc;
+
 }
 
 .title-wrapper {
