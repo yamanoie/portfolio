@@ -9,16 +9,23 @@ class CommentsController < ApplicationController
 		if comment.save
 			comment.post.create_notification_comment!(current_user, comment.id)#通知
 			flash.now[:success] = "You commented"
-		else
+      	else
 			flash.now[:danger] = comment.errors.messages[:comment].first
 		end
-	end
-
+        comments = @post.comments
+        @comments_by_third = comments[0..2]
+        @comments_from_third = comments[3..(comments.count-1)]
+        @comments_count = comments.count
+    end
 	def destroy
 		@post = Post.find(params[:post_id])
 		comment = Comment.find(params[:id])
 		comment.destroy
 		flash.now[:danger] = "Comment has been deleted"
+		comments = @post.comments
+        @comments_by_third = comments[0..2]
+        @comments_from_third = comments[3..(comments.count-1)]
+        @comments_count = comments.count
 	end
 
 	private

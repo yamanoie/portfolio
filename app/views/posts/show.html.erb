@@ -72,7 +72,7 @@
 	<!-- 　　　投稿詳細　ここまで　　　　 -->
 	<!-- コメント一覧 -->
 	<div id="comment_area">
-		<%= render partial: "comments/comment", locals: { post: @post} %>
+		<%= render partial: "comments/comment", locals: { comments_by_third: @comments_by_third,comments_from_third:@comments_from_third,count:@comments_count,post:@post} %>
 	</div>
 	<!-- 　　　　    　　 -->
 	<!-- コメントフォーム -->
