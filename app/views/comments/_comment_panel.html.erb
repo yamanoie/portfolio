@@ -1,0 +1,30 @@
+<div class="box-simple">
+	<div class="col-xs-3">
+		<%= attachment_image_tag comment.user, :image, :fill, 60, 60, fallback: "no-image.jpg", size:"60x60" %>
+		<%= link_to user_path(comment.user) do %>
+		<div class="row">
+			<div class="col-xs-offset-3">
+				<%= comment.user.name %>
+			</div>
+		</div>
+	</div>
+		<% end %>
+	<div class="row">
+		<div class="comment-text col-xs-7">
+			<strong><%= comment.comment %></strong>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-offset-8">
+			<%= fa_icon "calendar" %>
+			<%= comment.created_at.strftime("%Y-%m-%d %H:%M") %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="comment-delete-btn col-xs-offset-9">
+			<% if comment.user == current_user %>
+				<%= link_to "Delete", post_comment_path(post, comment),method: :delete , remote: true,　data: {confirm: "Are you sure you want to delete it?",cancel:"No",commit:"Yes"},title:"Confirmation", class: "btn btn-danger" %>
+			<% end %>
+		</div>
+	</div>
+</div>
