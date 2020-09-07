@@ -67,10 +67,7 @@
 
 /*  投稿編集*/
 
-.edit_post {
-	display: flex;
-	justify-content: center;
-}
+
 
 
 .post-image-filed {
@@ -95,6 +92,11 @@
 
 .post-show-user-image {
 	margin-top: 1em;
+}
+
+.post-edit-image {
+	margin-top: 2em;
+  	margin-bottom: 1em;
 }
 
 /*コメント*/

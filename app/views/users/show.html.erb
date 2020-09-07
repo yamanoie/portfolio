@@ -35,26 +35,47 @@
 		<!-- 　　　　　　　　　　 -->
 		<!--        プロフィール　　　　 -->
 		<div class="margin-container row">
-			<div class="col-xs-offset-3 col-xs-5">
-				<h2 class="title"><%= @user.name%>`s Profile </h2>
-				  <%= attachment_image_tag @user, :image, :fill, 120, 120, fallback: "no-image.jpg", size:"120x120" %>
-				 [Name]
-				  <%= @user.name %>
-				  [Country]
-				  <% if @user.country == true %>
-				  	Philipins
-				  <% else %>
-				  	Japan
-				  <% end %>
-				  [Profile]
-				  <% if @user.profile == nil %>
-				  	 [no self-introduction]
-				  <% else %>
-	      		  	<%= @user.profile %>
-	      		  	<% end %>
-	      		  <% if @user.id == current_user.id %>
-	      		  	<%= link_to "Edit" , edit_user_path(current_user), class: "btn btn-primary" %>
-	      		  <% end %>
+			<div class="col-xs-offset-3 col-xs-6">
+				<h2 class="title">- <%= fa_icon "address-card-o" %> <%= @user.name%>`s Profile -</h2>
+				<div class="box-simple">
+					<div class="row">
+					  	<div class="profile-image col-xs-offset-4 col-xs-5">
+					  		<%= attachment_image_tag @user, :image, :fill, 150, 150, fallback: "no-image.jpg", size:"150x150" %>
+					  	</div>
+					</div>
+					  <div class="row">
+					  	<div class="profile-item col-xs-offset-1 col-xs-7">
+					  		<strong class="profile-tag">　Name　</strong><%= @user.name %>
+					  	</div>
+					  </div>
+					  <div class="row">
+					  	<div class="profile-item col-xs-offset-1 col-xs-7">
+					  	  <strong class="profile-tag">　Country　</strong>
+						  <% if @user.country == true %>
+						  	Philipins
+						  <% else %>
+						  	Japan
+						  <% end %>
+					  	</div>
+					  </div>
+					  <div class="row">
+					  	<div class="profile-item col-xs-offset-1 col-xs-9">
+					  		<strong class="profile-tag">　Profile　</strong>
+							  <% if @user.profile.blank? %>
+							  	 no self-introduction
+							  <% else %>
+				      		  	<%= @user.profile %>
+				      		  	<% end %>
+					  	</div>
+					  </div>
+					  <div class="row">
+					  	<div class="profile-item col-xs-offset-9 col-xs-5">
+					  		<% if @user.id == current_user.id %>
+		      		  			<%= link_to "Edit" , edit_user_path(current_user), class: "btn btn-primary" %>
+		      		  		<% end %>
+					  	</div>
+					  </div>
+				</div>
 			</div>
 		</div>
 		<!-- 　　　　プロフィール　　ここまで　　 -->
@@ -62,16 +83,18 @@
 		<% if current_user.id == @user.id%>
 			<hr>
 			<div class="margin-container row">
-				<div class="col-xs-offset-3">
-					<h2>Notification</h2>
+				<div class="col-xs-offset-3 col-xs-6">
+					<h2 class="title">- <%= fa_icon "bell-o" %> Notifications -</h2>
 					<% notifications = @notifications.where.not(visitor_id: current_user.id) %>
 					<% if notifications.exists? %>
 						<% @notifications.each do |notification| %>
 							<%= render "shared/notifications", notification: notification %>
 						<% end %>
-						<%= paginate notifications %>
+						<div class="col-xs-offset-9">
+							<%= paginate notifications %>
+						</div>
 					<% else %>
-						<p>No notifications</p>
+						<p class="no-notifications">No notifications</p>
 					<% end %>
 				</div>
 			</div>
@@ -80,50 +103,92 @@
 		<!--         投稿一覧         -->
 		<hr>
 		<div class="margin-container　row">
-			<div class=" col-xs-offset-3">
-				<h2>- <%= @user.name %>`s All Posts -</h2>
+			<div class="col-xs-offset-1 col-xs-5">
+				<h2 class="title">- <%= fa_icon "clone" %> <%= @user.name %>`s All Posts -</h2>
 				  <% @posts.each do |post| %>
+				  <div class="box-design-post">
+				  	<div id="user-show-post-image">
+				  		<%= attachment_image_tag post, :image %>
+				  	</div>
 				  <!-- 　　　　　　いいね　　　　　 -->
-					<div id="likes_buttons_<%= post.id %>">
+					<div id="likes_buttons_<%= post.id %>" class= "user-show-like">
 						<%= render partial: "likes/like", locals: {post: post} %>
 			  		</div>
 			       <!-- 　　　　　　　　　 -->
-		            <%= attachment_image_tag post, :image, :fill, 300, 400 %>
-		            <%= post.text %>
-		            <%= fa_icon "calendar" %>
-		            <%= post.created_at.strftime("%Y-%m-%d %H:%M") %>
-		            <%= link_to "more",post_path(post) %>
-		            <% if post.user_id == current_user.id %>
-		                <%= link_to "Edit" , edit_post_path(post), class: "btn btn-success" %>
-		            <% end %>
+			       <div class="row">
+			  		<div class="user-show-post-text col-xs-offset-2 col-xs-8">
+		           	 <strong><%= post.text %></strong>
+		           	</div>
+		           </div>
+		           <div class="row">
+			  		<div class="col-xs-offset-6">
+		            	<%= fa_icon "calendar" %>
+		           		 <%= create_time_with_country(current_user,post) %>
+		           	</div>
+		           </div>
+		           <div class="row">
+		           	<div class="post-more col-xs-offset-9 col-xs-2">
+		            	<%= link_to "more",post_path(post) %>
+		           	</div>
+		           </div>
+		           <div class="row">
+	          		<div class="user-show-edit-btn col-xs-offset-9">
+		            	<% if post.user_id == current_user.id %>
+		                	<%= link_to "Edit" , edit_post_path(post), class: "btn btn-success" %>
+		            	<% end %>
+		            </div>
+		           </div>
+				  </div>
                   <% end %>
-	             <%= paginate @posts %>
+                  <div class="col-xs-offset-6 col-xs-7">
+                  	<%= paginate @posts %>
+                  </div>
 		    </div>
 	    </div>
 		<!-- 　　　    投稿一覧　ここまで　 -->
 		<!--       マッチング投稿一覧        -->
-		<hr>
 		<div class="margin-container row">
-			<div class="col-xs-offset-3">
-				<h2>- <%= @user.name %>`s Recruit posts -</h2>
+			<div class="col-xs-offset-1 col-xs-5">
+				<h2 class="title">- <%= fa_icon "handshake-o" %> <%= @user.name %>`s Recruit posts -</h2>
 				 <% @matches.each do |match| %>
-					 <% if match.nil? %>
-					 	There is no Recruite post
+				 <div class="box-simple">
+					 <% if match.blank? %>
+					 	<strong>There is no Recruite post</strong>
 					 <% else %>
+					 <div class="user-show-match-occupation-tag">
 					 	<% if match.occupation == true %>
 							<%= fa_icon "users" %>
-							<p>Search Students</p>
+							Search Students
 						<% else %>
 							<%= fa_icon "graduation-cap" %>
-							<p>Search Teachers</p>
+							Search Teachers
 						<% end %>
-					 	<%= match.title %>
-					 	<%= match.text %>
-		              	<%= create_time_with_country(current_user, match) %>
+					 </div>
+						<div class="row">
+							<div class="col-xs-offset-2 col-xs-8">
+								<strong class="user-show-match-title"><%= match.title %></strong>
+							</div>
+						</div>
+						<div class="row">
+							<div class="user-show-match-text col-xs-offset-1 col-xs-10">
+								<%= match.text %>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-offset-7">
+								<%= fa_icon "calendar" %>
+								<%= create_time_with_country(current_user, match) %>
+							</div>
+						</div>
+						<div class="row">
+							<div class="user-show-match-edit-btn col-xs-offset-9">
+								<% if match.user.id == current_user.id %>
+									<%= link_to "Edit", edit_match_path(match),class: "btn btn-success" %>
+								 <% end %>
+							</div>
+						</div>
 					 <% end %>
-					 <% if match.user.id == current_user.id %>
-							<%= link_to "Edit", edit_match_path(match),class: "btn btn-success" %>
-					 <% end %>
+				 </div>
 				 <% end %>
 	            <%= paginate @matches %>
 		    </div>

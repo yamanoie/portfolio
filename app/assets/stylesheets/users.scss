@@ -2,6 +2,87 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+
+/*ユーザー詳細*/
+
+.user-show-post {
+  color: white;
+}
+
+.profile-item {
+  font-size: 25px;
+  margin-top: 1em;
+}
+
+
+.profile-tag {
+  background-color: #4ec4d3;
+  margin-right: 1em;
+  border-radius: 5px;
+}
+
+.profile-image {
+  margin-bottom: 2em;
+  margin-top: 2em;
+}
+
+.notification-item {
+  margin-bottom: 1em;
+}
+
+.notification-time {
+  font-size: 10px;
+  margin-left: 25em;
+}
+
+.user-show-edit-btn {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.user-show-like {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.user-show-post-text {
+  margin-top: 1em;
+  margin-bottom: 1em;
+
+}
+
+.no-notifications {
+  font-size: 20px;
+  text-align: center;
+}
+
+.post-more {
+  background-color: yellow;
+  text-align: center;
+  margin-top: 1em;
+}
+
+.user-show-match-edit-btn {
+  margin-top: 1em;
+}
+
+.user-show-match-text {
+  margin-bottom: 1em;
+  margin-top: 1em;
+}
+
+.user-show-match-title {
+  font-size: 20px;
+}
+
+.user-show-match-occupation-tag {
+  background-color: yellow;
+  text-align: center;
+  margin-bottom: 1em;
+
+}
+
 /*ユーザー一覧*/
 
 
@@ -85,6 +166,11 @@
   margin-top: 1em;
 }
 
+.user-edit-image {
+  margin-top: 2em;
+  margin-bottom: 1em;
+}
+
  /*ユーザーサインイン*/
 
  .devise-wrapper {
@@ -102,4 +188,9 @@
 
 .country-btn {
   font-size: 20px;
+}
+
+.login-field {
+  margin-top: 3em;
+  margin-bottom: 2em;
 }

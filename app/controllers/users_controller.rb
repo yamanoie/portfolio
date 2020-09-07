@@ -6,8 +6,8 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find(params[:id])
-		@posts = Post.where(user_id: @user.id).page(params[:page]).per(4)
-		@matches = Match.where(user_id: @user.id).page(params[:page]).per(4)
+		@posts = Post.where(user_id: @user.id).order(created_at: "DESC").page(params[:page]).per(4)
+		@matches = Match.where(user_id: @user.id).order(created_at: "DESC").page(params[:page]).per(4)
 		@room = current_user.rooms.find_by(guest_id: @user.id)
 		unless @room
 			@room = @user.rooms.find_by(guest_id: current_user.id)
