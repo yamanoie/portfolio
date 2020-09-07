@@ -86,55 +86,57 @@
      </div>
      <div class="message-tutorial">
      </div>
+     <!--   -------------------------------------- -->
      <div class="others-section">
-      <h2>Other functions</h2>
-      <div class="panel-group" id="sampleAccordion">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h3 class="panel-title">
-              <a data-toggle="collapse" data-parent="#sampleAccordion" href="#sampleAccordionCollapse1">
-                <%= fa_icon "heart-o"%> LIKE
-              </a>
-            </h3>
-          </div>
-          <div id="sampleAccordionCollapse1" class="panel-collapse collapse cllapse">
-            <div class="panel-body">
-              LIKEのコンテンツ
+      <h2 class="others-title">- Other functions -</h2>
+        <div class="panel-group" id="topAccordion">
+          <div class="panel panel-default like-panel">
+            <div class="panel-heading">
+              <h3 class="panel-title">
+                <a data-toggle="collapse" data-parent="#topAccordion" href="#likeAccordionCollapse">
+                  <%= fa_icon "heart-o"%> LIKE
+                </a>
+              </h3>
+            </div>
+            <div id="likeAccordionCollapse" class="panel-collapse collapse cllapse">
+              <div class="panel-body">
+                <%= image_tag 'cebu.jpg', :size =>'300x300' %>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h3 class="panel-title">
-              <a data-toggle="collapse" data-parent="#sampleAccordion" href="#sampleAccordionCollapse2">
-                <%= fa_icon "envelope-o"%> MESSAGE
-              </a>
-            </h3>
-          </div>
-          <div id="sampleAccordionCollapse2" class="panel-collapse collapse">
-            <div class="panel-body">
-              MESSAGEのコンテンツ
+          <!--   ----------------------------------------          -->
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">
+                <a data-toggle="collapse" data-parent="#topAccordion" href="#weatherAccordionCollapse">
+                  <%= fa_icon "cloud" %> Weather
+                </a>
+              </h3>
+            </div>
+            <div id="weatherAccordionCollapse" class="panel-collapse collapse">
+              <div class="panel-body">
+                <%= image_tag 'japan.jpg', :size =>'300x300'%>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h3 class="panel-title">
-              <a data-toggle="collapse" data-parent="#sampleAccordion" href="#sampleAccordionCollapse3">
-                <%= fa_icon "user-o"%> RANKING
-              </a>
-            </h3>
-          </div>
-          <div id="sampleAccordionCollapse3" class="panel-collapse collapse">
-            <div class="panel-body">
-              RANKINGのコンテンツ
+          <!--  ------------------------------ -->
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">
+                <a data-toggle="collapse" data-parent="#topAccordion" href="#rankingAccordionCollapse">
+                  <%= fa_icon "user-o"%> RANKING
+                </a>
+              </h3>
+            </div>
+            <div id="rankingAccordionCollapse" class="panel-collapse collapse">
+              <div class="panel-body">
+                <%= image_tag 'earth.jpg', :size =>'300x300' %>
+              </div>
             </div>
           </div>
         </div>
       </div>
-            </div>
-           </div>
-      </div>
+    </div>
   <footer>
     <p id="page-top"><a href="#"><span class="glyphicon glyphicon-upload" aria-hidden="true"></span></a></p>
     <div class="footer-logo">
