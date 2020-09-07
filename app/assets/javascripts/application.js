@@ -128,3 +128,25 @@ $(window).scroll(function (){
             }
         });
     });
+
+$(window).scroll(function (){
+    $('.message-section').each(function(){
+        var elemPos = $(this).offset().top,
+            scroll = $(window).scrollTop(),
+            windowHeight = $(window).height();
+          if (scroll > elemPos - windowHeight + 100){
+              $(this).addClass('scrollin');
+            }
+        });
+    });
+
+$(window).scroll(function (){
+    $('.others-section').each(function(){
+        var elemPos = $(this).offset().top,
+            scroll = $(window).scrollTop(),
+            windowHeight = $(window).height();
+          if (scroll > elemPos - windowHeight + 100){
+              $(this).addClass('scrollin');
+            }
+        });
+    });

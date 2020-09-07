@@ -19,20 +19,7 @@
 		<%= render partial: "shared/flash" %>
 	    <!--                        -->
 
-		<!--     メッセージアイコン -->
-
-		<% unless @user.id == current_user.id %>
-			<% if @room %>
-				<%= link_to room_path(@room) do %>
-					<%= fa_icon "envelope 3x" %>
-				<% end %>
-			<% else %>
-				<%= link_to rooms_path(@roomId, room: { guest_id: @user.id}), method: :post do %>
-					<%= fa_icon "envelope-o 3x" %>
-				<% end %>
-			<% end %>
-		<% end %>
-		<!-- 　　　　　　　　　　 -->
+		
 		<!--        プロフィール　　　　 -->
 		<div class="margin-container row">
 			<div class="col-xs-offset-3 col-xs-6">
@@ -43,6 +30,23 @@
 					  		<%= attachment_image_tag @user, :image, :fill, 150, 150, fallback: "no-image.jpg", size:"150x150" %>
 					  	</div>
 					</div>
+					<!--     メッセージアイコン -->
+					<div class="row">
+						<div class="col-xs-offset-10">
+							<% unless @user.id == current_user.id %>
+								<% if @room %>
+									<%= link_to room_path(@room) do %>
+										<%= fa_icon "envelope 3x" %>
+									<% end %>
+								<% else %>
+									<%= link_to rooms_path(@roomId, room: { guest_id: @user.id}), method: :post do %>
+										<%= fa_icon "envelope-o 3x" %>
+									<% end %>
+								<% end %>
+							<% end %>
+						</div>
+					</div>
+						<!-- 　　　　　　　　　　 -->
 					  <div class="row">
 					  	<div class="profile-item col-xs-offset-1 col-xs-7">
 					  		<strong class="profile-tag">　Name　</strong><%= @user.name %>
@@ -68,6 +72,7 @@
 				      		  	<% end %>
 					  	</div>
 					  </div>
+					  
 					  <div class="row">
 					  	<div class="profile-item col-xs-offset-9 col-xs-5">
 					  		<% if @user.id == current_user.id %>
