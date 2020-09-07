@@ -34,6 +34,7 @@
 			<% end %>
 		</div>
 				<!-- 　　　　　　　　　　　 -->
+		
 			<!-- ランキング   -->
 	<hr>
 		<div class="row">
@@ -74,6 +75,38 @@
 				</div>
 			</div>
 			<!--       ランキングここまで     -->
+			<!--            天気　　　　　　 -->
+		<div class="row">
+			<div class="tokyo-weather">
+				<div class="weather"></div>
+				TOKYO
+				Todays weather<%= @tokyo_weather["weather"][0]["main"] %>
+				<%= image_tag "http://openweathermap.org/img/wn/" + @tokyo_weather["weather"][0]["icon"] + "@2x.png" %>
+				<div class="temp"></div>
+				<div class="weatherMark"></div>
+				Temperature<%= @tokyo_weather["main"]["temp"] %>°
+			</div>
+		</div>
+		<div class="row">
+			<div class="tokyo-weather">
+				OSAKA
+				Todays weather<%= @osaka_weather["weather"][0]["main"] %>
+				Temperature<%= @osaka_weather["main"]["temp"] %>°
+				<%= image_tag "http://openweathermap.org/img/wn/" + @osaka_weather["weather"][0]["icon"] + "@2x.png" %>
+
+			</div>
+		</div>
+		<div class="row">
+			<div class="tokyo-weather">
+				CEBU
+				Todays weather<%= @cebu_weather["weather"][0]["main"] %>
+				Temperature<%= @cebu_weather["main"]["temp"] %>°
+				<%= image_tag "http://openweathermap.org/img/wn/" + @cebu_weather["weather"][0]["icon"] + "@2x.png" %>
+
+			</div>
+		</div>
+
+		<!-- 　ーーーーーーーーーーーーーーーーー -->
 
 			<!-- 　　　　　　　　　投稿一覧　　　　　　　　 -->
 		<hr>

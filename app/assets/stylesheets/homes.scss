@@ -19,6 +19,7 @@
 	text-align: center;
 	margin-top: 200px;
 	font-family: 'Sawarabi Mincho', sans-serif;
+	font-weight: bold;
 }
 
 /*ーーーーーーーーーーーーーーーー*/
@@ -92,6 +93,12 @@
 
 }
 
+.post-tutorial {
+	height: 700px;
+	background-color: white;
+
+}
+
 .recruit-section {
 	opacity: 0;
 	transform: translate(0, 50px);
@@ -125,6 +132,13 @@
 
 .recruit-text p {
 	font-size: 50px;
+}
+
+.recruit-tutorial {
+	height: 700px;
+	background-color: white;
+
+
 }
 
 
@@ -164,6 +178,11 @@
 	font-size: 50px;
 	align-items: center;
 
+}
+
+.message-tutorial {
+	height: 700px;
+	background-color: white;
 }
 
 .others-section {

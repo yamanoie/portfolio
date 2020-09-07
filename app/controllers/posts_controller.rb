@@ -1,3 +1,7 @@
+require 'net/http'
+require 'uri'
+require 'json'
+
 class PostsController < ApplicationController
   before_action :initialize_contact, only: [:index, :edit, :show]
   before_action :authenticate_user!, only: [:edit]
@@ -8,7 +12,17 @@ class PostsController < ApplicationController
   	@posts = Post.includes(:user).order(created_at: "DESC").page(params[:page]).per(8)
     @all_ranks = Post.find(Like.group(:post_id).order("count(post_id) desc").limit(3).pluck(:post_id))
     @slider_posts = Post.where.not(image_id: nil).limit(8)
-
+    # tokyo_code = "q=Tokyo,jp"
+    # weather_url = "https://api.openweathermap.org/data/2.5/weather?" + tokyo_code + "&units=metric&cnt=3&appid="
+    # weather_url += ENV["OPEN_WEATHER_API_KEY"]
+    # uri = URI.parse(weather_url)
+    # json = Net::HTTP.get(uri)
+    # result = JSON.parse(json)
+    # _code = "q=,jp"
+    @tokyo_weather = get_weather("q=Tokyo,jp")
+    @osaka_weather = get_weather("q=Osaka,jp")
+    @cebu_weather = get_weather("q=Cebu,ph")
+    # binding.pry
   end
 
   def show
@@ -60,6 +74,14 @@ class PostsController < ApplicationController
 private
   def post_params
   	params.require(:post).permit(:text, :image)
+  end
+
+  def get_weather(_code)
+    weather_url = "https://api.openweathermap.org/data/2.5/weather?" + _code + "&units=metric&cnt=3&appid="
+    weather_url += ENV["OPEN_WEATHER_API_KEY"]
+    uri = URI.parse(weather_url)
+    json = Net::HTTP.get(uri)
+    result = JSON.parse(json)
   end
 
 end
