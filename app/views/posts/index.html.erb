@@ -86,19 +86,21 @@
 	<hr>
 		<div class="row">
 			<div class="col-xs-offset-3 col-xs-6">
-			<h2 class="title">- <%= fa_icon "users" %> Ranking -</h2>
+			<h2 class="rank-title">- <%= fa_icon "users" %> Ranking -</h2>
 				 <% @all_ranks.each.with_index(1) do |post, i| %>
 			  <div class="post_content box-design">
-				 	<h2  class="rank">
+			  	<div class="col-xs-offset-3 col-xs-7">
+			  		<h2  class="rank">
 				 		<% if i == 1 then %>
-				 		  <img src="/assets/gold.png" class="crown">
+				 		  - <img src="/assets/gold.png" class="crown">
 				 		<% elsif i == 2 then %>
-				 		  <img src="/assets/silver.png" class="crown">
+				 		  - <img src="/assets/silver.png" class="crown">
 				 		<% elsif i == 3 then %>
-				 		  <img src="/assets/bronz.png" class="crown">
+				 		  - <img src="/assets/bronz.png" class="crown">
 				 		<% end %>
-				 		<strong class="best">Best <%= i%></strong>
+				 		<strong class="best">Best <%= i%></strong> -
 				 	</h2>
+			  	</div>
 		             <%= attachment_image_tag post, :image %>
 		             <div class="row">
 		             	<div class="post-index-user-image col-xs-offset-1 col-xs-2">
@@ -152,7 +154,7 @@
 		<hr>
 			<div class="margin-container row">
 			　　<div class="col-xs-offset-4 col-xs-4">
-					<h2 class="title">- <%= fa_icon "globe" %> Latest posts -</h2>
+					<h2 class="post-index-title">- <%= fa_icon "globe" %> Latest posts -</h2>
 					<% @posts.each do |post| %>
 					<div class="box-design">
 						<div class="row">

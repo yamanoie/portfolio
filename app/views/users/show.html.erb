@@ -23,7 +23,7 @@
 		<!--        プロフィール　　　　 -->
 		<div class="margin-container row">
 			<div class="col-xs-offset-3 col-xs-6">
-				<h2 class="title">- <%= fa_icon "address-card-o" %> <%= @user.name%>`s Profile -</h2>
+				<h2 class="profile-title">- <%= fa_icon "address-card-o" %> <%= @user.name%>`s Profile -</h2>
 				<div class="box-simple">
 					<div class="row">
 					  	<div class="profile-image col-xs-offset-4 col-xs-5">
@@ -89,7 +89,7 @@
 			<hr>
 			<div class="margin-container row">
 				<div class="col-xs-offset-3 col-xs-6">
-					<h2 class="title">- <%= fa_icon "bell-o" %> Notifications -</h2>
+					<h2 class="notification-title">- <%= fa_icon "bell-o" %> Notifications -</h2>
 					<% notifications = @notifications.where.not(visitor_id: current_user.id) %>
 					<% if notifications.exists? %>
 						<% @notifications.each do |notification| %>
@@ -109,7 +109,7 @@
 		<hr>
 		<div class="margin-container　row">
 			<div class="col-xs-offset-1 col-xs-5">
-				<h2 class="title">- <%= fa_icon "clone" %> <%= @user.name %>`s All Posts -</h2>
+				<h2 class="post-title">- <%= fa_icon "clone" %> <%= @user.name %>`s All Posts -</h2>
 				  <% @posts.each do |post| %>
 				  <div class="box-design-post">
 				  	<div id="user-show-post-image">
@@ -121,7 +121,7 @@
 			  		</div>
 			       <!-- 　　　　　　　　　 -->
 			       <div class="row">
-			  		<div class="user-show-post-text col-xs-offset-2 col-xs-8">
+			  		<div class="user-show-post-text col-xs-offset-1 col-xs-10">
 		           	 <strong><%= post.text %></strong>
 		           	</div>
 		           </div>
@@ -154,7 +154,7 @@
 		<!--       マッチング投稿一覧        -->
 		<div class="margin-container row">
 			<div class="col-xs-offset-1 col-xs-5">
-				<h2 class="title">- <%= fa_icon "handshake-o" %> <%= @user.name %>`s Recruit posts -</h2>
+				<h2 class="match-title">- <%= fa_icon "handshake-o" %> <%= @user.name %>`s Recruit posts -</h2>
 				 <% @matches.each do |match| %>
 				 <div class="box-simple">
 					 <% if match.blank? %>

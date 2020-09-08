@@ -35,6 +35,13 @@
 	margin-bottom: 1em;
 }
 
+.rank-title {
+	text-align: center;
+	background-color: #FF6633;
+	margin: 0 auto;
+	width: 300px;
+}
+
 /**天気*/
 
 
@@ -87,6 +94,13 @@
 
 /*投稿一覧*/
 
+
+.post-index-title {
+	text-align: center;
+	background-color: #0099FF;
+}
+
+
 .post-index-more {
 	background-color: yellow;
 	text-align: center;
@@ -130,11 +144,19 @@
 }
 
 
+.post-show-title {
+	text-align: center;
+	background-color: #CCCC33;
+}
+
 
 
 /*  投稿編集*/
 
-
+.edit-title {
+	text-align: center;
+	background-color: #B8860B;
+}
 
 
 .post-image-filed {
@@ -167,6 +189,12 @@
 }
 
 /*コメント*/
+
+.comment-title {
+	text-align: center;
+	background-color: #87CEFA;
+}
+
 
 .comment-btn {
 	margin-bottom: 2em;

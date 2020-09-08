@@ -6,6 +6,35 @@
 
 /*ユーザー詳細*/
 
+.profile-title {
+  text-align: center;
+  background-color: #6666FF;
+  margin-bottom: 1em;
+}
+
+.notification-title {
+  text-align: center;
+  background-color: #66FF33;
+}
+
+.post-title {
+  text-align: center;
+  background-color: #FF9900;
+}
+
+.match-title {
+  text-align: center;
+  background-color: #FF5192;
+  font-size: 30px;
+  margin-bottom: 2em;
+}
+
+.users-title {
+  background-color: #FF9900;
+
+}
+
+
 .user-show-post {
   color: white;
 }
@@ -49,6 +78,7 @@
 .user-show-post-text {
   margin-top: 1em;
   margin-bottom: 1em;
+  word-wrap: break-word;
 
 }
 
@@ -172,6 +202,19 @@
 }
 
  /*ユーザーサインイン*/
+
+.sign-up-title {
+  text-align: center;
+  background-color: #66FF33;
+  margin-bottom: 1em;
+}
+
+.login-title {
+  text-align: center;
+  background-color: #0099FF;
+  margin-bottom: 1em;
+}
+
 
  .devise-wrapper {
   height: auto;
