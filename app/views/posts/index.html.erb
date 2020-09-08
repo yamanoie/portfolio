@@ -34,107 +34,178 @@
 			<% end %>
 		</div>
 				<!-- 　　　　　　　　　　　 -->
+				<!--            天気　　　　　　 -->
+			<div class="row weather-section">
+				<div class="col-xs-offset-3 col-xs-6">
+					<h3 class="weather-title">- Today`s Weather -</h3>
+					<table class="table table-bordered table-responsive">
+						<thead>
+							<tr>
+								<th class="weather-thead col-xs-2"><strong>City</strong></th>
+								<th class="weather-thead col-xs-2"><strong>Weather</strong></th>
+								<th class="weather-thead col-xs-2"><strong>Temperature</strong></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="city-name"><i>Cebu</i></td>
+								<td class="city-name"><i>Tokyo</i></td>
+								<td class="city-name"><i>Osaka</i></td>
+							</tr>
+							<tr>
+								<td class="weather-icon"><%= image_tag "http://openweathermap.org/img/wn/" + @cebu_weather["weather"][0]["icon"] + "@2x.png" %>
+								</td>
+								<td class="weather-icon">
+									<%= image_tag "http://openweathermap.org/img/wn/" + @tokyo_weather["weather"][0]["icon"] + "@2x.png" %>
+								</td>
+								<td class="weather-icon">
+									<%= image_tag "http://openweathermap.org/img/wn/" + @osaka_weather["weather"][0]["icon"] + "@2x.png" %>
+								</td>
+							</tr>
+							<tr>
+								<td class="temp">
+									<%= @cebu_weather["main"]["temp"].floor(1) %>℃
+								</td>
+								<td class="temp">
+									<%= @tokyo_weather["main"]["temp"].floor(1) %>℃
+								</td>
+								<td class="temp">
+									<%= @osaka_weather["main"]["temp"].floor(1) %>℃
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			</div>
+		</div>
+
+		<!-- 　ーーーーーーーーーーーーーーーーー -->
 		
 			<!-- ランキング   -->
 	<hr>
 		<div class="row">
-			<div class="col-xs-offset-3 col-xs-5">
-			<h2 class="title">- Best 3 -</h2>
+			<div class="col-xs-offset-3 col-xs-6">
+			<h2 class="title">- <%= fa_icon "users" %> Ranking -</h2>
 				 <% @all_ranks.each.with_index(1) do |post, i| %>
 			  <div class="post_content box-design">
 				 	<h2  class="rank">
 				 		<% if i == 1 then %>
-				 		  <img src="/assets/gold.png">
+				 		  <img src="/assets/gold.png" class="crown">
 				 		<% elsif i == 2 then %>
-				 		  <img src="/assets/silver.png">
+				 		  <img src="/assets/silver.png" class="crown">
 				 		<% elsif i == 3 then %>
-				 		  <img src="/assets/bronz.png">
+				 		  <img src="/assets/bronz.png" class="crown">
 				 		<% end %>
-				 		Best <%= i%>
+				 		<strong class="best">Best <%= i%></strong>
 				 	</h2>
-		 			<%= attachment_image_tag post.user, :image,  fallback: "no-image.jpg", size:"60x60" %>
-					<%= link_to user_path(post.user.id) do %>
-						<%= post.user.name %>
-					<% end %>
-					<!--          いいね       -->
-					<div class="likes_buttons_<%= post.id %>">
-						<%= render partial: "likes/like", locals: {post: post } %>
+		             <%= attachment_image_tag post, :image %>
+		             <div class="row">
+		             	<div class="post-index-user-image col-xs-offset-1 col-xs-2">
+		 					<%= attachment_image_tag post.user, :image,  fallback: "no-image.jpg", size:"100x100" %>
+		             	</div>
+		             </div>
+		             <div class="row">
+		             	<div class="post-index-user-name col-xs-offset-1 col-xs-3">
+		             		<%= link_to user_path(post.user.id) do %>
+								<strong><%= post.user.name %></strong>
+							<% end %>
+		             	</div>
+		             </div>
+		             <div class="row">
+		             	<div class="col">
+		             		<!--          いいね       -->
+							<div class="likes_buttons_<%= post.id %>">
+								<%= render partial: "likes/like", locals: {post: post } %>
+							</div>
+				              	<!-- 　　　　　             -->
+						</div>
 					</div>
-		              	<!-- 　　　　　             -->
-			            <%= post.text %>
-		              	<!-- コメント数 -->
-		              	<%= fa_icon "comment-o" %>
-		              	 <%= post.comments.count %> Comments
-		              	 <!--       -->
-	                    <%= fa_icon "calendar" %>
-		              	<%= create_time_with_country(current_user, post) %>
-		              	<%= attachment_image_tag post, :image %>
-			            <%= link_to "more",post_path(post) %>
+		             <div class="row">
+		             	<div class="post-index-post-text col-xs-offset-1 col-xs-10">
+			           		 <strong><%= post.text %></strong>
+		             	</div>
+		             </div>
+		             <div class="row">
+		             	<div class="col-xs-offset-7 col-xs-6">
+		             		<!-- コメント数 -->
+				              <%= fa_icon "comment-o" %>
+				              <%= post.comments.count %>
+				               <!--             -->
+		             		<%= fa_icon "calendar" %>
+		              		<%= create_time_with_country(current_user, post) %>
+		             	</div>
+		             </div>
+		             <div class="row">
+		             	<div class="post-index-more col-xs-offset-8 col-xs-2">
+			            	<%= link_to "more",post_path(post) %>
+		             	</div>
+		             </div>
 			        </div>
 		             <% end %>
 				</div>
 			</div>
 			<!--       ランキングここまで     -->
-			<!--            天気　　　　　　 -->
-		<div class="row">
-			<div class="tokyo-weather">
-				<div class="weather"></div>
-				TOKYO
-				Todays weather<%= @tokyo_weather["weather"][0]["main"] %>
-				<%= image_tag "http://openweathermap.org/img/wn/" + @tokyo_weather["weather"][0]["icon"] + "@2x.png" %>
-				<div class="temp"></div>
-				<div class="weatherMark"></div>
-				Temperature<%= @tokyo_weather["main"]["temp"] %>°
-			</div>
-		</div>
-		<div class="row">
-			<div class="tokyo-weather">
-				OSAKA
-				Todays weather<%= @osaka_weather["weather"][0]["main"] %>
-				Temperature<%= @osaka_weather["main"]["temp"] %>°
-				<%= image_tag "http://openweathermap.org/img/wn/" + @osaka_weather["weather"][0]["icon"] + "@2x.png" %>
-
-			</div>
-		</div>
-		<div class="row">
-			<div class="tokyo-weather">
-				CEBU
-				Todays weather<%= @cebu_weather["weather"][0]["main"] %>
-				Temperature<%= @cebu_weather["main"]["temp"] %>°
-				<%= image_tag "http://openweathermap.org/img/wn/" + @cebu_weather["weather"][0]["icon"] + "@2x.png" %>
-
-			</div>
-		</div>
-
-		<!-- 　ーーーーーーーーーーーーーーーーー -->
+			
 
 			<!-- 　　　　　　　　　投稿一覧　　　　　　　　 -->
 		<hr>
 			<div class="margin-container row">
-			　　<div class="col-xs-offset-3 col-xs-7">
-					<h2 class="title">- Latest posts -</h2>
+			　　<div class="col-xs-offset-4 col-xs-4">
+					<h2 class="title">- <%= fa_icon "globe" %> Latest posts -</h2>
 					<% @posts.each do |post| %>
-					<h1></h1>
-					<%= attachment_image_tag post.user, :image, fallback: "no-image.jpg", size:"60x60" %>
-					<%= link_to user_path(post.user.id) do %>
-						<%= post.user.name %>
-					<% end %>
-					<!--          いいね       -->
-					<div id="likes_buttons_<%= post.id %>">
-						<%= render partial: "likes/like", locals: {post: post} %>
-			  		</div>
-	              	<!-- 　　　　　             -->
-		            <%= post.text %>
-	              	<!-- コメント数 -->
-	              	<%= fa_icon "comment-o" %>
-	              	 <%= post.comments.count %> Comments
-	              	 <!--       -->
-                    <%= fa_icon "calendar" %>
-		            <%= create_time_with_country(current_user, post) %>
-	              	<%= attachment_image_tag post, :image  %>
-		            <%= link_to "more",post_path(post) %>
+					<div class="box-design">
+						<div class="row">
+							<div class="col">
+		              			<%= attachment_image_tag post, :image %>
+							</div>
+						</div>
+						<div class="row">
+							<div class="post-index-user-image col-xs-offset-1 col-xs-2">
+								<%= attachment_image_tag post.user, :image, fallback: "no-image.jpg", size:"60x60" %>
+							</div>
+						</div>
+						<div class="row">
+							<div class="post-index-user-name col-xs-offset-1 col-xs-3">
+								<%= link_to user_path(post.user.id) do %>
+									<%= post.user.name %>
+								<% end %>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col">
+								<!--          いいね       -->
+								<div id="likes_buttons_<%= post.id %>">
+									<%= render partial: "likes/like", locals: {post: post} %>
+						  		</div>
+				              	<!-- 　　　　　             -->
+							</div>
+						</div>
+						<div class="row">
+			             	<div class="post-index-post-text col-xs-offset-1 col-xs-10">
+				           		 <strong><%= post.text %></strong>
+			             	</div>
+			             </div>
+						<div class="row">
+							<div class="col-xs-offset-5 col-xs-8">
+								<!-- コメント数 -->
+				              	<%= fa_icon "comment-o" %>
+				              	<%= post.comments.count %>
+		              	 		<!--            -->
+		              	 		<%= fa_icon "calendar" %>
+			            		<%= create_time_with_country(current_user, post) %>
+							</div>
+						</div>
+						<div class="row">
+							<div class="post-index-more col-xs-offset-8 col-xs-2">
+			            		<%= link_to "more",post_path(post) %>
+							</div>
+						</div>
+					</div>
 	              	<% end %>
-	              	<%= paginate @posts %>
+	              	<div class="col-xs-offset-4">
+	              		<%= paginate @posts, data: {"turbolinks" => false} %>
+	              	</div>
 			　　</div>
 			</div>
 			<!-- 　　投稿一覧ここまで　　　　　　　　　　　　　　　　　　　 -->
