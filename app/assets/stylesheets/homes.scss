@@ -24,6 +24,18 @@
 
 /*ーーーーーーーーーーーーーーーー*/
 
+.tutorial {
+	height: 700px;
+	background-color: #330033;
+	text-align: center;
+}
+
+.tutorial video {
+	margin-top: 4em;
+}
+
+
+
 .about-section {
 	opacity: 0;
 	transform: translate(0, 50px);
@@ -93,11 +105,7 @@
 
 }
 
-.post-tutorial {
-	height: 700px;
-	background-color: white;
 
-}
 
 .recruit-section {
 	opacity: 0;
@@ -134,12 +142,7 @@
 	font-size: 50px;
 }
 
-.recruit-tutorial {
-	height: 700px;
-	background-color: white;
 
-
-}
 
 
 .message-section {
@@ -180,10 +183,7 @@
 
 }
 
-.message-tutorial {
-	height: 700px;
-	background-color: white;
-}
+
 
 .others-section {
 	height: 700px;
@@ -229,3 +229,10 @@
 	font-size: 100px;
 	font-weight: bold;
 }
+
+
+
+
+
+
+

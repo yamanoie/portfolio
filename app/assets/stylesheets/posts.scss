@@ -3,7 +3,9 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-
+#slider-image {
+	height: 450px;
+}
 
 
 
@@ -23,6 +25,11 @@
 }
 
 /*ランキング*/
+
+#rank-post-image {
+	height: 500px;
+}
+
 
 .best {
 	font-size: 40px;
@@ -102,6 +109,7 @@
 
 
 /*投稿一覧*/
+
 
 
 .post-index-title {

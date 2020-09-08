@@ -63,7 +63,7 @@ $(function(){
 		autoHover: true,
 		autoStart: true,
 		infiniteLoop: true,
-		slideWidth: 600,
+		slideWidth: 750,
 		pager: true,
         touchEnabled: false
 	});

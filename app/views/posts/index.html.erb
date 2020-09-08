@@ -26,7 +26,7 @@
 		<div class="bxslider">
 			<% @slider_posts.each do |post| %>
 					<%= link_to post_path(post) do%>
-				    <%= attachment_image_tag post, :image %>
+				    <%= attachment_image_tag post, :image ,id: "slider-image"%>
 					<%= post.user.name %>
 		      		<%= fa_icon "heart",style: "color=: red;"%>
 		  			<%= post.likes.count %>
@@ -93,7 +93,7 @@
 				 		<strong class="best">Best <%= i%></strong> -
 				 	</h2>
 			  	</div>
-		             <%= attachment_image_tag post, :image %>
+		             <%= attachment_image_tag post, :image , id: "rank-post-image" %>
 		             <div class="row">
 		             	<div class="post-index-user-image col-xs-offset-1 col-xs-2">
 		 					<%= attachment_image_tag post.user, :image,  fallback: "no-image.jpg", size:"100x100", id: "round-user-image" %>
