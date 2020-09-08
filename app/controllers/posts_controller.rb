@@ -11,6 +11,7 @@ class PostsController < ApplicationController
   def index
   	@posts = Post.includes(:user).order(created_at: "DESC").page(params[:page]).per(8)
     @all_ranks = Post.find(Like.group(:post_id).order("count(post_id) desc").limit(3).pluck(:post_id))
+    # binding.pry
     @slider_posts = Post.where.not(image_id: nil).limit(8)
     # tokyo_code = "q=Tokyo,jp"
     # weather_url = "https://api.openweathermap.org/data/2.5/weather?" + tokyo_code + "&units=metric&cnt=3&appid="
