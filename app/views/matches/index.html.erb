@@ -54,7 +54,7 @@
 		<div class="row">
 			<div class="col-xs-offset-2 col-xs-8">
 				<% @matches.each do |match| %>
-				<div class="box-design">
+				<div class="box-simple">
 					<div class="row">
 						<div class="match-title-wrapper col-xs-offset-1 col-xs-10 ">
 							<strong class="match-index-title"><%= match.title %></strong>
@@ -62,7 +62,7 @@
 					</div>
 					<div class="row">
 						<div class="col-xs-offset-1">
-							<%= attachment_image_tag match.user, :image, :fill, 80, 80, fallback: "no-image.jpg", size:"80x80" %>
+							<%= attachment_image_tag match.user, :image, :fill, 80, 80, fallback: "no-image.jpg", size:"80x80", id: "round-user-image" %>
 						</div>
 					</div>
 					<div class="row">
@@ -84,7 +84,7 @@
 						</div>
 					</div>
 					<div class="row">
-						<div class="box-design col">
+						<div class="box-simple col-xs-offset-1 col-xs-10">
 							<p class="match-text"><%= match.text%></p>
 							<div class="row">
 								<div class="col-xs-offset-9">
@@ -111,7 +111,7 @@
 		<div class="row">
 			<div class="col-xs-offset-4 col-xs-4">
 				<h2 class="match-form-title">- <%= fa_icon "pencil" %>Recruit Form -</h2>
-				<div class="box">
+				<div class="box-simple">
 				<%= form_with model:@match, local: true do |f| %>
 				<div class="row">
 					<div class="match-margin col-xs-offset-1">

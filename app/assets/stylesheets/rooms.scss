@@ -2,6 +2,16 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+#round-user-image {
+    border-radius: 50% 50% 50% 50%;
+}
+
+
+
+.message-user-name {
+	text-align: center;
+}
+
 
 .message-title {
   text-align: center;
@@ -21,18 +31,39 @@
 
 .chat-btn {
 	margin-top: 1em;
+	margin-bottom: 1em;
 }
 
 .message-form-title {
 	text-align: center;
 }
 
-.box-design-message {
+.box-design-message-center {
 	 margin: 2em auto;
 	 padding: 1em 1.5em;
-	 width: 90%;
+	 width: 80%;
 	 color: #777777;
-	 background-color: #E4FF8D;
+	 background-color: #66FF33;
 	 border: 4px solid #f6bfbc;
 	 border-radius: 3em .8em 3em .7em/.9em 2em .8em 3em;
+}
+
+.box-design-center {
+	 margin: 0 auto;
+	 padding: 1em 1.5em;
+	 width: 80%;
+	 color: #777777;
+	 background-color: #fff;
+	 border: 4px solid gray;
+	 border-radius: 3em .8em 3em .7em/.9em 2em .8em 3em;
+}
+
+.box-design-message {
+	margin: 0 auto;
+    padding: 1em 1.5em;
+    width: 80%;
+    color: #777777;
+    background-color: #66FF33;
+    border: 4px solid gray;
+    border-radius: 3em .8em 3em .7em/.9em 2em .8em 3em;
 }

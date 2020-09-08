@@ -1,7 +1,7 @@
 <div class="container">
 	<% if user_signed_in? %>
 		<div class="user-box">
-		  <%= attachment_image_tag current_user, :image, :fill, 60, 60, fallback: "no-image.jpg", size:"60x60" %>
+		  <%= attachment_image_tag current_user, :image, fallback: "no-image.jpg", size:"60x60", id: "round-user-image" %>
 		  <p>Welcome!</p>
 		  <%= link_to current_user.name, user_path(current_user),class: "user-name" %>
 		  <%= link_to user_path(current_user) do %>

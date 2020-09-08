@@ -34,7 +34,7 @@
           user = @room.user
         end
           %>
-        <%= attachment_image_tag user, :image, :fill, 100, 100,  fallback: "no-image.jpg", size:"100x100", class: "message-user" %>
+        <%= attachment_image_tag user, :image,  fallback: "no-image.jpg", size:"100x100", class: "message-user" %>
             <strong>
               <%= link_to user.name ,user_path(user.id), class: "message-user" %>
             </strong>

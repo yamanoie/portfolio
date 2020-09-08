@@ -1,6 +1,6 @@
 <div class="box-simple">
 	<div class="col-xs-3">
-		<%= attachment_image_tag comment.user, :image, :fill, 60, 60, fallback: "no-image.jpg", size:"60x60" %>
+		<%= attachment_image_tag comment.user, :image, fallback: "no-image.jpg", size:"60x60", id: "round-user-image" %>
 		<%= link_to user_path(comment.user) do %>
 		<div class="row">
 			<div class="col-xs-offset-3">

@@ -40,6 +40,8 @@
 	background-color: #FF6633;
 	margin: 0 auto;
 	width: 300px;
+	margin-top: 3em;
+	margin-bottom: 2em;
 }
 
 /**天気*/
@@ -81,6 +83,10 @@
 	margin-top:  1em;
 }
 
+.upload-image {
+	margin-top:  2em;
+
+}
 
 
 
@@ -89,7 +95,10 @@
 	margin-bottom: 1em;
 }
 
-
+.new-post-title {
+	text-align: center;
+	background-color: #0099FF;
+}
 
 
 /*投稿一覧*/
@@ -98,6 +107,8 @@
 .post-index-title {
 	text-align: center;
 	background-color: #0099FF;
+	margin-top: 3em;
+	margin-bottom: 2em;
 }
 
 
@@ -169,6 +180,7 @@
 	margin-bottom: 1em;
 	margin-top: 1em;
 	font-size: 20px;
+	word-wrap: break-word;
 }
 
 .like-btn {
