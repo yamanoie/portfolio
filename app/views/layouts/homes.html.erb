@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Segurado!</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name=”viewport” content=”width=device-width,initial-scale=1.0″>
+  </head>
+  <body>
+    <%= yield %>
+  </body>
+  <footer>
+    <p id="page-top"><a href="#"><span class="glyphicon glyphicon-upload" aria-hidden="true"></span></a></p>
+      <!-- 　ロゴ　　　 -->
+    <div class="row">
+      <div class="footer-logo">
+        <%= link_to posts_path, data: {"turbolinks" => false} do %>
+                 <img src="/assets/logo2.jpg" alt="[Logo]whale shark">
+        <% end %>
+      </div>
+    </div>
+    <!--           -->
+  </footer>
+</html>
