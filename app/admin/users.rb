@@ -2,7 +2,7 @@ ActiveAdmin.register User do
   index do
     column :id
     column :image_id do |user|
-      image_tag attachment_url(user, :image, :fill, 100, 100)
+      attachment_image_tag(user, :image, :fill, 100, 100)
     end
     column :name
     bool_column :country

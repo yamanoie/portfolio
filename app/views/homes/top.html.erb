@@ -4,7 +4,7 @@
     <title>Segurado!</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <meta name=”viewport” content=”width=device-width,initial-scale=1.0″>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -39,6 +39,9 @@
       </div>
   </div>
   <div class="body">
+    <!--       フラッシュメッセージ　　　 -->
+    <%= render partial: "shared/flash" %>
+      <!--                        -->
      <div class="about-section">
         <div class="about">
           <h1 class=about-text>"Let`s meet again someday"<br> is here.</h1>
