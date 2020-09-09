@@ -1,18 +1,18 @@
 Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
+  mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root to: "homes#top"
+  root to: 'homes#top'
   resources :posts do
-  	resource :likes, only: [:create, :destroy]
-  	resources :comments, only: [:create, :destroy]
+    resource :likes, only: %i[create destroy]
+    resources :comments, only: %i[create destroy]
   end
-  resources :users, only: [:show, :edit, :update, :index]
-  resources :matches, only: [:index, :update, :destroy, :create, :edit]
+  resources :users, only: %i[show edit update index]
+  resources :matches, only: %i[index update destroy create edit]
   resources :contacts, only: [:create]
-  resources :messages, only: [:create, :destroy]
-  resources :rooms, only: [:create, :show]
-  resource :contacts, only: [:new, :create]
+  resources :messages, only: %i[create destroy]
+  resources :rooms, only: %i[create show]
+  resource :contacts, only: %i[new create]
 end

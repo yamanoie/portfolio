@@ -11,17 +11,15 @@ class User < ApplicationRecord
   has_many :messages, dependent: :destroy
   has_many :entries, dependent: :destroy
   has_many :rooms, dependent: :destroy
-  has_many :active_notifications, class_name: "Notification", foreign_key: "visitor_id", dependent: :destroy
-  has_many :passive_notifications, class_name: "Notification", foreign_key: "visited_id", dependent: :destroy
+  has_many :active_notifications, class_name: 'Notification', foreign_key: 'visitor_id', dependent: :destroy
+  has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy
   attachment :image
 
   validates :name, presence: true
   validates :email, presence: true
   validates :country, inclusion: { in: [true, false] }
-  VALID_PASSWORD_REGEX = /\A[a-z0-9]+\z/i
+  VALID_PASSWORD_REGEX = /\A[a-z0-9]+\z/i.freeze
   validates :password, format: { with: VALID_PASSWORD_REGEX }, on: :create
-
-
 
   def like_sum
     sum = 0
@@ -30,5 +28,4 @@ class User < ApplicationRecord
     end
     sum
   end
-
 end

@@ -19,17 +19,13 @@
 
 # Learn more: http://github.com/javan/whenever
 
-
-
-require File.expand_path(File.dirname(__FILE__) + "/environment")
-set :output, "log/crontab.log"
+require File.expand_path(File.dirname(__FILE__) + '/environment')
+set :output, 'log/crontab.log'
 # cronを実行する環境変数
 rails_env = ENV['RAILS_ENV'] || :development
 # cronを実行する環境変数をセット
 set :environment, rails_env
 
-
 every 1.day do
-	runner "Notification.destroy_read_notifications"
+  runner 'Notification.destroy_read_notifications'
 end
-
