@@ -18,11 +18,8 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :email, presence: true
   validates :country, inclusion: { in: [true, false] }
-  validate :password_complexity
-  def password_complexity
-    return if password =~ /\A[a-z0-9]+\z/i
-    errors.add :password, 'should be included English or numbers'
-  end
+  VALID_PASSWORD_REGEX = /\A[a-z0-9]+\z/i
+  validates :password, format: { with: VALID_PASSWORD_REGEX }, on: :create
 
 
 
