@@ -42,7 +42,7 @@
          </div>
          <div class="nav-list">
             <%= fa_icon "sign-out" %>
-            <%= link_to "Log out", destroy_user_session_path,method: :delete %>
+            <%= link_to "Log out", destroy_user_session_path, method: :delete %>
          </div>
        <% else %>
          <div class="nav-list">
@@ -63,9 +63,6 @@
             </div>
         <% end %>
     </ul>
-    <!-- プロフィール -->
-    <%= render "shared/simple_profile" %>
-    <!-- 　　　　　　　　　 -->
     </nav>
   </header>
   <body>

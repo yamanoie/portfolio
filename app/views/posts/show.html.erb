@@ -4,7 +4,7 @@
 		<div class="row">
 			<div class="col-xs-4">
 				<ol class="breadcrumb">
-					<li><%= link_to "Home", posts_path, data: {"turbolinks" => false}, class: "glyphicon glyphicon-home" %></li>
+					<li><%= link_to "Home", posts_path, data: { "turbolinks" => false }, class: "glyphicon glyphicon-home" %></li>
 					<li class="active">Post</li>
 				</ol>
 			</div>
@@ -45,7 +45,7 @@
 					  <!-- 　　　　いいね　　　 -->
 					  <div class="row">
 						  <div id="likes_buttons_<%= @post.id %>">
-							<%= render partial: "likes/like", locals: {post: @post} %>
+							<%= render partial: "likes/like", locals: { post: @post } %>
 						  </div>
 					  </div>
 		          	<!-- 　　　　　　　 -->
@@ -63,7 +63,7 @@
 			          	<div class="row">
 			          		<div class="post-show-edit-btn col-xs-offset-9">
 			          			<% if @post.user_id == current_user.id %>
-			      		  			<%= link_to "Edit" , edit_post_path(@post), data: {"turbolinks" => false}, class: "btn btn-primary" %>
+			      		  			<%= link_to "Edit" , edit_post_path(@post), data: { "turbolinks" => false }, class: "btn btn-primary" %>
 			      		 		 <% end %>
 			          		</div>
 			      		</div>

@@ -2,8 +2,8 @@
 <div class="body">
 	<div class="post-index container">
 			<!-- 新規投稿ボタン -->
-			<%= link_to new_post_path, data: {"turbolinks" => false} do %>
-				<%= image_tag "/assets/logo-post.jpg",class: "logo-post" %>
+			<%= link_to new_post_path, data: { "turbolinks" => false } do %>
+				<%= image_tag "logo-post.jpg", class: "logo-post" %>
 			<% end %>
 			<!-- 　　　　　　　 -->
 			<!-- 　　　フラッシュメッセージ -->
@@ -92,13 +92,14 @@
 			  <div class="post_content box-simple">
 			  		<h2  class="rank">
 				 		<% if i == 1 then %>
-				 		  - <img src="/assets/gold.png" class="crown">
+        				  <%= image_tag 'gold.png', class: "crown" %>
 				 		<% elsif i == 2 then %>
-				 		  - <img src="/assets/silver.png" class="crown">
+        				  <%= image_tag 'silver.png', class: "crown" %>
+
 				 		<% elsif i == 3 then %>
-				 		  - <img src="/assets/bronz.png" class="crown">
+        				  <%= image_tag 'bronz.png', class: "crown" %>
 				 		<% end %>
-				 		<strong class="best">Best <%= i%></strong> -
+				 		  <strong class="best">Best <%= i%></strong>
 				 	</h2>
 		             <%= attachment_image_tag post, :image , id: "rank-post-image" %>
 		             <div class="row">
@@ -113,7 +114,7 @@
 		             	<div class="col">
 		             		<!--          いいね       -->
 							<div id="likes_buttons_<%= post.id %>">
-								<%= render partial: "likes/like", locals: {post: post } %>
+								<%= render partial: "likes/like", locals: { post: post } %>
 							</div>
 				              	<!-- 　　　　　             -->
 						</div>
@@ -169,7 +170,7 @@
 							<div class="col">
 								<!--          いいね       -->
 								<div id="likes_buttons_<%= post.id %>">
-									<%= render partial: "likes/like", locals: {post: post} %>
+									<%= render partial: "likes/like", locals: { post: post } %>
 						  		</div>
 				              	<!-- 　　　　　             -->
 							</div>
