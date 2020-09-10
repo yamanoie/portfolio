@@ -1,0 +1,5 @@
+DB_USERNAME="root"
+DB_PASSWORD="yamanoie28"
+DB_HOST="rds-mysql-server.ca1z2br7mlkc.ap-northeast-1.rds.amazonaws.com"
+DB_DATABASE="segurado"
+OPEN_WEATHER_API_KEY=1443315c4e85d71fd78dd51f0ac02c0d

@@ -4,14 +4,14 @@
 		<div class="row">
 			<div class="col-xs-4">
 				<ol class="breadcrumb">
-					<li><%= link_to "Home", posts_path, data: {"turbolinks" => false}, class: "glyphicon glyphicon-home" %></li>
+					<li><%= link_to "Home", posts_path, data: { "turbolinks" => false }, class: "glyphicon glyphicon-home" %></li>
 					<li class="active">My page</li>
 				</ol>
 			</div>
 		</div>
 		<!-- 　　　　　　 -->
 		<!--   簡易プロフィール -->
-		<% unless current_user.id == @user.id%>
+		<% unless current_user.id == @user.id %>
 			<%= render "shared/simple_profile" %>
 		<% end %>
 		<!-- 　　　　　　　 -->
@@ -37,7 +37,7 @@
 										<%= fa_icon "envelope 3x" %>
 									<% end %>
 								<% else %>
-									<%= link_to rooms_path(@roomId, room: { guest_id: @user.id}), method: :post do %>
+									<%= link_to rooms_path(@roomId, room: { guest_id: @user.id }), method: :post do %>
 										<%= fa_icon "envelope-o 3x" %>
 									<% end %>
 								<% end %>
@@ -84,7 +84,7 @@
 					  <div class="row">
 					  	<div class="profile-item col-xs-offset-9 col-xs-5">
 					  		<% if @user.id == current_user.id %>
-		      		  			<%= link_to "Edit" , edit_user_path(current_user), data: {"turbolinks" => false}, class: "btn btn-primary" %>
+		      		  			<%= link_to "Edit" , edit_user_path(current_user), data: { "turbolinks" => false }, class: "btn btn-primary" %>
 		      		  		<% end %>
 					  	</div>
 					  </div>
@@ -93,7 +93,7 @@
 		</div>
 		<!-- 　　　　プロフィール　　ここまで　　 -->
 		<!-- 通知一覧 -->
-		<% if current_user.id == @user.id%>
+		<% if current_user.id == @user.id %>
 			<hr>
 			<div class="margin-container row">
 				<div class="col-xs-offset-3 col-xs-6">
@@ -125,7 +125,7 @@
 				  	</div>
 				  <!-- 　　　　　　いいね　　　　　 -->
 					<div id="likes_buttons_<%= post.id %>" class= "user-show-like">
-						<%= render partial: "likes/like", locals: {post: post} %>
+						<%= render partial: "likes/like", locals: { post: post } %>
 			  		</div>
 			       <!-- 　　　　　　　　　 -->
 			       <div class="row">

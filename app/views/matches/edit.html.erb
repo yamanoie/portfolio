@@ -4,7 +4,7 @@
 		<div class="row">
 			<div class="col-xs-5">
 				<ol class="bread_crumb_recruit breadcrumb">
-					<li><%= link_to "Home", posts_path, data: {"turbolinks" => false}, class: "glyphicon glyphicon-home" %></li>
+					<li><%= link_to "Home", posts_path, data: { "turbolinks" => false }, class: "glyphicon glyphicon-home" %></li>
 					<li><%= link_to "Recruit", matches_path %></li>
 					<li class="active">Edit Post</li>
 				</ol>
@@ -43,7 +43,7 @@
 					<div class="row">
 						<div class="match-margin col-xs-offset-6">
 							<%= f.submit "Update", class: "btn btn-primary"%>
-							<%= link_to "Delete", match_path,method: :delete, data: {confirm: "Are you sure you want to delete it?",cancel:"No",commit:"Yes"},title:"Confirmation", class: "btn btn-danger" %>
+							<%= link_to "Delete", match_path, method: :delete, data: { confirm: "Are you sure you want to delete it?", cancel:"No", commit:"Yes" },title:"Confirmation", class: "btn btn-danger" %>
 						</div>
 					</div>
 					<% end %>
