@@ -2,7 +2,7 @@
 	<div class="container">
 		<!-- パンくずリスト -->
 		<div class="row">
-			<div class="col-xs-4">
+			<div class="col-xs-6">
 				<ol class="breadcrumb">
 					<li><%= link_to "Home", posts_path, data: {"turbolinks" => false}, class: "glyphicon glyphicon-home"%></li>
 					<li><%= link_to "My page", user_path(@user) %></li>
@@ -18,7 +18,7 @@
 				<%= render "shared/error_messages", model: @user %>
 				<!--                      -->
 		<div class="margin-container row">
-			<div class="edit-user col-xs-offset-3 col-xs-6">
+			<div class="edit-user col-xs-offset-2 col-xs-8">
 			<h2 class="edit-title">- <%= fa_icon "cog" %>  Edit User -</h2>
 				<div class="box-simple">
 					<%= form_with model:@user, local: true do |f| %>
@@ -39,7 +39,7 @@
 								<%= f.text_field :name ,class: "form-control"%>
 							</div>
 						</div>
-						<div class="col-xs-offset-1 col-xs-9">
+						<div class="col-xs-offset-1 col-xs-10">
 							<div class="form-group profile-field">
 								<%= f.label "Profile" ,class: "contorol-label" %><br >
 								<%= f.text_area :profile, class: "form-control", rows: "6" %>

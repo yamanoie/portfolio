@@ -27,7 +27,7 @@
 		</div>
 				<!-- 　　　　検索　　　　 -->
 		<div class="row">
-			<div class="recruit-search box col-xs-offset-3 col-xs-6">
+			<div class="recruit-search box col-xs-offset-2 col-xs-8">
 				<%= search_form_for @search do |f| %>
 					<div class="search-btn radio-inline">
 						<%= f.radio_button :occupation_eq,true %>
@@ -61,19 +61,15 @@
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-xs-offset-1 col-xs-2">
+						<div class="match-user-item">
 							<%= attachment_image_tag match.user, :image, fallback: "no-image.jpg", size:"100x100", id: "round-user-image" %>
-						</div>
-					</div>
-					<div class="row">
-						<div class="match-user-name col-xs-offset-1 col-xs-2">
 							<%= link_to user_path(match.user.id) do %>
-								<%= match.user.name%>
+								<p><%= match.user.name%></p>
 							<% end %>
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-xs-offset-1 col-xs-5 match-occupation">
+						<div class="col-xs-offset-1 col-xs-6 match-occupation">
 							<% if match.occupation == true %>
 								<%= fa_icon "users" %>
 								Search Students
@@ -109,7 +105,7 @@
 		<!-- 　　　　　　　　　　 -->
 		<!-- 　　　　　　　投稿フォーム　　　　　 -->
 		<div class="row">
-			<div class="col-xs-offset-4 col-xs-4">
+			<div class="col-xs-offset-3 col-xs-6">
 				<h2 class="match-form-title">- <%= fa_icon "pencil" %>Recruit Form -</h2>
 				<div class="box-simple">
 				<%= form_with model:@match, local: true do |f| %>

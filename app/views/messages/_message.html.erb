@@ -10,25 +10,19 @@
                         <div class="">
                       <% end %>
                     <div class="row">
-                      <div class="col">
-                        <%= attachment_image_tag m.user, :image, fallback: "no-image.jpg", size:"60x60", class: "col-xs-2" %>
+                      <div class="">
+                        <%= attachment_image_tag m.user, :image, fallback: "no-image.jpg", size:"60x60", class: "col-xs-2", id: "message-user-image" %>
                         <% if m.user.id == current_user.id %>
-                        <div class="chat box-design-center col-xs-10">
-                      <% else %>
-                        <div class="chat box-design-message col-xs-10">
-                      <% end %>
-                          <strong><%= m.message %></strong>
+                          <div class="chat box-design-center col-xs-10">
+                        <% else %>
+                          <div class="chat box-design-message col-xs-10">
+                        <% end %>
+                        <strong><%= m.user.name %>: </strong>
+                        <%= m.message %>
                       </div><br>
                       </div>
-
                     </div>
                     <div class="row">
-                      <div class="message-user-name col-xs-2">
-                            <%= m.user.name %>
-                      </div>
-                    </div>
-                    <div class="row">
-                      
                     </div>
                     <div class="row">
                       <div class="col-xs-offset-8">

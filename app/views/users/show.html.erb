@@ -2,7 +2,7 @@
 	<div class="container">
 		<!-- パンくずリスト -->
 		<div class="row">
-			<div class="col-xs-3">
+			<div class="col-xs-4">
 				<ol class="breadcrumb">
 					<li><%= link_to "Home", posts_path, data: {"turbolinks" => false}, class: "glyphicon glyphicon-home" %></li>
 					<li class="active">My page</li>
@@ -20,12 +20,12 @@
 	    <!--                        -->
 		<!--        プロフィール　　　　 -->
 		<div class="margin-container row">
-			<div class="col-xs-offset-3 col-xs-6">
-				<h2 class="profile-title">- <%= fa_icon "address-card-o" %> <%= @user.name%>`s Profile -</h2>
+			<div class="col-xs-offset-2 col-xs-8">
+				<h2 class="profile-title">- <%= fa_icon "address-card-o" %> <%= @user.name %>`s Profile -</h2>
 				<div class="box-simple">
 					<div class="row">
-					  	<div class="profile-image col-xs-offset-4 col-xs-5">
-					  		<%= attachment_image_tag @user, :image, fallback: "no-image.jpg", size:"150x150" , id: "round-user-image"%>
+					  	<div class="profile-image">
+					  		<%= attachment_image_tag @user, :image, fallback: "no-image.jpg", size:"300x300" %>
 					  	</div>
 					</div>
 					<!--     メッセージアイコン -->
@@ -46,31 +46,41 @@
 					</div>
 						<!-- 　　　　　　　　　　 -->
 					  <div class="row">
-					  	<div class="profile-item col-xs-offset-1 col-xs-7">
-					  		<strong class="profile-tag">　Name　</strong><%= @user.name %>
+					  	<div class="profile-item col-xs-offset-1 col-xs-10">
+					  		<strong class="profile-tag">　Name　</strong><br>
+					  		<div  class="profile-text">
+					  			<strong><%= @user.name %></strong>
+					  		</div>
 					  	</div>
 					  </div>
 					  <div class="row">
-					  	<div class="profile-item col-xs-offset-1 col-xs-7">
-					  	  <strong class="profile-tag">　Country　</strong>
+					  	<div class="profile-item col-xs-offset-1 col-xs-10">
+					  	  <strong class="profile-tag">　Country　</strong><br>
 						  <% if @user.country == true %>
-						  	Philipins
+					  		<div  class="profile-text">
+						  		<strong>Philipins</strong>
+						  	</div>
 						  <% else %>
-						  	Japan
+					  		<div  class="profile-text">
+						  		<strong class="profile-text">Japan</strong>
+						  	</div>
 						  <% end %>
 					  	</div>
 					  </div>
 					  <div class="row">
-					  	<div class="profile-item col-xs-offset-1 col-xs-9">
-					  		<strong class="profile-tag">　Profile　</strong>
+					  	<div class="profile-item col-xs-offset-1 col-xs-10">
+					  		<strong class="profile-tag">　Profile　</strong><br>
 							  <% if @user.profile.blank? %>
-							  	 no self-introduction
+					  		<div  class="profile-text">
+							  	<strong> no self-introduction </strong>
+							</div>
 							  <% else %>
-				      		  	<%= @user.profile %>
-				      		  	<% end %>
+					  		<div  class="profile-text">
+				      		  	<strong><%= @user.profile %></strong>
+				      		 </div>
+				      		  <% end %>
 					  	</div>
 					  </div>
-					  
 					  <div class="row">
 					  	<div class="profile-item col-xs-offset-9 col-xs-5">
 					  		<% if @user.id == current_user.id %>
@@ -106,12 +116,12 @@
 		<!--         投稿一覧         -->
 		<hr>
 		<div class="margin-container　row">
-			<div class="col-xs-offset-1 col-xs-5">
-				<h2 class="post-title">- <%= fa_icon "clone" %> <%= @user.name %>`s All Posts -</h2>
+			<div class="col-xs-offset- col-xs-6">
+				<h3 class="post-title">- <%= fa_icon "clone" %> <%= @user.name %>`s All Posts -</h3>
 				  <% @posts.each do |post| %>
 				  <div class="box-simple">
-				  	<div id="user-show-post-image">
-				  		<%= attachment_image_tag post, :image %>
+				  	<div>
+				  		<%= attachment_image_tag post, :image, id: "user-show-post-image" %>
 				  	</div>
 				  <!-- 　　　　　　いいね　　　　　 -->
 					<div id="likes_buttons_<%= post.id %>" class= "user-show-like">
@@ -130,20 +140,18 @@
 		           	</div>
 		           </div>
 		           <div class="row">
-		           	<div class="post-more col-xs-offset-9 col-xs-2">
-		            	<%= link_to "more",post_path(post) %>
+		           	<div class="post-more col-xs-offset-6 col-xs-1">
+		            	<%= link_to "more",post_path(post), class: "btn btn-info btn-sm" %>
 		           	</div>
-		           </div>
-		           <div class="row">
-	          		<div class="user-show-edit-btn col-xs-offset-9">
+		           	<div class="user-show-edit-btn col-xs-1">
 		            	<% if post.user_id == current_user.id %>
-		                	<%= link_to "Edit" , edit_post_path(post), class: "btn btn-success" %>
+		                	<%= link_to "Edit" , edit_post_path(post), class: "btn btn-success btn-sm" %>
 		            	<% end %>
 		            </div>
 		           </div>
 				  </div>
                   <% end %>
-                  <div class="col-xs-offset-6 col-xs-7">
+                  <div class="col-xs-offset-4 col-xs-7">
                   	<%= paginate @posts %>
                   </div>
 		    </div>
@@ -152,23 +160,23 @@
 		<!--       マッチング投稿一覧        -->
 		<div class="margin-container row">
 			<div class="col-xs-offset-1 col-xs-5">
-				<h2 class="match-title">- <%= fa_icon "handshake-o" %> <%= @user.name %>`s Recruit posts -</h2>
+				<h3 class="match-title">- <%= fa_icon "handshake-o" %> Recruit posts -</h3>
 				 <% @matches.each do |match| %>
 				 <div class="box-simple">
 					 <% if match.blank? %>
 					 	<strong>There is no Recruite post</strong>
 					 <% else %>
-					 <div class="user-show-match-occupation-tag">
-					 	<% if match.occupation == true %>
-							<%= fa_icon "users" %>
-							Search Students
-						<% else %>
-							<%= fa_icon "graduation-cap" %>
-							Search Teachers
-						<% end %>
-					 </div>
+						 <div class="user-show-match-occupation-tag">
+						 	<% if match.occupation == true %>
+								<%= fa_icon "users" %>
+								Search Students
+							<% else %>
+								<%= fa_icon "graduation-cap" %>
+								Search Teachers
+							<% end %>
+						 </div>
 						<div class="row">
-							<div class="col-xs-offset-2 col-xs-8">
+							<div class="col-xs-offset-2 col-xs-10">
 								<strong class="user-show-match-title"><%= match.title %></strong>
 							</div>
 						</div>

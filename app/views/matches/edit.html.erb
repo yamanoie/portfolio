@@ -2,7 +2,7 @@
 	<div class="container">
 		<!--       パンくずリスト     -->
 		<div class="row">
-			<div class="col-xs-4">
+			<div class="col-xs-5">
 				<ol class="bread_crumb_recruit breadcrumb">
 					<li><%= link_to "Home", posts_path, data: {"turbolinks" => false}, class: "glyphicon glyphicon-home" %></li>
 					<li><%= link_to "Recruit", matches_path %></li>
@@ -18,22 +18,22 @@
 		<%= render "shared/error_messages", model: @match %>
 		<!--                      -->
 		<div class="margin-container row">
-			<div class="col-xs-offset-3 col-xs-5">
+			<div class="col-xs-offset-3 col-xs-6">
 				<h2 class="edit-title">- <%= fa_icon "cog" %>Edit Your Post -</h2>
 				<div class="box-simple">
 					<%= form_with model:@match, local: true do |f| %>
 					<div class="row">
-						<div class="match-new-occupation col-xs-offset-2">
+						<div class="match-new-occupation col-xs-offset-2 col-xs-10">
 							<%= f.radio_button :occupation, :true,checked: true %>
 							<%= fa_icon "users" %>
-							<%= f.label :occupation, "Search Students　" %>
+							<%= f.label :occupation, "Search Students　" %><br>
 							<%= f.radio_button :occupation, :false %>
 							<%= fa_icon "graduation-cap" %>
 							<%= f.label :occupation, "Search Teachers" %>
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-xs-offset-2 col-xs-8">
+						<div class="col-xs-offset-1 col-xs-10">
 							<%= f.label :title, "Title" %><br />
 							<%= f.text_field :title, class: "form-control" %>
 							<%= f.label :text, "Text" %><br />

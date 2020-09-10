@@ -24,8 +24,10 @@
           </ul>
         </nav>
       </header>
-      <div class="shake-hands">
-        <h1 class="catch-copy">Forever and Ever</h1>
+      <div class="row">
+        <div class="shake-hands col-xs-offset-1 col-xs-10">
+          <h1 class="catch-copy">Forever and Ever</h1>
+        </div>
       </div>
   </div>
   <div class="body">
@@ -40,51 +42,56 @@
           <p>It is a community site that connects <strong>Cebu</strong> and <strong>Japan</strong>.</p>
         </div>
      </div>
-     <div class="post-section">
-        <div class="post-img">
-        </div>
-        <div class="post-text">
-          <p><span class="big-char">If</span> you use this,
-            <br> you can share your
-            <br> updates with photos
-            <br>like Twitter.
-          </p>
-        </div>
+     <div class="row">
+       <div class="post-section col-xs-offset-1">
+          <div class="post-img">
+          </div>
+          <div class="post-text col-xs-offset-1">
+            <p><span class="big-char">If</span> you use this,
+              <br> you can share your
+              <br> updates with photos
+              <br>like Twitter.
+            </p>
+          </div>
+       </div>
      </div>
      <div class="tutorial">
       <%= video_tag "/assets/videos/post.mp4", :autoplay => true, :loop => true, muted: true, size: "900x600" %>
      </div>
-
-     <div class="recruit-section">
-        <div class="recruit-text">
-          <p><span class="big-char">If</span> you use this,
-            <br> you can find teachers
-            <br> and students for
-            <br> English lessons.
-          </p>
+     <div class="row">
+       <div class="recruit-section">
+          <div class="recruit-text col-xs-6">
+            <p><span class="big-char">If</span> you use this,
+              <br> you can find teachers
+              <br> and students for
+              <br> English lessons.
+            </p>
+          </div>
+          <div class="recruit-img col-xs-6">
+          </div>
         </div>
-        <div class="recruit-img">
-        </div>
-     </div>
+      </div>
      <div class="tutorial">
         <%= video_tag "/assets/videos/match.mp4", :autoplay => true, :loop => true, muted: true, size: "900x600" %>
      </div>
-     <div class="message-section">
-        <div class="message-text">
-          <p><span class="big-char">If</span> you use this,
-            <br> you can send a
-            <br> message to each other.
-          </p>
-        </div>
-        <div class="message-img">
-        </div>
+     <div class="row">
+       <div class="message-section">
+          <div class="message-text col-xs-6">
+            <p><span class="big-char">If</span> you use this,
+              <br> you can send a
+              <br> message to each other.
+            </p>
+          </div>
+          <div class="message-img col-xs-offset-1">
+          </div>
+       </div>
      </div>
      <div class="tutorial">
       <%= video_tag "/assets/videos/message.mp4", :autoplay => true, :loop => true, muted: true, size: "900x600" %>
      </div>
      <!--   -------------------------------------- -->
      <div class="others-section">
-      <h2 class="others-title">- Other functions -</h2>
+      <h1 class="others-title">- Other functions -</h1>
         <div class="panel-group" id="topAccordion">
           <div class="panel panel-default like-panel">
             <div class="panel-heading">

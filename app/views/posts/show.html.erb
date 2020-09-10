@@ -2,7 +2,7 @@
 	<div class="container">
 	<!--        パンくずリスト      -->
 		<div class="row">
-			<div class="col-xs-2">
+			<div class="col-xs-4">
 				<ol class="breadcrumb">
 					<li><%= link_to "Home", posts_path, data: {"turbolinks" => false}, class: "glyphicon glyphicon-home" %></li>
 					<li class="active">Post</li>
@@ -24,7 +24,7 @@
 
 	<!--     投稿詳細　　　　 -->
 		<div class="margin-container row">
-			<div class="col-xs-offset-3 col-xs-6">
+			<div class="col-xs-offset-2 col-xs-8">
 				<h2 class="post-show-title">-  <%= @post.user.name %>`s Post -</h2>
 					<div class="box-simple">
 					  <div class="post-show-image">

@@ -66,6 +66,10 @@
 	margin-bottom: 1em;
 }
 
+.rank {
+	text-align: center;
+}
+
 .rank-title {
 	text-align: center;
 	background-color: #FF6633;
@@ -135,13 +139,15 @@
 
 /*投稿一覧*/
 
-
+#post-index-image {
+	height: 400px;
+}
 
 .post-index-title {
 	text-align: center;
 	background-color: #0099FF;
 	margin-top: 3em;
-	margin-bottom: 2em;
+	margin-bottom: 1em;
 }
 
 
@@ -158,10 +164,21 @@
 }
 
 
+.post-index-user-image-rank {
+	margin-top: 2em;
+	border-radius: 50%;
+	text-align: center;
+	width: 300px;
+}
+
+
 .post-index-user-image {
 	margin-top: 2em;
 	border-radius: 50%;
+	text-align: center;
+	width: 200px;
 }
+
 
 .post-index-user-name {
 	text-align: center;
@@ -191,6 +208,7 @@
 .post-show-title {
 	text-align: center;
 	background-color: #CCCC33;
+  	margin-bottom: 1em;
 }
 
 
@@ -200,6 +218,7 @@
 .edit-title {
 	text-align: center;
 	background-color: #B8860B;
+  	margin-bottom: 1em;
 }
 
 
