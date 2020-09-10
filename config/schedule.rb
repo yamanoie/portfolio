@@ -21,9 +21,7 @@
 
 require File.expand_path(File.dirname(__FILE__) + '/environment')
 set :output, 'log/crontab.log'
-# cronを実行する環境変数
 rails_env = ENV['RAILS_ENV'] || :development
-# cronを実行する環境変数をセット
 set :environment, rails_env
 
 every 1.day do
