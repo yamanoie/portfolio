@@ -185,7 +185,7 @@
   font-size: 1px;
   position: absolute;
   top: 6px;
-  right: 24px;
+  right: 12px;
   }
 
 .badge:after{
@@ -229,7 +229,35 @@
   height: 300px;
 }
 
- /*ユーザーサインイン*/
+
+
+/*ログイン・サインイン*/
+
+.devise-wrapper {
+  height: 500px;
+  padding-top: 100px;
+}
+
+.sign-up-name-form {
+  width: 60%;
+}
+
+.sign-up-mail-pass-form {
+  width: 90%;
+}
+
+.country-name {
+  font-size: 30px;
+}
+
+.sign-up-submit {
+  margin-bottom: 1em;
+  margin-top: 1em;
+}
+
+.sign-up-field {
+  font-size: 40px;
+}
 
 .sign-up-title {
   text-align: center;
@@ -258,7 +286,7 @@
  }
 
  .registration-label {
-  font-size: 20px;
+  font-size: 30px;
   margin-bottom: 1em;
   margin-top: 1em;
  }
