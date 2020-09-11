@@ -82,3 +82,7 @@ gem 'data-confirm-modal'
 gem 'kaminari'
 gem 'ransack'
 gem 'whenever', require: false
+gem 'capistrano'
+gem 'capistrano-rails'
+gem 'capistrano3-puma'
+gem 'capistrano-rbenv'
