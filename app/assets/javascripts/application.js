@@ -19,6 +19,13 @@
 //= require data-confirm-modal
 
 
+
+// Welcome
+
+$(document).ready(function(){
+  $('#welcome-wrapper').fadeIn(3500);
+});
+
 // TIME
 
 function set2fig(num) {
