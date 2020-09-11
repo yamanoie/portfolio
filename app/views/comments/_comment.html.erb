@@ -23,12 +23,12 @@
                                 </h4>
                             </div>
                             <div id="all_comments" class="panel-collapse collapse">
-				<% comments_from_third.each do |comment| %>
-					<%= render partial: "comments/comment_panel", locals: { comment: comment, post: post } %>
-				<% end %>
-	            </div>
-            </div>
-        </div>
+								<% comments_from_third.each do |comment| %>
+								<%= render partial: "comments/comment_panel", locals: { comment: comment, post: post } %>
+								<% end %>
+	            			</div>
+           				</div>
+        			</div>
                 <% end %>
 		</div>
     </div>
