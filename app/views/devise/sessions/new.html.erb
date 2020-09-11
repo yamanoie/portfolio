@@ -6,20 +6,18 @@
           <div class="box-simple">
             <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
             <%= flash[:alert] %>
-              <div class="login-field">
-                <%= f.label :email %><br />
-                <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+              <div class="login-field col-xs-offset-1">
+                <%= f.label :email, class: "login-label" %><br />
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control login-form-email" %>
               </div>
-
-              <div class="login-field">
-                <%= f.label :password %><br />
-                <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
+              <div class="login-field col-xs-offset-1">
+                <%= f.label :password, class: "login-label" %><br />
+                <%= f.password_field :password, autocomplete: "current-password", class: "form-control login-form-password" %>
               </div>
-
               <% if devise_mapping.rememberable? %>
-                <div class="login-field">
+                <div class="login-field col-xs-offset-1">
                   <%= f.check_box :remember_me %>
-                  <%= f.label :remember_me %>
+                  <%= f.label :remember_me, class: "remember-me" %>
                 </div>
               <% end %>
               <div class="row">

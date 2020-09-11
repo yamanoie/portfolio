@@ -140,12 +140,12 @@
 		           	</div>
 		           </div>
 		           <div class="row">
-		           	<div class="post-more col-xs-offset-6 col-xs-1">
-		            	<%= link_to "more",post_path(post), class: "btn btn-info btn-sm" %>
+		           	<div class="post-more col-xs-offset-8 col-xs-1">
+		            	<%= link_to "more",post_path(post), class: "btn btn-info btn-xs" %>
 		           	</div>
-		           	<div class="user-show-edit-btn col-xs-1">
+		           	<div class="user-show-edit-btn">
 		            	<% if post.user_id == current_user.id %>
-		                	<%= link_to "Edit" , edit_post_path(post), class: "btn btn-success btn-sm" %>
+		                	<%= link_to "Edit" , edit_post_path(post), class: "btn btn-success btn-xs" %>
 		            	<% end %>
 		            </div>
 		           </div>
