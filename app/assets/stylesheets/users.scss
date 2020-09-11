@@ -6,6 +6,15 @@
 
 /*ユーザー詳細*/
 
+.notification-name {
+  width: 40px;
+  text-align: center;
+}
+
+.aciton-section {
+  margin-left: 2em;
+  margin-top: 10px;
+}
 
 #user-show-post-image {
   width: 100%;
@@ -78,6 +87,7 @@
 
 .notification-item {
   margin-bottom: 1em;
+  display: flex;
 }
 
 
@@ -298,4 +308,21 @@
 .login-field {
   margin-top: 3em;
   margin-bottom: 2em;
+}
+
+.login-label {
+  font-size: 40px;
+}
+
+.login-form-email {
+  width: 90%;
+
+}
+
+.login-form-password {
+  width: 90%;
+}
+
+.remember-me {
+  font-size: 20px;
 }
