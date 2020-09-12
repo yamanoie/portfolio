@@ -3,8 +3,7 @@ require 'uri'
 require 'json'
 
 class PostsController < ApplicationController
-  before_action :initialize_contact, only: %i[index edit show]
-  before_action :authenticate_user!, only: [:edit]
+  before_action :authenticate_user!
   include EnsureCorrectObjects
   before_action :ensure_correct_post, only: %i[destroy edit update]
 
@@ -44,7 +43,7 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     if @post.save
-      flash[:success] = 'You posted newly'
+      flash[:success] = 'Newly posted '
       redirect_to posts_path
     else
       render :new

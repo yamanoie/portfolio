@@ -8,7 +8,7 @@
 	height: 800px;
 	background-image: image-url("shakehands.jpg");
 	background-size: cover;
-	width: 100%
+	width: 100%;
 }
 
 .mainvisual.scrollin {
@@ -227,6 +227,11 @@
 
 }
 
+.panel-image {
+	height: 100%;
+	width: 100%;
+}
+
 .others-section.scrollin {
 	opacity: 1;
 	transform: translate(0, 0);
@@ -252,6 +257,7 @@
 	background-size: cover;
 	width: 100%;
 	height: 1150px;
+	text-align: center;
 }
 
 #welcome-wrapper {

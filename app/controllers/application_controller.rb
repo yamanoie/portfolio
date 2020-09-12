@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
     case resource
     when User
-      home_welcome_path
+      posts_path
     when AdminUser
       stored_location_for(resource) ||
         if resource.is_a?(AdminUser)
@@ -26,7 +26,4 @@ class ApplicationController < ActionController::Base
     home_welcome_path
   end
 
-  def initialize_contact
-    @contact = Contact.new
-  end
 end
