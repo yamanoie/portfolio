@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
-  before_action :initialize_contact, only: %i[show edit]
-  before_action :authenticate_user!, only: [:edit]
+  before_action :authenticate_user!
   include EnsureCorrectObjects
   before_action :ensure_correct_user, only: %i[edit update]
 
