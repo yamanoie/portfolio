@@ -1,6 +1,5 @@
 class MatchesController < ApplicationController
-  before_action :initialize_contact, only: %i[index edit]
-  before_action :authenticate_user!, only: [:edit]
+  before_action :authenticate_user!
   include EnsureCorrectObjects
   before_action :ensure_correct_match, only: %i[destroy edit update]
 
@@ -14,7 +13,7 @@ class MatchesController < ApplicationController
     @match = Match.new(match_params)
     @match.user_id = current_user.id
     if @match.save
-      flash[:success] = 'You posted'
+      flash[:success] = 'Newly posted'
       redirect_to matches_path
     else
       @search = Match.ransack(params[:q])
