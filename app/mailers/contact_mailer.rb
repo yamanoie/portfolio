@@ -1,6 +1,6 @@
 class ContactMailer < ApplicationMailer
   def contact_mail(contact)
     @contact = contact
-    mail to: 'yamanoie1028@gmail.com', subject: 'confirmation'
+    mail to: ENV['ADMIN_EMAIL_ADDRESS'], subject: 'confirmation'
   end
 end
