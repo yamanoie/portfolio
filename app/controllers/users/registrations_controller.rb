@@ -11,7 +11,16 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   # def create
-  #   super
+  #   home_welcome_path
+  #   @user = User.new(registration_params)
+  #   if @user.save 
+  #     redirect_to home_welcome_path
+  #   else
+  #     home_welcome_path
+  #   end
+#     @user = User.new(registration_params)    if @user.save       redirect_to     home_welcome_path
+# , success:'登録完了'    else           home_welcome_path
+#    end 
   # end
 
   # GET /resource/edit
@@ -38,7 +47,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  protected
+  # protected
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params
@@ -52,12 +61,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # The path used after sign up.
   def after_sign_up_path_for(resource)
-    super(resource)
-    binding.pry
+    home_welcome_path
   end
 
   # The path used after sign up for inactive accounts.
-  # def after_inactive_sign_up_path_for(resource)
-  #   super(resource)
-  # end
+  def after_inactive_sign_up_path_for(resource)
+    home_welcome_path
+  end
 end
