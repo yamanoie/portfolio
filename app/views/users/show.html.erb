@@ -145,7 +145,7 @@
 		           	</div>
 		           	<div class="user-show-edit-btn">
 		            	<% if post.user_id == current_user.id %>
-		                	<%= link_to "Edit" , edit_post_path(post), class: "btn btn-success btn-xs" %>
+		                	<%= link_to "Edit" , edit_post_path(post), data: { "turbolinks" => false }, class: "btn btn-success btn-xs" %>
 		            	<% end %>
 		            </div>
 		           </div>
