@@ -11,12 +11,12 @@
 	            <h2 class="contact-title">- <%= fa_icon "paper-plane-o" %> Contact Form -</h2>
 	     		<div class="box-simple">
 		            <%= form_with model: @contact, url: contacts_path, local: true do |f| %>
-		            <%= f.label "Name", class: "contact-form-label" %><br>
-		            <%= f.text_field :name, class: "form-control contact-form-item" %>
-		            <%= f.label "Email", class: "contact-form-label" %><br>
-		            <%= f.text_field :email, class: "form-control contact-form-item" %>
-		            <%= f.label "Content", class: "contact-form-label" %><br>
-		            <%= f.text_area :content, class: "form-control contact-form-item", rows: "5" %>
+		            <%= f.label "Name", class: "contact-form-label  col-xs-offset-1" %><br>
+		            <%= f.text_field :name, class: "form-control contact-form-item contact-name  col-xs-offset-1" %>
+		            <%= f.label "Email", class: "contact-form-label  col-xs-offset-1" %><br>
+		            <%= f.text_field :email, class: "form-control contact-form-item contact-email  col-xs-offset-1" %>
+		            <%= f.label "Content", class: "contact-form-label  col-xs-offset-1" %><br>
+		            <%= f.text_area :content, class: "form-control contact-form-item  contact-content col-xs-offset-1", rows: "5" %>
 	            	<div class="row">
 	            		<div class="col-xs-offset-7">
 	            			<%= f.submit "Send Email", class: "send-btn btn btn-success btn-lg" %>
