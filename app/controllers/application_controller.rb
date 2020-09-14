@@ -21,10 +21,4 @@ class ApplicationController < ActionController::Base
         end
     end
   end
-
-  # def after_sign_up_path_for(_resource)
-  #   binding.pry
-  #   home_welcome_path
-  # end
-
 end

@@ -11,16 +11,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   # def create
-  #   home_welcome_path
-  #   @user = User.new(registration_params)
-  #   if @user.save 
-  #     redirect_to home_welcome_path
-  #   else
-  #     home_welcome_path
-  #   end
-#     @user = User.new(registration_params)    if @user.save       redirect_to     home_welcome_path
-# , success:'登録完了'    else           home_welcome_path
-#    end 
   # end
 
   # GET /resource/edit

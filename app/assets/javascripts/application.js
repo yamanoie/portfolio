@@ -28,33 +28,33 @@ $(document).ready(function(){
 
 // TIME
 
-function set2fig(num) {
-   var ret;
-   if( num < 10 ) { ret = "0" + num; }
-   else { ret = num; }
-   return ret;
-}
+// function set2fig(num) {
+//    var ret;
+//    if( num < 10 ) { ret = "0" + num; }
+//    else { ret = num; }
+//    return ret;
+// }
 
-function showClock() {
-   var nowTime = new Date();
-   var nowHour = set2fig( (nowTime.getHours()) - 1 );
-   var nowMin  = set2fig( nowTime.getMinutes() );
-   var nowSec  = set2fig( nowTime.getSeconds() );
-   var msg = nowHour + ":" + nowMin + ":" + nowSec;
-   document.getElementById("RealtimeClockAreaPH").innerHTML = msg;
-}
-setInterval('showClock()',1000);
+// function showClock() {
+//    var nowTime = new Date();
+//    var nowHour = set2fig( (nowTime.getHours()) - 1 );
+//    var nowMin  = set2fig( nowTime.getMinutes() );
+//    var nowSec  = set2fig( nowTime.getSeconds() );
+//    var msg = nowHour + ":" + nowMin + ":" + nowSec;
+//    document.getElementById("RealtimeClockAreaPH").innerHTML = msg;
+// }
+// setInterval('showClock()',1000);
 
 
-function showClockFP() {
-   var nowTime = new Date();
-   var nowHour = set2fig( nowTime.getHours() );
-   var nowMin  = set2fig( nowTime.getMinutes() );
-   var nowSec  = set2fig( nowTime.getSeconds() );
-   var msg = nowHour + ":" + nowMin + ":" + nowSec;
-   document.getElementById("RealtimeClockAreaJP").innerHTML = msg;
-}
-setInterval('showClockFP()',1000);
+// function showClockFP() {
+//    var nowTime = new Date();
+//    var nowHour = set2fig( nowTime.getHours() );
+//    var nowMin  = set2fig( nowTime.getMinutes() );
+//    var nowSec  = set2fig( nowTime.getSeconds() );
+//    var msg = nowHour + ":" + nowMin + ":" + nowSec;
+//    document.getElementById("RealtimeClockAreaJP").innerHTML = msg;
+// }
+// setInterval('showClockFP()',1000);
 
 // 画像プレビュー
 $(function(){
