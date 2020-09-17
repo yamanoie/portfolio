@@ -4,8 +4,9 @@
 </p>
 <h1 align="center">segurado!</h1>
 
+
 <p align="center">
-<img src="https://giphy.com/gifs/GdGsBOLDXXwI8WAkIE/html5" width=60%>
+<img src="https://user-images.githubusercontent.com/66165321/93463478-c656c100-f922-11ea-8510-03f5e8a15c4b.gif" width=50%>
 </p>
 
 ## :notebook: サイト概要
@@ -14,7 +15,7 @@
  例）先生が英会話レッスン募集の記事を投稿する。その記事を見た生徒が先生のプロフィールページへ行きメッセージを送る。
 
 ## :globe_with_meridians:　アプリ　URL
-http://segurado.work/users
+http://segurado.work
 
 
 ### :open_file_folder: サイトテーマ
