@@ -1,13 +1,15 @@
 # <アプリ名>
-<img  width="500" height="500" src="https://user-images.githubusercontent.com/66165321/93454917-9c979d00-f916-11ea-9e0e-c78d3e39e00c.jpg =full" >
-<h2 align="center">segurado!</h2>
+<p align="center">
+<img src="https://user-images.githubusercontent.com/66165321/93454917-9c979d00-f916-11ea-9e0e-c78d3e39e00c.jpg" width=60%>
+</p>
+<h1 align="center">segurado!</h1>
 
 ## :notebook: サイト概要
 　このアプリはセブ島のとある語学学校の先生達とその卒業生達がコミュニケーションを取ることを目的としたコミュニティサイトです。主な機能は１、**ツイート機能**　２、**メッセージ機能**　３、**英会話レッスンマッチング**※の３つです。<br>  有名SNSアプリよりも、より小さなコミュニティのため、密なコミュニケーションを取ることができます。また、利用者が日本人とフィリピン人であるため、言語は**英語**を使用しています。<br>
  ※英会話レッスンマッチングとは、ユーザーがオンライン英会話レッスンの募集・応募ができる掲示板のこと。<br>
  例）先生が英会話レッスン募集の記事を投稿する。その記事を見た生徒が先生のプロフィールページへ行きメッセージを送る。
 
-### :white_large_square: サイトテーマ
+### :open_file_folder: サイトテーマ
 セブ島の語学学校の先生と日本人の卒業生たちが交流できるSNS
 
 ### :white_check_mark: テーマを選んだ理由
