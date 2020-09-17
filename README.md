@@ -1,22 +1,29 @@
 # <アプリ名>
 <p align="center">
-<img src="https://user-images.githubusercontent.com/66165321/93454917-9c979d00-f916-11ea-9e0e-c78d3e39e00c.jpg" width=60%>
+<img src="https://user-images.githubusercontent.com/66165321/93454917-9c979d00-f916-11ea-9e0e-c78d3e39e00c.jpg" width=40%>
 </p>
 <h1 align="center">segurado!</h1>
 
 
 
 
-<h2 aligin="center"> :notebook: サイト概要</h2>
+# :notebook: サイト概要
 
 　このサイトはセブ島のとある語学学校の先生達とその卒業生達がコミュニケーションを取ることを目的としたコミュニティサイトです。<br>
-主な機能は**1,投稿機能**　**2,メッセージ機能**　**3,英会話レッスンマッチング**※の３つです。<br>
- ※英会話レッスンマッチングとは、ユーザーがオンライン英会話レッスンの募集・応募ができる掲示板のこと。<br>
+主な機能は**1, 投稿機能**　**2, メッセージ機能**　**3, 英会話レッスンマッチング**※の３つです。<br>
+  ※英会話レッスンマッチングとは、ユーザーがオンライン英会話レッスンの募集・応募ができる掲示板のこと。<br>
  例）先生が英会話レッスン募集の記事を投稿する　→ その記事を見た生徒が先生のプロフィールページへ行きメッセージを送る。
+
+
+
 
 <p align="center">
 <img src="https://user-images.githubusercontent.com/66165321/93465738-2864f580-f926-11ea-83ec-bcbbd213e6cf.gif" width=100%>
 </p>
+
+
+
+
 
 ## :globe_with_meridians:　アプリ　URL
 http://segurado.work
