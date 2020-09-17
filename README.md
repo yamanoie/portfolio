@@ -1,5 +1,5 @@
 # <アプリ名>
-![logo](https://user-images.githubusercontent.com/66165321/93454917-9c979d00-f916-11ea-9e0e-c78d3e39e00c.jpg)
+<img  width="500" height="500" src="https://user-images.githubusercontent.com/66165321/93454917-9c979d00-f916-11ea-9e0e-c78d3e39e00c.jpg =full" >
 <h2 align="center">segurado!</h2>
 
 ## :notebook: サイト概要
@@ -10,13 +10,13 @@
 ### :white_large_square: サイトテーマ
 セブ島の語学学校の先生と日本人の卒業生たちが交流できるSNS
 
-###:white_check_mark: テーマを選んだ理由
+### :white_check_mark: テーマを選んだ理由
 セブ島で語学留学をしていた経験があり、帰国後も先生達と卒業生とのコミュニケーションが取れる環境がなかったので作りたかった
 
 ###  :two_men_holding_hands: ターゲットユーザ
 セブ島に在住している語学学校の先生と日本に在住している卒業生
 
-###  :speech_balloon: 主な利用シーン
+### :speech_balloon: 主な利用シーン
 * ユーザーが写真付きのブログを投稿できる。
 * ユーザー同士がメッセージでやりとりをする。
 * 先生と卒業生とでオンライン英会話個人レッスンのマッチングをする。（コロナの影響で先生側の仕事がないので）
