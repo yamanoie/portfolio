@@ -21,6 +21,10 @@
               <%= fa_icon "paper-plane-o" %>
               <%= link_to "Contact", new_contacts_path %>
             </div>
+            <div class="nav-list guest-login">
+              <%= fa_icon "users" %>
+              <%= link_to "GUEST LOGIN", users_guest_sign_in_path, method: :post, data: { "turbolinks" => false } %>
+          </div>
           </ul>
         </nav>
       </header>
