@@ -38,4 +38,11 @@ class Users::SessionsController < Devise::SessionsController
   #       end
   #   end
   # end
+
+  def new_guest
+    # ゲストユーザーがあれば取り出す、なければ新規作成する
+    user = User.guest
+    sign_in user
+    redirect_to posts_path, notice: "You logged in as a GUEST USER"
+  end
 end
