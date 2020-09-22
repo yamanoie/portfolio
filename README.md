@@ -26,7 +26,7 @@
 
 
 ## :globe_with_meridians:　アプリ　URL
-http://segurado.work
+https://segurado.work/
 
 
 ### :open_file_folder: サイトテーマ
