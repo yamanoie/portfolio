@@ -1,32 +1,37 @@
 version: '3'
 services:
-  app:
-    build:
-      context: .
-      dockerfile: ./Docker/rails/dockerfile
-    command: bundle exec puma -c config/puma.rb
-    volumes:
-      - .:segurado
-      - public-data:/webapp/public
-      - tmp-data:/segurado/tmp
-      - log-data:/segurado/log
-    depends_on:
-      - db
   db:
-    build:
-      context: .
-      dockerfile: ./Docker/mysql/Dockerfile
+    image: mysql:5.7
     environment:
-    volums:
-      - db-data:/var/lib/mysql
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_USER: root
+      MYSQL_PASSWORD: ymmtyk28
+      MYSQL_DATABASE: segurado!_db
+    volumes:
+      - mysql-data:/var/lib/mysql
+    ports:
+      - "4306:3306"
+
+  app:
+    build: .
+    command: bundle exec puma -C config/puma.rb
+    volumes:
+      - .:/segurado!
+      - public-data:/segurado!/public
+      - tmp-data:/segurado!/tmp
+      - log-data:/segurado!/log
+
   web:
     build:
-      context: .
-      dockerfile: ./Docker/nginx/Dockerfile
-    volums:
-      - public-data:segurado/public
-      - tmp-data:/segurado/tmp
+      context: containers/nginx
+    volumes:
+      - public-data:/segurado!/public
+      - tmp-data:/segurado!/tmp
     ports:
       - 80:80
-    depends_on:
-      - app
+
+volumes:
+  mysql-data:
+  public-data:
+  tmp-data:
+  log-data:
