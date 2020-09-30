@@ -36,29 +36,25 @@ Rails.application.configure do
   config.action_mailer.perform_caching = false
   config.action_mailer.default_url_options = { host: 'localhost:3000' }
   #config.action_mailer.delivery_method = :letter_opener_web
-
-
-
-config.action_mailer.delivery_method = :smtp
-config.action_mailer.smtp_settings = {
-    port:                 587,
-    address:              'smtp.gmail.com',
-    domain:               'gmail.com',
-    user_name:            ENV['ADMIN_EMAIL_ADDRESS'],
-    password:             ENV['ADMIN_EMAIL_ADDRESS_PASSWORD'],
-    authentication:       'plain',
-    enable_starttls_auto: true
-  }
-
-# config.action_mailer.delivery_method = :smtp
-#   config.action_mailer.smtp_settings = {
-#     :address => 'smtp.mail.yahoo.co.jp',
-#     :port => 587,
-#     :authentication => :login,
-#     :user_name => 'yamanoieyamanoie@yahoo.co.jp',
-#     :password => '1wdvbnm2345'
-#     enable_starttls_auto: true
-#   }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+      port:                 587,
+      address:              'smtp.gmail.com',
+      domain:               'gmail.com',
+      user_name:            ENV['ADMIN_EMAIL_ADDRESS'],
+      password:             ENV['ADMIN_EMAIL_ADDRESS_PASSWORD'],
+      authentication:       'plain',
+      enable_starttls_auto: true
+    }
+  # config.action_mailer.delivery_method = :smtp
+  #   config.action_mailer.smtp_settings = {
+  #     :address => 'smtp.mail.yahoo.co.jp',
+  #     :port => 587,
+  #     :authentication => :login,
+  #     :user_name => 'yamanoieyamanoie@yahoo.co.jp',
+  #     :password => '1wdvbnm2345'
+  #     enable_starttls_auto: true
+  #   }
 
 
 
@@ -85,4 +81,5 @@ config.action_mailer.smtp_settings = {
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+  BetterErrors::Middleware.allow_ip! "0.0.0.0/0"
 end
