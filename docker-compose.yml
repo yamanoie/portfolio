@@ -1,26 +1,24 @@
 version: '3'
 services:
-  db:
-    image: mysql:5.7
-    environment:
-      MYSQL_ROOT_PASSWORD: password
-      MYSQL_USER: root
-      MYSQL_PASSWORD: ymmtyk28
-      MYSQL_DATABASE: segurado!_db
-    volumes:
-      - mysql-data:/var/lib/mysql
-    ports:
-      - "4306:3306"
-
   app:
-    build: .
+    build:
+      context: .
+    env_file:
+      - ./.env
     command: bundle exec puma -C config/puma.rb
     volumes:
       - .:/segurado!
       - public-data:/segurado!/public
       - tmp-data:/segurado!/tmp
       - log-data:/segurado!/log
-
+    depends_on:
+      - db
+  db:
+    image: mysql:5.7
+    env_file:
+      - ./.env
+    volumes:
+      - db-data:/var/lib/mysql
   web:
     build:
       context: containers/nginx
@@ -29,9 +27,10 @@ services:
       - tmp-data:/segurado!/tmp
     ports:
       - 80:80
-
+    depends_on:
+      - app
 volumes:
-  mysql-data:
   public-data:
   tmp-data:
   log-data:
+  db-data:
