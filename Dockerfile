@@ -1,4 +1,4 @@
-FROM ruby:2.6.3
+FROM ruby:2.5.7
 
 RUN apt-get update -qq && \
     apt-get install -y build-essential \
@@ -13,10 +13,8 @@ WORKDIR /segurado!
 ADD Gemfile /segurado!/Gemfile
 ADD Gemfile.lock /segurado!/Gemfile.lock
 
-RUN gem install bundler
-RUN bundle install
+RUN gem install bundler && bundle install 
 
 ADD . /segurado!
 
 RUN mkdir -p tmp/sockets
-RUN mkdir -p tmp/pids
