@@ -55,6 +55,7 @@ group :development do
   gem 'rails_best_practices'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'brakeman', :require => false
 end
 
 group :test do
