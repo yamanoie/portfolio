@@ -56,6 +56,7 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'brakeman', :require => false
+  gem 'bundler-audit'
 end
 
 group :test do
@@ -68,7 +69,7 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'activeadmin'
-gem 'bootstrap-sass', '~>3.3.6'
+gem 'bootstrap-sass', '~>3.4.1'
 gem 'devise'
 gem 'dotenv-rails'
 gem 'font-awesome-rails'
