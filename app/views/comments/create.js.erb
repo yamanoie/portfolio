@@ -1,5 +1,6 @@
 $("#comment_area").html("<%= j(render partial: 'comments/comment', locals: { comments_by_third: @comments_by_third,comments_from_third:@comments_from_third,count:@comments_count,post:@post}) %>");
 $("textarea").val("")
+
 $("#flash_area").html("<%= j(render partial: 'shared/flash', locals: { flash: flash }) %>");
 
 $("#error_area").html("<%= j(render 'shared/error_messages', model: @post ) %>");

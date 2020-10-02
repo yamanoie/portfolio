@@ -1,49 +1,47 @@
 <hr>
-    <div class="row">
-         <div class="col-xs-offset-3 col-xs-6">
-            <% if messages.present? %>
-                <% messages.each do |m| %>
-                    <div class="row">
-                      <% if m.user.id == current_user.id %>
-                        <div class="">
-                      <% else %>
-                        <div class="">
-                      <% end %>
-                    <div class="row">
-                      <div class="">
-                        <%= attachment_image_tag m.user, :image, fallback: "no-image.jpg", size:"60x60", class: "col-xs-2", id: "message-user-image" %>
-                        <% if m.user.id == current_user.id %>
-                          <div class="chat box-design-center col-xs-10">
-                        <% else %>
-                          <div class="chat box-design-message col-xs-10">
-                        <% end %>
-                        <strong><%= m.user.name %>: </strong>
-                        <%= m.message %>
-                      </div><br>
-                      </div>
-                    </div>
-                    <div class="row">
-                    </div>
-                    <div class="row">
-                      <div class="col-xs-offset-8">
-                        <%= fa_icon "calendar" %>
-                        <%= create_time_with_country(current_user, m) %>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="chat-btn col-xs-offset-10">
-                        <% if m.user.id == current_user.id %>
-                         <%= link_to "Delete", message_path(m, page: params[:page]), method: :delete, remote: true, data: { confirm: "Are you sure you want to delete it?", cancel:"No", commit:"Yes" }, title:"Confirmation", class: "btn btn-danger btn-xs" %>
-                        <% end %>
-                      </div>
-                    </div>
-                  </div>
+<div class="row">
+  <div class="col-xs-offset-3 col-xs-6">
+    <% if messages.present? %>
+      <% messages.each do |m| %>
+        <div class="row">
+          <% if m.user.id == current_user.id %>
+            <div class="">
+          <% else %>
+            <div class="">
+          <% end %>
+          <div class="row">
+            <div class="col">
+              <%= attachment_image_tag m.user, :image, fallback: "no-image.jpg", size:"60x60", class: "col-xs-2", id: "message-user-image" %>
+              <% if m.user.id == current_user.id %>
+                <div class="chat box-design-center col-xs-10">
+              <% else %>
+                <div class="chat box-design-message col-xs-10">
+              <% end %>
+              <strong><%= m.user.name %>: </strong>
+              <%= m.message %>
+                </div><br>
                 </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-offset-8">
+                <%= fa_icon "calendar" %>
+                <%= create_time_with_country(current_user, m) %>
+              </div>
+            </div>
+            <div class="row">
+              <div class="chat-btn col-xs-offset-10">
+                <% if m.user.id == current_user.id %>
+                  <%= link_to "Delete", message_path(m, page: params[:page]), method: :delete, remote: true, data: { confirm: "Are you sure you want to delete it?", cancel: "No", commit: "Yes" }, title: "Confirmation", class: "btn btn-danger btn-xs" %>
                 <% end %>
-            <% end %>
-            <% if messages.present? %>
-              <%= paginate messages, params: { controller: 'rooms', action: 'show', id: messages[0].room_id } %>
-            <% end %>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
+          </div>
+        <% end %>
+      <% end %>
+      <% if messages.present? %>
+        <%= paginate messages, params: { controller: 'rooms', action: 'show', id: messages[0].room_id } %>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,6 +1,6 @@
 <div class="body">
   <div class="container">
-      <!-- パンくずリスト -->
+  <!------------------------ パンくずリスト ------------------------>
     <div class="row">
       <div class="col-xs-5">
         <ol class="breadcrumb">
@@ -10,18 +10,18 @@
         </ol>
       </div>
     </div>
-    <!-- 　　　　　　 -->
-    <!--   プロフィール -->
+  <!------------------------------------------------------------->
+  <!------------------------   プロフィール ------------------------>
     <%= render "shared/simple_profile" %>
-        <!-- 　　　　　　　　　 -->
-        <!--       フラッシュメッセージ　　　 -->
-  <div id="flash_area">
-    <%= render partial: "shared/flash" %>
-  </div>
-      <!--                        -->
-      <!--     エラーメッセージ     -->
-  <div id="error_area"></div>
-    <!--                      -->
+  <!------------------------------------------------------------->
+  <!---------------------------- フラッシュメッセージ　-------------->
+    <div id="flash_area">
+      <%= render partial: "shared/flash" %>
+    </div>
+  <!------------------------------------------------------------->
+  <!------------------ エラーメッセージ ---------------------------->
+    <div id="error_area"></div>
+  <!------------------------------------------------------------->
     <div class="col-xs-offset-4 col-xs-4">
       <h2 class="message-title">- <%= fa_icon "comments-o" %>  Message -</h2>
     </div>
@@ -35,19 +35,19 @@
         end
           %>
         <%= attachment_image_tag user, :image,  fallback: "no-image.jpg", size:"100x100", class: "message-user" %>
-            <strong>
-              <%= link_to user.name ,user_path(user.id), class: "message-user" %>
-            </strong>
-        </div>
+        <strong>
+          <%= link_to user.name ,user_path(user.id), class: "message-user" %>
+        </strong>
+      </div>
     </div>
-    <!-- 　　　　　　　　　　 -->
-       <!-- 　　　メッセージフォーム　　　　　 -->
-      <hr>
-      <div class="row">
-        <div class="form-group col-xs-offset-4 col-xs-4">
-          <% if @messages.first_page? %>
-            <h4 class="message-form-title">- Message Form -</h4>
-            <%= form_with model: @message do |f| %>
+  <!------------------------------------------------------------->
+  <!--------------------　メッセージフォーム --------------------->
+    <hr>
+    <div class="row">
+      <div class="form-group col-xs-offset-4 col-xs-4">
+        <% if @messages.first_page? %>
+          <h4 class="message-form-title">- Message Form -</h4>
+          <%= form_with model: @message do |f| %>
             <%= f.text_area :message, placeholder: "Input your message" , col: "50", class:"form-control" %>
             <%= f.hidden_field :room_id, value: @room.id %>
             <%= f.hidden_field :visited_id, value: user.id %>
@@ -56,16 +56,15 @@
                 <%= f.submit "Send", class: 'btn btn-success'%>
               </div>
             </div>
-            <% end %>
-        </div>
+          <% end %>
         <% end %>
       </div>
-    <!-- 　　　　　　　　 -->
     </div>
-    <!-- 　　　　メッセージ一覧　　　 -->
+  <!------------------------------------------------------------->
+  <!----------------------- メッセージ一覧(非同期通信)　----------------------->
     <div id="message_area">
       <%= render partial: "messages/message", locals: { messages: @messages } %>
     </div>
-          <!-- 　　　　　　　　                -->
+  <!------------------------------------------------------------->
   </div>
 </div>

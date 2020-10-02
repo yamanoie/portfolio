@@ -10,46 +10,44 @@
   </head>
 
   <header class="header_recruit">
-    <!-- 　　　　　ロゴ　　　　 -->
+    <!----------------------　ロゴ -------------------->
     <div class="header-logo">
         <%= image_tag 'logo.jpg', alt: "[Logo]whale shark" %>
     </div>
-    <!-- 　　　　　　　　　　　 -->
+    <!---------------------------------------------------->
     <nav>
-    <ul>
-      <% if user_signed_in? %>
-        <div class="nav-list">
+      <ul>
+        <% if user_signed_in? %>
+          <div class="nav-list">
             <%= fa_icon "home" %>
             <%= link_to "Home", posts_path, data: { "turbolinks" => false } %>
-         </div>
-
+          </div>
           <div class="nav-list">
             <%= fa_icon "user-circle-o" %>
             <%= link_to "My page",user_path(current_user)%>
-         </div>
-
-         <div class="nav-list">
+          </div>
+          <div class="nav-list">
             <%= fa_icon "users" %>
             <%= link_to "Users", users_path %>
           </div>
-         <div class="nav-list">
+          <div class="nav-list">
             <%= fa_icon "handshake-o" %>
             <%= link_to "Recruit", matches_path %>
-         </div>
-         <div class="nav-list">
+          </div>
+          <div class="nav-list">
               <%= fa_icon "paper-plane-o" %>
               <%= link_to "Contact", new_contacts_path %>
-         </div>
-         <div class="nav-list">
+          </div>
+          <div class="nav-list">
             <%= fa_icon "sign-out" %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete %>
-         </div>
-       <% else %>
-         <div class="nav-list">
+          </div>
+        <% else %>
+          <div class="nav-list">
             <%= fa_icon "home" %>
             <%= link_to "Top", root_path %>
-         </div>
-         <div class="nav-list">
+          </div>
+          <div class="nav-list">
             <%= fa_icon "user-plus"%>
             <%= link_to "Sign up", new_user_registration_path %>
           </div>
@@ -60,9 +58,9 @@
           <div class="nav-list">
               <%= fa_icon "paper-plane-o" %>
               <%= link_to "Contact", new_contacts_path %>
-            </div>
+          </div>
         <% end %>
-    </ul>
+      </ul>
     </nav>
   </header>
   <body>
@@ -70,14 +68,14 @@
   </body>
   <footer>
     <p id="page-top"><a href="#"><span class="glyphicon glyphicon-upload" aria-hidden="true"></span></a></p>
-      <!-- 　ロゴ　　　 -->
+      <!----------------------　ロゴ ----------------------->
     <div class="row">
       <div class="footer-logo">
         <%= link_to posts_path, data: { "turbolinks" => false } do %>
-                 <%= image_tag 'logo2.jpg', alt: "[Logo]title" %>
+          <%= image_tag 'logo2.jpg', alt: "[Logo]title" %>
         <% end %>
       </div>
     </div>
-    <!--           -->
+    <!------------------------------------------------------>
   </footer>
 </html>

@@ -9,7 +9,6 @@ class UsersController < ApplicationController
     @matches = Match.where(user_id: @user.id).order(created_at: 'DESC').page(params[:page]).per(4)
     @room = current_user.rooms.find_by(guest_id: @user.id)
     @room ||= @user.rooms.find_by(guest_id: current_user.id)
-
     # 通知
     @notifications = current_user.passive_notifications.page(params[:page]).per(4)
     @notifications.where(checked: false).each do |notification|

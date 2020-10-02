@@ -3,7 +3,6 @@ require 'uri'
 require 'json'
 
 class PostsController < ApplicationController
-  # before_action :authenticate_user!
   include EnsureCorrectObjects
   before_action :ensure_correct_post, only: %i[destroy edit update]
 
@@ -14,7 +13,6 @@ class PostsController < ApplicationController
     @tokyo_weather = get_weather('q=Tokyo,jp')
     @osaka_weather = get_weather('q=Osaka,jp')
     @cebu_weather = get_weather('q=Cebu,ph')
-
     @time_now_jp = Time.current.strftime('%Y/ %m/ %d/ %a')
     @time_now_ph = (Time.current - 1.hour).strftime('%Y/ %m/ %d/ %a')
   end

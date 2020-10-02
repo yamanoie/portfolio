@@ -1,14 +1,14 @@
 <hr>
 <div class="margin-container row">
-	<div class="col-xs-offset-3 col-xs-6">
-		<h2 class="comment-title">- Comment Form -</h2>
-		<%= form_with model:[post,comment], remote: true do |f| %>
-			<%= f.text_area :comment, rows: "5",cols: "50", placeholder: "comment here", class: "form-control" %><br>
-			<div class="row">
-				<div class="comment-btn col-xs-offset-8">
-					<%= f.submit "Comment", class: "btn btn-primary" %>
-				</div>
-			</div>
-		<% end %>
-	</div>
+  <div class="col-xs-offset-3 col-xs-6">
+    <h2 class="comment-title">- Comment Form -</h2>
+    <%= form_with model:[post, comment], remote: true do |f| %>
+	  <%= f.text_area :comment, rows: "5",cols: "50", placeholder: "comment here", class: "form-control" %><br>
+	  <div class="row">
+	    <div class="comment-btn col-xs-offset-8">
+		  <%= f.submit "Comment", class: "btn btn-primary" %>
+		</div>
+	  </div>
+	<% end %>
+  </div>
 </div>

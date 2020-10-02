@@ -4,191 +4,186 @@
 
 
 #slider-image {
-	height: 450px;
+  height: 450px;
 }
 
 
 /*時間*/
 
 .day {
-	text-align: center;
-	margin-top: 8em;
-	margin-bottom: 4em;
+  text-align: center;
+  margin-top: 8em;
+  margin-bottom: 4em;
 }
 
 .day-country {
-	background-color: #5D99FF;
-	width: 200px;
-	margin:2em auto 1em;
+  background-color: #5D99FF;
+  width: 200px;
+  margin:2em auto 1em;
 }
 
 #RealtimeClockAreaJP {
-	display: inline;
-	margin-left: 1em;
+  display: inline;
+  margin-left: 1em;
 }
 
 #RealtimeClockAreaPH {
-	display: inline;
-	margin-left: 1em;
+  display: inline;
+  margin-left: 1em;
 }
 
 
 .logo-post {
-	border-radius: 50% 50% 50% 50%;
-	height: 80px;
-	width: 80px;
-	border: 3px solid #5D99FF;
-	opacity: 0.7;
-	position: fixed;
-	right: 40px;
-	top: 30px;
+  border-radius: 50% 50% 50% 50%;
+  height: 80px;
+  width: 80px;
+  border: 3px solid #5D99FF;
+  opacity: 0.7;
+  position: fixed;
+  right: 40px;
+  top: 30px;
 }
 
 .post-index {
-	height: auto;
+  height: auto;
 }
 
 /*ランキング*/
 
 #rank-post-image {
-	height: 500px;
+  height: 500px;
 }
 
-
 .best {
-	font-size: 40px;
+  font-size: 40px;
 }
 
 
 .rank img {
-	height: 60px;
-	width: 60px;
-	margin-bottom: 1em;
+  height: 60px;
+  width: 60px;
+  margin-bottom: 1em;
 }
 
 .rank {
-	text-align: center;
+  text-align: center;
 }
 
 .rank-title {
-	text-align: center;
-	background-color: #FF6633;
-	margin: 0 auto;
-	width: 300px;
-	margin-top: 3em;
-	margin-bottom: 2em;
+  text-align: center;
+  background-color: #FF6633;
+  margin: 0 auto;
+  width: 300px;
+  margin-top: 3em;
+  margin-bottom: 2em;
 }
 
 /**天気*/
 
 
 .weather-thead {
-	background-color: #00FFFF;
-	text-align: center;
-	font-size: 20px;
+  background-color: #00FFFF;
+  text-align: center;
+  font-size: 20px;
 }
 
 .city-name {
-	text-align: center;
-	font-size: 18px;
+  text-align: center;
+  font-size: 18px;
 }
 
 .weather-icon {
-	text-align: center;
+  text-align: center;
 }
 
 .temp {
-	text-align: center;
-	font-size: 30px;
+  text-align: center;
+  font-size: 30px;
 }
 
 .weather-title {
-	text-align: center;
-	font-size: 35px;
-	margin-top: 4em;
-	margin-bottom: 2em;
-	background-color: #66FF33;
+  text-align: center;
+  font-size: 35px;
+  margin-top: 4em;
+  margin-bottom: 2em;
+  background-color: #66FF33;
 }
 
 /*新規投稿*/
 
 
-
 .image-field {
-	margin-bottom: 1em;
-	margin-top:  1em;
+  margin-bottom: 1em;
+  margin-top: 1em;
 }
 
 .upload-image {
-	margin-top:  2em;
+  margin-top: 2em;
 
 }
 
-
-
 .btn-post {
-	margin-top: 1em;
-	margin-bottom: 1em;
+  margin-top: 1em;
+  margin-bottom: 1em;
 }
 
 .new-post-title {
-	text-align: center;
-	background-color: #0099FF;
+  text-align: center;
+  background-color: #0099FF;
 }
 
 
 /*投稿一覧*/
 
 #post-index-image {
-	height: 400px;
+  height: 400px;
 }
 
 .post-index-title {
-	text-align: center;
-	background-color: #0099FF;
-	margin-top: 3em;
-	margin-bottom: 1em;
+  text-align: center;
+  background-color: #0099FF;
+  margin-top: 3em;
+  margin-bottom: 1em;
 }
 
 
 .post-index-more {
-	text-align: center;
-	margin-top: 1em;
-	margin-bottom: 1em;
+  text-align: center;
+  margin-top: 1em;
+  margin-bottom: 1em;
 }
 
 .post-index-post-text {
-	margin-top: 1em;
-	margin-bottom: 1em;
-	word-wrap: break-word;
-	font-size: 20px;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  word-wrap: break-word;
+  font-size: 20px;
 }
 
 
 .post-index-user-image-rank {
-	margin-top: 2em;
-	border-radius: 50%;
-	text-align: center;
-	width: 300px;
+  margin-top: 2em;
+  border-radius: 50%;
+  text-align: center;
+  width: 300px;
 }
 
 
 .post-index-user-image {
-	margin-top: 2em;
-	border-radius: 50%;
-	text-align: center;
-	width: 200px;
+  margin-top: 2em;
+  border-radius: 50%;
+  text-align: center;
+  width: 200px;
 }
 
 
 .post-index-user-name {
-	text-align: center;
-	margin-top: 5px;
-
+  text-align: center;
+  margin-top: 5px;
 }
 
 .comment-count {
-	font-size: 20px;
+  font-size: 20px;
 }
 
 
@@ -196,20 +191,20 @@
 /*投稿詳細*/
 
 .post-show-image {
-	margin-top: 3em;
-	margin-bottom: 1em;
+  margin-top: 3em;
+  margin-bottom: 1em;
 }
 
 .post-show-name {
-	text-align: center;
-	margin-left: 42px;
+  text-align: center;
+  margin-left: 42px;
 }
 
 
 .post-show-title {
-	text-align: center;
-	background-color: #CCCC33;
-  	margin-bottom: 1em;
+  text-align: center;
+  background-color: #CCCC33;
+  margin-bottom: 1em;
 }
 
 
@@ -217,76 +212,76 @@
 /*  投稿編集*/
 
 .edit-title {
-	text-align: center;
-	background-color: #B8860B;
-  	margin-bottom: 1em;
+  text-align: center;
+  background-color: #B8860B;
+  margin-bottom: 1em;
 }
 
 
 .post-image-filed {
-	margin-top: 1em;
-	margin-bottom: 1em;
+  margin-top: 1em;
+  margin-bottom: 1em;
 }
 
 
 .post-show-text {
-	margin-bottom: 1em;
-	margin-top: 1em;
-	font-size: 20px;
-	word-wrap: break-word;
+  margin-bottom: 1em;
+  margin-top: 1em;
+  font-size: 20px;
+  word-wrap: break-word;
 }
 
 .like-btn {
-	font-size: 20px;
+  font-size: 20px;
 }
 
 .post-show-edit-btn {
-	margin-top: 1em;
+  margin-top: 1em;
 }
 
 .post-show-user-image {
-	margin-top: 1em;
+  margin-top: 1em;
 }
 
 .post-edit-image {
-	margin-top: 2em;
-  	margin-bottom: 1em;
+  margin-top: 2em;
+  margin-bottom: 1em;
 }
 
 /*コメント*/
 
 .comment-title {
-	text-align: center;
-	background-color: #87CEFA;
+  text-align: center;
+  background-color: #87CEFA;
 }
 
 
 .comment-btn {
-	margin-bottom: 2em;
+  margin-bottom: 2em;
 }
 
 .comment-title {
-	text-align: center;
-	font-size: 30px;
-	margin-bottom: 1em;
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 1em;
 }
 
 .comment-delete-btn {
-	margin-top: 1em;
+  margin-top: 1em;
 }
 
 .comment-text {
-	font-size: 20px;
-	word-wrap: break-word;
-	margin-top: 1em;
+  font-size: 20px;
+  word-wrap: break-word;
+  margin-top: 1em;
 }
 
 .comment-panel {
-	text-align: center;
+  text-align: center;
 }
 
 .comment-name-img {
-	text-align: center;
+  text-align: center;
 }
 
 

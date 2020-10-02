@@ -1,33 +1,31 @@
 <hr>
 <div class="margin-container row">
-	<div class="col-xs-offset-3 col-xs-6">
-		<% if comments_by_third.blank? %>
-			<h2 class="title">- No comments -</h2>
-			<h2>
-		<% else %>
-			<h2 class="comment-title">- <%= fa_icon "comments-o" %> <%= count %>
-			Comments -
-			</h2>
-		<% end %>
-		<div class="row">
-				<% comments_by_third.each do |comment| %>
-					<%= render partial: "comments/comment_panel", locals: { comment: comment, post: post } %>
-				<% end %>
-				<!--         コメントが4件以上になると表示　↓    -->
-				<% if count > 3 %>
-                        <div class="comment-panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title">
-                                     <a data-toggle="collapse" href="#all_comments">all comments...</a>
-                                </h4>
-                            </div>
-                            <div id="all_comments" class="panel-collapse collapse">
-								<% comments_from_third.each do |comment| %>
-								<%= render partial: "comments/comment_panel", locals: { comment: comment, post: post } %>
-								<% end %>
-	            			</div>
-           				</div>
-                <% end %>
-		</div>
-    </div>
+  <div class="col-xs-offset-3 col-xs-6">
+    <% if comments_by_third.blank? %>
+      <h2 class="title">- No comments -</h2>
+    <% else %>
+	  <h2 class="comment-title">- <%= fa_icon "comments-o" %> <%= count %>
+	  Comments -</h2>
+	  <% end %>
+	  <div class="row">
+	    <% comments_by_third.each do |comment| %>
+	      <%= render partial: "comments/comment_panel", locals: { comment: comment, post: post } %>
+	    <% end %>
+  <!--------------------------  コメントが4件以上になると表示　↓ ------------->
+	    <% if count > 3 %>
+          <div class="comment-panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                <a data-toggle="collapse" href="#all_comments">all comments...</a>
+              </h4>
+            </div>
+            <div id="all_comments" class="panel-collapse collapse">
+		      <% comments_from_third.each do |comment| %>
+		        <%= render partial: "comments/comment_panel", locals: { comment: comment, post: post } %>
+	          <% end %>
+            </div>
+          </div>
+        <% end %>
+	  </div>
+  </div>
 </div>

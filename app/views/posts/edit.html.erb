@@ -1,49 +1,49 @@
 <div class="body">
-	<div class="container">
-	<!-- パンくずリスト -->
-		<div class="row">
-			<div class="col-xs-5">
-				<ol class="breadcrumb">
-					<li><%= link_to "Home", posts_path, data: { "turbolinks" => false }, class: "glyphicon glyphicon-home" %></li>
-					<li><%= link_to "My page", user_path(current_user) %></li>
-					<li class="active">Edit Post</li>
-				</ol>
-			</div>
-		</div>
-			<!-- 　　　　　　　 -->
-			<!--   プロフィール -->
-		<%= render "shared/simple_profile" %>
-				<!-- 　　　　　　　　　 -->
-				<!--     エラーメッセージ     -->
-		<%= render "shared/error_messages", model: @post %>
-				<!--                      -->
-		<div class="margin-container row">
-			<div class="col-xs-offset-2 col-xs-8">
-				<h2 class="edit-title">- <%= fa_icon "cog" %>  Edit Post -</h2>
-			      <div class="box-simple">
-						<%= form_with model:@post, local: true do |f| %>
-					<div class="row">
-						<div class="post-edit-image col-xs-offset-1 col-xs-10">
-							<%= attachment_image_tag @post, :image, fallback: "no_image_post.jpg", class: "edit-post-preview"%>
-						</div>
-						<div class="row">
-							<div class="post-image-filed col-xs-offset-2 col-xs-5">
-							<%= f.attachment_field :image ,class: "upload-image", id: "edit-post-image"%>
-							</div>
-						</div>
-						<div class="post-image-filed col-xs-offset-1 col-xs-10">
-							<%= f.text_area :text , rows: "5", cols: "40", class: "form-control"%>
-						</div>
-						<div class="row">
-							<div class="update-btn col-xs-offset-7 col-xs-5">
-								<%= f.submit "Update", class: "btn btn-info" %>
-								<%= link_to "Delete", post_path, method: :delete, data:{ confirm: "Are you sure you want to delete it?",cancel:"No", commit:"Yes" }, title:"Confirmation" , class: "btn btn-danger" %>
-								<% end %>
-							</div>
-						</div>
-					</div>
-				  </div>
-			</div>
-		</div>
+  <div class="container">
+<!--------------- パンくずリスト -------------------------->
+    <div class="row">
+	  <div class="col-xs-5">
+	    <ol class="breadcrumb">
+		  <li><%= link_to "Home", posts_path, data: { "turbolinks" => false }, class: "glyphicon glyphicon-home" %></li>
+		  <li><%= link_to "My page", user_path(current_user) %></li>
+		  <li class="active">Edit Post</li>
+		</ol>
+	  </div>
 	</div>
+<!------------------------------------------------------------>
+<!---------------  プロフィール --------------------->
+	<%= render "shared/simple_profile" %>
+<!----------------------------------------------------->
+<!--------------------------  エラーメッセージ  ---------------->
+	<%= render "shared/error_messages", model: @post %>
+<!-------------------------------------------------------->
+	<div class="margin-container row">
+	  <div class="col-xs-offset-2 col-xs-8">
+	  <h2 class="edit-title">- <%= fa_icon "cog" %>  Edit Post -</h2>
+	    <div class="box-simple">
+		  <%= form_with model: @post, local: true do |f| %>
+		  <div class="row">
+		    <div class="post-edit-image col-xs-offset-1 col-xs-10">
+			  <%= attachment_image_tag @post, :image, fallback: "no_image_post.jpg", class: "edit-post-preview"%>
+			</div>
+			<div class="row">
+			  <div class="post-image-filed col-xs-offset-2 col-xs-5">
+			    <%= f.attachment_field :image ,class: "upload-image", id: "edit-post-image"%>
+			  </div>
+			</div>
+			<div class="post-image-filed col-xs-offset-1 col-xs-10">
+			  <%= f.text_area :text , rows: "5", cols: "40", class: "form-control"%>
+			</div>
+			<div class="row">
+			  <div class="update-btn col-xs-offset-7 col-xs-5">
+			    <%= f.submit "Update", class: "btn btn-info" %>
+				<%= link_to "Delete", post_path, method: :delete, data:{ confirm: "Are you sure you want to delete it?",cancel: "No", commit: "Yes" }, title: "Confirmation" , class: "btn btn-danger" %>
+			  </div>
+			</div>
+		  </div>
+		  <% end %>
+		</div>
+	  </div>
+	</div>
+  </div>
 </div>
