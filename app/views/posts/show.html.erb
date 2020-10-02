@@ -1,84 +1,84 @@
 <div class="body">
-	<div class="container">
-	<!--        パンくずリスト      -->
-		<div class="row">
-			<div class="col-xs-4">
-				<ol class="breadcrumb">
-					<li><%= link_to "Home", posts_path, data: { "turbolinks" => false }, class: "glyphicon glyphicon-home" %></li>
-					<li class="active">Post</li>
-				</ol>
-			</div>
-		</div>
-	<!-- 　　　　　　　      -->
-	<!--   プロフィール -->
-		<%= render "shared/simple_profile" %>
-				<!-- 　　　　　　　　　 -->
-	<!--       フラッシュメッセージ　　　 -->
-		<div id="flash_area">
-				<%= render partial: "shared/flash" %>
-		</div>
-	<!-- 　　　　　　　　　　　　　 -->
-	<!--     エラーメッセージ     -->
-		<div id="error_area"></div>
-		<!--                      -->
-
-	<!--     投稿詳細　　　　 -->
-		<div class="margin-container row">
-			<div class="col-xs-offset-2 col-xs-8">
-				<h2 class="post-show-title">-  <%= @post.user.name %>`s Post -</h2>
-					<div class="box-simple">
-					  <div class="post-show-image">
-		      		  	<%= attachment_image_tag @post, :image %>
-					  </div>
-					  <div class="row">
-							<div class="post-show-user-image col-xs-offset-1 col-xs-2">
-					 			 <%= attachment_image_tag @post.user, :image, fallback: "no-image.jpg", size:"60x60", id: "round-user-image" %>
-							</div>
-					  </div>
-					  <div class="row">
-					  	<div class="post-show-name col-xs-2">
-					  		<%= link_to user_path(@post.user_id) do %>
-					  			<%= @post.user.name %>
-					  		<% end %>
-					  	</div>
-					  </div>
-					  <!-- 　　　　いいね　　　 -->
-					  <div class="row">
-						  <div id="likes_buttons_<%= @post.id %>">
-							<%= render partial: "likes/like", locals: { post: @post } %>
-						  </div>
-					  </div>
-		          	<!-- 　　　　　　　 -->
-					  	<div class="row">
-					  		<div class="box-simple post-show-text col-xs-offset-1 col-xs-10">
-			  		  			<strong><%= @post.text %></strong>
-					  		</div>
-					  	</div>
-					  	<div class="row">
-					  		<div class="col-xs-offset-8">
-					  			<%= fa_icon "calendar" %>
-				              	<%= create_time_with_country(current_user, @post) %>
-					  		</div>
-					  	</div>
-			          	<div class="row">
-			          		<div class="post-show-edit-btn col-xs-offset-9">
-			          			<% if @post.user_id == current_user.id %>
-			      		  			<%= link_to "Edit" , edit_post_path(@post), data: { "turbolinks" => false }, class: "btn btn-primary" %>
-			      		 		 <% end %>
-			          		</div>
-			      		</div>
-			      </div>
-			</div>
-		</div>
-	<!-- 　　　投稿詳細　ここまで　　　　 -->
-	<!-- コメント一覧 -->
+  <div class="container">
+  <!---------------------  パンくずリスト  --------------------->
+    <div class="row">
+	  <div class="col-xs-4">
+	    <ol class="breadcrumb">
+		  <li><%= link_to "Home", posts_path, data: { "turbolinks" => false }, class: "glyphicon glyphicon-home" %></li>
+		  <li class="active">Post</li>
+		</ol>
+	  </div>
+	</div>
+  <!------------------------------------------------------------->
+  <!--------------------- プロフィール --------------------------->
+	<%= render "shared/simple_profile" %>
+	<!--------------------------------------------------------->
+	<!-------------------------- フラッシュメッセージ ------------>
+	<div id="flash_area">
+	  <%= render partial: "shared/flash" %>
+	</div>
+	<!-------------------------------------------------------->
+	<!--------------- エラーメッセージ  ------------------------>
+	<div id="error_area"></div>
+	<!--------------------------------------------------------->
+	<!--------------- 投稿詳細　--------------------------------->
+	<div class="margin-container row">
+	  <div class="col-xs-offset-2 col-xs-8">
+	    <h2 class="post-show-title">-  <%= @post.user.name %>`s Post -</h2>
+	    <div class="box-simple">
+		  <div class="post-show-image">
+		    <%= attachment_image_tag @post, :image %>
+		  </div>
+		  <div class="row">
+		    <div class="post-show-user-image col-xs-offset-1 col-xs-2">
+		      <%= attachment_image_tag @post.user, :image, fallback: "no-image.jpg", size:"60x60", id: "round-user-image" %>
+		    </div>
+	      </div>
+		  <div class="row">
+		    <div class="post-show-name col-xs-2">
+		      <%= link_to user_path(@post.user_id) do %>
+			    <%= @post.user.name %>
+			  <% end %>
+		    </div>
+		  </div>
+	<!-------------------------- 　いいね(非同期通信)　------------------------>
+		  <div class="row">
+		    <div id="likes_buttons_<%= @post.id %>">
+		　    <%= render partial: "likes/like", locals: { post: @post } %>
+		    </div>
+		  </div>
+	<!-------------------------------------------------------------------->
+		  <div class="row">
+	        <div class="box-simple post-show-text col-xs-offset-1 col-xs-10">
+		      <strong><%= @post.text %></strong>
+		    </div>
+		  </div>
+	      <div class="row">
+	        <div class="col-xs-offset-8">
+		      <%= fa_icon "calendar" %>
+		      <%= create_time_with_country(current_user, @post) %>
+		    </div>
+		  </div>
+          <div class="row">
+            <div class="post-show-edit-btn col-xs-offset-9">
+              <% if @post.user_id == current_user.id %>
+      		    <%= link_to "Edit", edit_post_path(@post), data: { "turbolinks" => false }, class: "btn btn-primary" %>
+      		  <% end %>
+            </div>
+      	  </div>
+        </div>
+	  </div>
+	</div>
+	<!---------------------------- 　投稿詳細　ここまで　-------------->
+	<!------------------------------ コメント一覧 --------------------->
 	<div id="comment_area">
-		<%= render partial: "comments/comment", locals: { comments_by_third: @comments_by_third, comments_from_third:@comments_from_third, count:@comments_count, post:@post } %>
+	  <%= render partial: "comments/comment", locals: { comments_by_third: @comments_by_third, comments_from_third: @comments_from_third, count: @comments_count, post: @post } %>
 	</div>
-	<!-- 　　　　    　　 -->
-	<!-- コメントフォーム -->
+	<!--------------------------------------------------------->
+	<!--------------------- コメントフォーム(非同期通信) ----------------->
 	<div id="comment-form">
-		<%= render partial: "comments/comment_form", locals: { comment: @comment, post: @post }%>
+	  <%= render partial: "comments/comment_form", locals: { comment: @comment, post: @post } %>
 	</div>
-	<!-- 　　　　　　　　 -->
+	<!------------------------------------------------------------------->
+  </div>
 </div>

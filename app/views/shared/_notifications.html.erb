@@ -1,39 +1,39 @@
 <% visitor = notification.visitor %>
 <% visited = notification.visited %>
 <div class="row">
-	<div class="notification-item col-xs-offset-1 col-xs-11">
-		<div class="notification-section">
-			<%= link_to user_path(notification.visitor) do %>
-				<%= attachment_image_tag notification.visitor, :image, fallback: "no-image.jpg", size: "40x40" %>
-				<p class="notification-name"><strong><%= visitor.name %></strong></p>
-			<% end %>
-		</div>
-		<div class="aciton-section">
-			<% case notification.action %>
-			<% when "like" then %>
-				<%= fa_icon "heart", style: "color=: red;" %>
-				<strong>LIKED</strong>
-				<%= link_to "Your post", notification.post %>
-			<% when "comment" then %>
-				<%= fa_icon "comment-o" %>
-				<% if notification.comment.user_id == visited.id %>
-					<%= link_to "your post", notification.post %>
-				<% else %>
-					<strong>COMMENTED</strong>
-					<%= link_to post_path(notification.post) do %>
-						Your post
-					<% Comment.find_by(id: notification.comment_id) %>
-					<% end %>
-				<% end %>
-			<% when "message" then %>
-				<% if notification.message.user_id == visitor.id %>
-					<%= fa_icon "envelope-o" %>
-					<strong>SENT A MESSAGE</strong>
-				<% end %>
-			<% end %>
-				<div class="notification-time col-xs-7">
-					<%= time_ago_in_words(notification.created_at).upcase %>
-				</div>
-		</div>
+  <div class="notification-item col-xs-offset-1 col-xs-11">
+    <div class="notification-section">
+	  <%= link_to user_path(notification.visitor) do %>
+	    <%= attachment_image_tag notification.visitor, :image, fallback: "no-image.jpg", size: "40x40" %>
+		<p class="notification-name"><strong><%= visitor.name %></strong></p>
+	  <% end %>
 	</div>
+	<div class="aciton-section">
+	  <% case notification.action %>
+	  <% when "like" then %>
+	    <%= fa_icon "heart", style: "color=: red;" %>
+		  <strong>LIKED</strong>
+		<%= link_to "Your post", notification.post %>
+	  <% when "comment" then %>
+	    <%= fa_icon "comment-o" %>
+		<% if notification.comment.user_id == visited.id %>
+		  <%= link_to "your post", notification.post %>
+		<% else %>
+		  <strong>COMMENTED</strong>
+		  <%= link_to post_path(notification.post) do %>
+		    Your post
+		    <% Comment.find_by(id: notification.comment_id) %>
+		  <% end %>
+		<% end %>
+	  <% when "message" then %>
+	    <% if notification.message.user_id == visitor.id %>
+		  <%= fa_icon "envelope-o" %>
+		  <strong>SENT A MESSAGE</strong>
+		<% end %>
+	  <% end %>
+	  <div class="notification-time col-xs-7">
+	    <%= time_ago_in_words(notification.created_at).upcase %>
+	  </div>
+	</div>
+  </div>
 </div>

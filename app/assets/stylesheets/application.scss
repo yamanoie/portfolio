@@ -22,198 +22,180 @@
 
 
 .alert {
-	position: fixed;
-	opacity: 0.8;
-	text-align: center;
-  	font-size: 20px;
-  	top: 30px;
-  	left: 50px;
-  	z-index: 9999;
+  position: fixed;
+  opacity: 0.8;
+  text-align: center;
+  font-size: 20px;
+  top: 30px;
+  left: 50px;
+  z-index: 9999;
 }
 
 .alert-success {
-	background-color: #dff0d8;
-	color: #3c763d;
+  background-color: #dff0d8;
+  color: #3c763d;
 }
 
 .alert-notice {
-	background-color: #dff0d8;
-	color: #3c763d;
+  background-color: #dff0d8;
+  color: #3c763d;
 }
 
 .alert-danger {
-	background: red;
-	color: white;
+  background: red;
+  color: white;
 }
 
 .tabledata {
-	font-size: 17px;
+  font-size: 17px;
 }
-
 
 
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .body {
-	background-color: #FFFFEE;
+  background-color: #FFFFEE;
 }
 
 .header-top {
-	background-color: none;
+  background-color: none;
 }
-
-
 
 
 /*ヘッダー*/
 .header {
-	background-color: #FFFFEE;
+  background-color: #FFFFEE;
 }
 
 .header_recruit {
-	background-color: #00FFFF;
+  background-color: #00FFFF;
 }
 
 .header-logo {
-	display: flex;
+  display: flex;
 }
-
-
 
 .header-logo img {
-	height: 130px;
-	margin: 0 auto;
+  height: 130px;
+  margin: 0 auto;
 }
 
-nav {
-}
 
 nav a{
-	font-size: 15px;
-	text-decoration: none;
-
+  font-size: 15px;
+  text-decoration: none;
 }
 
 nav ul {
-	display: flex;
-	flex-flow: row;
-	list-style-type: none;
-	align-items: center;
-	justify-content: center;
-	margin-bottom: -10px;
+  display: flex;
+  flex-flow: row;
+  list-style-type: none;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: -10px;
 }
-
-
 
 .nav-list {
-	margin: 0 2em;
-
-
+  margin: 0 2em;
 }
-
 
 
 /*フッター*/
 footer {
-	height: auto;
-	background-color: white;
+  height: auto;
+  background-color: white;
 }
 
 .footer-logo {
-	padding-bottom: 2em;
-	text-align: center;
+  padding-bottom: 2em;
+  text-align: center;
 }
 
 
 .send-btn {
-	margin-top: 1em;
-	margin-bottom: 1em;
+  margin-top: 1em;
+  margin-bottom: 1em;
 }
 
 .title-contact {
-	text-align: center;
-	font-size: 30px;
+  text-align: center;
+  font-size: 30px;
 }
-
-
 
 
 /* 通知ボタン*/
 .btn-default >.badge-notify{
-   background:red;
-   position:relative;
-   top: 13px;
-   left: 6px;
+  background:red;
+  position:relative;
+  top: 13px;
+  left: 6px;
 }
 
 
 /*パンくず*/
 
-
-
 .breadcrumb {
-	background-color: #FFFFEE;
-	border:1px solid gray;
-	text-align: center;
-	margin-top: 80px;
+  background-color: #FFFFEE;
+  border:1px solid gray;
+  text-align: center;
+  margin-top: 80px;
 }
 
 .bread_crumb_recruit {
-	background-color: #00FFFF;
-	border:1px solid gray;
+  background-color: #00FFFF;
+  border:1px solid gray;
 }
+
 #page-top {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    font-size: 30px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-size: 30px;
 }
 
 #page-top a {
-    display: block;
-    background: yellow;
-    color: black;
-    width: 70px;
-    height: 70px;
-    padding: 20px 0;
-    text-align: center;
-    text-decoration: none;
-    border-radius: 50% 50% 50% 50%;
+  display: block;
+  background: yellow;
+  color: black;
+  width: 70px;
+  height: 70px;
+  padding: 20px 0;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 50% 50% 50% 50%;
 }
 
 #page-top a:hover {
-    background: #99FFCC;
-    text-decoration: none;
+  background: #99FFCC;
+  text-decoration: none;
 }
 
 /*各コンテナ*/
 
 .margin-container {
-	margin: 100px 0　100px 0;
+  margin: 100px 0　100px 0;
 }
 
 
 /*画像*/
 .attachment.post.image{
-	width: 100%;
-    height: 400px;
-    object-fit: cover;
-
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
 }
 
 .user-image {
-	width: 100%;
-    height: 300px;
-    object-fit: cover;
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
 }
 
 #round-user-image {
-    border-radius: 50% 50% 50% 50%;
+  border-radius: 50% 50% 50% 50%;
 }
 
 
@@ -221,65 +203,63 @@ footer {
 /*ボックスデザイン*/
 
 .box {
-    background: #e4fcff;
-    border-top: solid 6px #1dc1d6;
-    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.32);
-    margin-bottom: 4em;
-    margin-top: 4em;
+  background: #e4fcff;
+  border-top: solid 6px #1dc1d6;
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.32);
+  margin-bottom: 4em;
+  margin-top: 4em;
 }
 
 .box-design {
-	 margin: 2em auto;
-	 padding: 1em 1.5em;
-	 width: 80%;
-	 color: #777777;
-	 background-color: #fff;
-	 border: 4px solid #f6bfbc;
-	 border-radius: 3em .8em 3em .7em/.9em 2em .8em 3em;
+  margin: 2em auto;
+  padding: 1em 1.5em;
+  width: 80%;
+  color: #777777;
+  background-color: #fff;
+  border: 4px solid #f6bfbc;
+  border-radius: 3em .8em 3em .7em/.9em 2em .8em 3em;
 }
 
 
 
 .box-design-post {
-	margin-top: 4em;
-	 padding: 1em 1.5em;
-	 color: #777777;
-	 background-color: #fff;
-	 border: 4px solid #f6bfbc;
-	 border-radius: 3em .8em 3em .7em/.9em 2em .8em 3em;
+  margin-top: 4em;
+  padding: 1em 1.5em;
+  color: #777777;
+  background-color: #fff;
+  border: 4px solid #f6bfbc;
+  border-radius: 3em .8em 3em .7em/.9em 2em .8em 3em;
 }
 
 .box-simple {
-	 margin-top: 1em;
-	 margin-bottom: 2em;
-	 padding: 1em;
-	 color: #666666;
-	 border: 2px solid #996633;
-	 background-color: #fff;
-	 box-shadow: -2px 5px 5px #e8d3c7;
-	 border-radius: 20px;
+  margin-top: 1em;
+  margin-bottom: 2em;
+  padding: 1em;
+  color: #666666;
+  border: 2px solid #996633;
+  background-color: #fff;
+  box-shadow: -2px 5px 5px #e8d3c7;
+  border-radius: 20px;
 }
 
 /* 各タイトル*/
 
 .users-title {
-	display: inline;
-	margin: 0 auto;
-	border-bottom: 2px solid black;
+  display: inline;
+  margin: 0 auto;
+  border-bottom: 2px solid black;
 }
 
 .title {
-	text-align: center;
-	margin-bottom: 1em;
-	font-size: 30px;
-	background-color: #DDFFFF;
-	border-radius: 5px;
-	border: 1px solid #f6bfbc;
-
+  text-align: center;
+  margin-bottom: 1em;
+  font-size: 30px;
+  background-color: #DDFFFF;
+  border-radius: 5px;
+  border: 1px solid #f6bfbc;
 }
 
 .title-wrapper {
-	text-align: center;
-	margin-bottom: 2em;
-
+  text-align: center;
+  margin-bottom: 2em;
 }

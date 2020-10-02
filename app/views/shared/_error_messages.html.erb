@@ -1,9 +1,8 @@
 <% if model.errors.any? %>
   <div class="alert alert-danger">
-      <% model.errors.full_messages.each do |message| %>
-        <%= message %>
-		<button type="button" class="close" data-dismiss="alert">　&times;</button><br>
-      <% end %>
-    </ul>
+    <% model.errors.full_messages.each do |message| %>
+      <%= message %>
+	  <button type="button" class="close" data-dismiss="alert">　&times;</button><br>
+    <% end %>
   </div>
 <% end %>

@@ -1,141 +1,138 @@
 <div class="match">
- <div class="container">
-	<!-- パンくずリスト -->
+  <div class="container">
+  <!-------------------- パンくずリスト ------------------------->
+    <div class="row">
+	  <div class="col-xs-3">
+	    <ol class="bread_crumb_recruit breadcrumb">
+		  <li><%= link_to "Home", posts_path, data: { "turbolinks" => false }, class: "glyphicon glyphicon-home" %></li>
+		  <li class="active">Recruit</li>
+		</ol>
+	  </div>
+	</div>
+	<!------------------------------------------------------->
+	<!---------------------- プロフィール ---------------------->
+	<%= render "shared/simple_profile" %>
+	<!------------------------------------------------------->
+	<!------------------- フラッシュメッセージ ----------------->
+	<%= render partial: "shared/flash" %>
+	<!-------------------------------------------------------->
+	<!-----------------  エラーメッセージ --------------------->
+	<%= render "shared/error_messages", model: @match %>
+	<!-------------------------------------------------------->
+	<!------------------------ 投稿一覧 ------------------->
+	<div class="margin-container row">
+	  <div class="col-xs-offset-4 col-xs-4">
+	    <h2 class="matches-title">- <%= fa_icon "search" %> Recruit Posts -</h2>
+	  </div>
+	</div>
+	<!------------------- 　検索　------------------------------>
 	<div class="row">
-		<div class="col-xs-3">
-				<ol class="bread_crumb_recruit breadcrumb">
-					<li><%= link_to "Home", posts_path, data: { "turbolinks" => false }, class: "glyphicon glyphicon-home"%></li>
-					<li class="active">Recruit</li>
-				</ol>
+	  <div class="recruit-search box col-xs-offset-2 col-xs-8">
+	    <%= search_form_for @search do |f| %>
+		  <div class="search-btn radio-inline">
+		    <%= f.radio_button :occupation_eq, true %>
+			<%= fa_icon "users" %>
+			<%= f.label :"Search students" %>
+		  </div>
+		  <div class="search-btn radio-inline">
+		    <%= f.radio_button :occupation_eq, false %>
+			<%= fa_icon "graduation-cap" %>
+			<%= f.label :"Search teachers" %>
+		  </div>
+		  <div class="search-btn radio-inline">
+		    <%= f.radio_button :occupation_eq, '', { checked: true } %>
+			<%= f.label :"Both" %>
+		  </div>
+		  <div class="search-btn radio-inline">
+		    <%= f.submit "Search", class: "btn btn-primary btn-xs" %>
+		  </div>
+		<% end %>
+	  </div>
+	</div>
+	<!----------------------------------------------------------------->
+	<div class="row">
+	  <div class="col-xs-offset-2 col-xs-8">
+	    <% @matches.each do |match| %>
+		  <div class="box-simple">
+		    <div class="row">
+			  <div class="match-title-wrapper col-xs-offset-1 col-xs-10 ">
+			    <strong class="match-index-title"><%= match.title %></strong>
+			  </div>
 			</div>
-		</div>
-	<!-- 　　　　　　　 -->
-	<!--   プロフィール -->
-		<%= render "shared/simple_profile" %>
-				<!-- 　　　　　　　　　 -->
-		<!--       フラッシュメッセージ　　　 -->
-		<%= render partial: "shared/flash" %>
-	    <!--                        -->
-	    <!--     エラーメッセージ     -->
-		<%= render "shared/error_messages", model: @match %>
-		<!--                      -->
-		<!--    投稿一覧　　  -->
-		<div class="margin-container row">
-			<div class="col-xs-offset-4 col-xs-4">
-				<h2 class="matches-title">- <%= fa_icon "search" %> Recruit Posts -</h2>
-			</div>
-		</div>
-				<!-- 　　　　検索　　　　 -->
-		<div class="row">
-			<div class="recruit-search box col-xs-offset-2 col-xs-8">
-				<%= search_form_for @search do |f| %>
-					<div class="search-btn radio-inline">
-						<%= f.radio_button :occupation_eq,true %>
-						<%= fa_icon "users" %>
-						<%= f.label :"Search students" %>
-					</div>
-					<div class="search-btn radio-inline">
-						<%= f.radio_button :occupation_eq,false %>
-						<%= fa_icon "graduation-cap" %>
-						<%= f.label :"Search teachers" %>
-					</div>
-					<div class="search-btn radio-inline">
-						<%= f.radio_button :occupation_eq,'', { checked: true } %>
-						<%= f.label :"Both" %>
-					</div>
-					<div class="search-btn radio-inline">
-						<%= f.submit "Search", class: "btn btn-primary btn-xs" %>
-					</div>
+			<div class="row">
+			  <div class="match-user-item">
+			    <%= attachment_image_tag match.user, :image, fallback: "no-image.jpg", size:"100x100", id: "round-user-image" %>
+				<%= link_to user_path(match.user.id) do %>
+				  <p><%= match.user.name%></p>
 				<% end %>
+			  </div>
 			</div>
-		</div>
-
-	<!-- 　　　　　　　　　　　　 -->
-		<div class="row">
-			<div class="col-xs-offset-2 col-xs-8">
-				<% @matches.each do |match| %>
-				<div class="box-simple">
-					<div class="row">
-						<div class="match-title-wrapper col-xs-offset-1 col-xs-10 ">
-							<strong class="match-index-title"><%= match.title %></strong>
-						</div>
-					</div>
-					<div class="row">
-						<div class="match-user-item">
-							<%= attachment_image_tag match.user, :image, fallback: "no-image.jpg", size:"100x100", id: "round-user-image" %>
-							<%= link_to user_path(match.user.id) do %>
-								<p><%= match.user.name%></p>
-							<% end %>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-xs-offset-1 col-xs-6 match-occupation">
-							<% if match.occupation == true %>
-								<p class="search-students"><%= fa_icon "users" %>
-								Search Students</p>
-							<% else %>
-								<p class="search-teachers"><%= fa_icon "graduation-cap" %>
-								Search Teachers</p>
-							<% end %>
-						</div>
-					</div>
-					<div class="row">
-						<div class="box-simple col-xs-offset-1 col-xs-10">
-							<p class="match-text"><%= match.text %></p>
-							<div class="row">
-								<div class="col-xs-offset-9">
-									<%= fa_icon "calendar" %>
-		              				<%= create_time_with_country(current_user, match) %>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-xs-offset-10">
-							<% if match.user.id == current_user.id %>
-								<%= link_to "Edit", edit_match_path(match),class: "btn btn-success" %>
-							<% end %>
-						</div>
-					</div>
-				</div>
+			<div class="row">
+		      <div class="col-xs-offset-1 col-xs-6 match-occupation">
+			    <% if match.occupation == true %>
+			      <p class="search-students"><%= fa_icon "users" %>Search Students</p>
+				<% else %>
+				  <p class="search-teachers"><%= fa_icon "graduation-cap" %>Search Teachers</p>
 				<% end %>
-				<%= paginate @matches %>
+			  </div>
 			</div>
-		</div>
-		<!-- 　　　　　　　　　　 -->
-		<!-- 　　　　　　　投稿フォーム　　　　　 -->
-		<div class="row">
-			<div class="col-xs-offset-3 col-xs-6">
-				<h2 class="match-form-title">- <%= fa_icon "pencil" %>Recruit Form -</h2>
-				<div class="box-simple">
-				<%= form_with model:@match, local: true do |f| %>
+			<div class="row">
+			  <div class="box-simple col-xs-offset-1 col-xs-10">
+			    <p class="match-text"><%= match.text %></p>
 				<div class="row">
-					<div class="match-margin col-xs-offset-1">
-						<%= f.radio_button :occupation, :true, checked: true %>
-						<%= fa_icon "users" %>
-						<%= f.label :occupation, "Search Students　" %>
-						<%= f.radio_button :occupation, :false %>
-						<%= fa_icon "graduation-cap" %>
-						<%= f.label :occupation, "Search Teachers" %><br>
-					</div>
+				  <div class="col-xs-offset-9">
+				    <%= fa_icon "calendar" %>
+              		<%= create_time_with_country(current_user, match) %>
+				  </div>
 				</div>
-				<div class="row">
-					<div class="col-xs-offset-1 col-xs-10">
-						<%= f.label :title, "Title"%>
-						<%= f.text_field :title , class: "form-control"%><br>
-						<%= f.label :title, "Text"%>
-						<%= f.text_area :text, class: "form-control", rows: "8", cols: "40" %>
-					</div>
-				</div>
-				<div class="row">
-					<div class="match-margin col-xs-offset-8">
-						<%= f.submit "Post", class: "btn btn-primary"%>
-					</div>
-				</div>
+			  </div>
+			</div>
+			<div class="row">
+			  <div class="col-xs-offset-10">
+			    <% if match.user.id == current_user.id %>
+				  <%= link_to "Edit", edit_match_path(match), class: "btn btn-success" %>
 				<% end %>
+			  </div>
 			</div>
 		  </div>
-	  	</div>
-			<!-- 　　　      　　　 -->
+		<% end %>
+		<%= paginate @matches %>
+	  </div>
 	</div>
+	<!----------------------------------------------------------->
+	<!---------------------　投稿フォーム　------------------------->
+	<div class="row">
+	  <div class="col-xs-offset-3 col-xs-6">
+	    <h2 class="match-form-title">- <%= fa_icon "pencil" %>Recruit Form -</h2>
+	    <div class="box-simple">
+		  <%= form_with model: @match, local: true do |f| %>
+		    <div class="row">
+			  <div class="match-margin col-xs-offset-1">
+			    <%= f.radio_button :occupation, :true, checked: true %>
+				<%= fa_icon "users" %>
+				<%= f.label :occupation, "Search Students　" %>
+				<%= f.radio_button :occupation, :false %>
+				<%= fa_icon "graduation-cap" %>
+				<%= f.label :occupation, "Search Teachers" %><br>
+			  </div>
+		    </div>
+		    <div class="row">
+			  <div class="col-xs-offset-1 col-xs-10">
+			    <%= f.label :title, "Title"%>
+				<%= f.text_field :title , class: "form-control"%><br>
+				<%= f.label :title, "Text"%>
+				<%= f.text_area :text, class: "form-control", rows: "8", cols: "40" %>
+			  </div>
+			</div>
+			<div class="row">
+			  <div class="match-margin col-xs-offset-8">
+			    <%= f.submit "Post", class: "btn btn-primary"%>
+			  </div>
+			</div>
+		  <% end %>
+		</div>
+	  </div>
+	</div>
+	<!------------------------------------------------------------------->
+  </div>
 </div>
