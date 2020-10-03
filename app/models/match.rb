@@ -5,7 +5,7 @@ class Match < ApplicationRecord
   validates :title, presence: true
   validates :occupation, inclusion: { in: [true, false] }
 
-  scope :recent, -> { order(created_at: 'DESC') }
+  include Recent
 
 end
 
