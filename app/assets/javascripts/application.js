@@ -29,73 +29,73 @@ $(document).ready(function(){
 // TIME
 
 function set2fig(num) {
-   var ret;
-   if( num < 10 ) { ret = "0" + num; }
-   else { ret = num; }
-   return ret;
+  var ret;
+  if( num < 10 ) { ret = "0" + num; }
+  else { ret = num; }
+  return ret;
 }
 
 function showClock() {
-   if (document.getElementById("RealtimeClockAreaPH") != null) {
-     var nowTime = new Date();
-     var nowHour = set2fig( (nowTime.getHours()) - 1 );
-     var nowMin  = set2fig( nowTime.getMinutes() );
-     var nowSec  = set2fig( nowTime.getSeconds() );
-     var msg = nowHour + ":" + nowMin + ":" + nowSec;
-     document.getElementById("RealtimeClockAreaPH").innerHTML = msg;
+  if (document.getElementById("RealtimeClockAreaPH") != null) {
+    var nowTime = new Date();
+    var nowHour = set2fig( (nowTime.getHours()) - 1 );
+    var nowMin  = set2fig( nowTime.getMinutes() );
+    var nowSec  = set2fig( nowTime.getSeconds() );
+    var msg = nowHour + ":" + nowMin + ":" + nowSec;
+    document.getElementById("RealtimeClockAreaPH").innerHTML = msg;
   };
 }
 setInterval('showClock()',1000);
 
 
 function showClockFP() {
-   if (document.getElementById("RealtimeClockAreaJP") != null) {
-     var nowTime = new Date();
-     var nowHour = set2fig( nowTime.getHours() );
-     var nowMin  = set2fig( nowTime.getMinutes() );
-     var nowSec  = set2fig( nowTime.getSeconds() );
-     var msg = nowHour + ":" + nowMin + ":" + nowSec;
-     document.getElementById("RealtimeClockAreaJP").innerHTML = msg;
-   };
+  if (document.getElementById("RealtimeClockAreaJP") != null) {
+    var nowTime = new Date();
+    var nowHour = set2fig( nowTime.getHours() );
+    var nowMin  = set2fig( nowTime.getMinutes() );
+    var nowSec  = set2fig( nowTime.getSeconds() );
+    var msg = nowHour + ":" + nowMin + ":" + nowSec;
+    document.getElementById("RealtimeClockAreaJP").innerHTML = msg;
+  };
 }
 setInterval('showClockFP()',1000);
 
 // 画像プレビュー
 $(function(){
-    $('#edit-user-image').on('change', function(e) {
-        var reader = new FileReader();
-        reader.onload = function (e) {
-            $(".user-preview").attr('src', e.target.result);
-        }
+  $('#edit-user-image').on('change', function(e) {
+    var reader = new FileReader();
+    reader.onload = function (e) {
+      $(".user-preview").attr('src', e.target.result);
+      }
         reader.readAsDataURL(e.target.files[0]);
-    });
+  });
 });
 
 $(function(){
-    $('#new-post-image').on('change', function(e) {
-        var reader = new FileReader();
-        reader.onload = function (e) {
-            $(".post-preview").attr('src', e.target.result);
-        }
+  $('#new-post-image').on('change', function(e) {
+    var reader = new FileReader();
+    reader.onload = function (e) {
+      $(".post-preview").attr('src', e.target.result);
+      }
         reader.readAsDataURL(e.target.files[0]);
-    });
+  });
 });
 
 $(function(){
-    $('#edit-post-image').on('change', function(e) {
-        var reader = new FileReader();
-        reader.onload = function (e) {
-            $(".edit-post-preview").attr('src', e.target.result);
-        }
+  $('#edit-post-image').on('change', function(e) {
+    var reader = new FileReader();
+    reader.onload = function (e) {
+      $(".edit-post-preview").attr('src', e.target.result);
+      }
         reader.readAsDataURL(e.target.files[0]);
-    });
+  });
 });
 
 // スライダー
 
 $(function(){
 	$('.bxslider').bxSlider({
-		auto: true,
+	  auto: true,
 		speed: 1000,
 		pause: 3000,
 		randomStart: true,
@@ -104,7 +104,7 @@ $(function(){
 		infiniteLoop: true,
 		slideWidth: 750,
 		pager: true,
-        touchEnabled: false
+    touchEnabled: false
 	});
 });
 
@@ -112,21 +112,21 @@ $(function(){
 // トップスクロール
 
 $(function () {
-    var topBtn = $('#page-top');
-    topBtn.hide();
+  var topBtn = $('#page-top');
+  topBtn.hide();
     $(window).scroll(function () {
-        if ($(this).scrollTop() > 500) {
+      if ($(this).scrollTop() > 500) {
             topBtn.fadeIn();
-        } else {
+    } else {
             topBtn.fadeOut();
-        }
+    }
     });
-    topBtn.click(function () {
-        $('body,html').animate({
-            scrollTop: 0
-        }, 500);
-        return false;
-    });
+  topBtn.click(function () {
+    $('body,html').animate({
+      scrollTop: 0
+    }, 500);
+      return false;
+  });
 });
 
 
@@ -134,69 +134,69 @@ $(function () {
 // フェードイン
 
 $(window).scroll(function (){
-    $('.mainvisual').each(function(){
-        var elemPos = $(this).offset().top,
-            scroll = $(window).scrollTop(),
-            windowHeight = $(window).height();
-          if (scroll > elemPos - windowHeight + 100){
-              $(this).addClass('scrollin');
-            }
-        });
-    });
+  $('.mainvisual').each(function(){
+    var elemPos = $(this).offset().top,
+    scroll = $(window).scrollTop(),
+    windowHeight = $(window).height();
+    if (scroll > elemPos - windowHeight + 100){
+      $(this).addClass('scrollin');
+    }
+  });
+});
 
 $(window).scroll(function (){
-    $('.about-section').each(function(){
-        var elemPos = $(this).offset().top,
-            scroll = $(window).scrollTop(),
-            windowHeight = $(window).height();
-          if (scroll > elemPos - windowHeight + 100){
-              $(this).addClass('scrollin');
-            }
-        });
-    });
-
-
-$(window).scroll(function (){
-    $('.post-section').each(function(){
-        var elemPos = $(this).offset().top,
-            scroll = $(window).scrollTop(),
-            windowHeight = $(window).height();
-          if (scroll > elemPos - windowHeight + 100){
-              $(this).addClass('scrollin');
-            }
-        });
-    });
+  $('.about-section').each(function(){
+    var elemPos = $(this).offset().top,
+    scroll = $(window).scrollTop(),
+    windowHeight = $(window).height();
+    if (scroll > elemPos - windowHeight + 100){
+      $(this).addClass('scrollin');
+      }
+  });
+});
 
 
 $(window).scroll(function (){
-    $('.recruit-section').each(function(){
-        var elemPos = $(this).offset().top,
-            scroll = $(window).scrollTop(),
-            windowHeight = $(window).height();
-          if (scroll > elemPos - windowHeight + 100){
-              $(this).addClass('scrollin');
-            }
-        });
+  $('.post-section').each(function(){
+    var elemPos = $(this).offset().top,
+    scroll = $(window).scrollTop(),
+    windowHeight = $(window).height();
+    if (scroll > elemPos - windowHeight + 100){
+      $(this).addClass('scrollin');
+    }
     });
+  });
+
 
 $(window).scroll(function (){
-    $('.message-section').each(function(){
-        var elemPos = $(this).offset().top,
-            scroll = $(window).scrollTop(),
-            windowHeight = $(window).height();
-          if (scroll > elemPos - windowHeight + 100){
-              $(this).addClass('scrollin');
-            }
-        });
-    });
+  $('.recruit-section').each(function(){
+    var elemPos = $(this).offset().top,
+    scroll = $(window).scrollTop(),
+    windowHeight = $(window).height();
+    if (scroll > elemPos - windowHeight + 100){
+      $(this).addClass('scrollin');
+    }
+   });
+  });
 
 $(window).scroll(function (){
-    $('.others-section').each(function(){
-        var elemPos = $(this).offset().top,
-            scroll = $(window).scrollTop(),
-            windowHeight = $(window).height();
-          if (scroll > elemPos - windowHeight + 100){
-              $(this).addClass('scrollin');
-            }
-        });
-    });
+  $('.message-section').each(function(){
+    var elemPos = $(this).offset().top,
+    scroll = $(window).scrollTop(),
+    windowHeight = $(window).height();
+    if (scroll > elemPos - windowHeight + 100){
+      $(this).addClass('scrollin');
+    }
+  });
+ });
+
+$(window).scroll(function (){
+  $('.others-section').each(function(){
+    var elemPos = $(this).offset().top,
+    scroll = $(window).scrollTop(),
+    windowHeight = $(window).height();
+    if (scroll > elemPos - windowHeight + 100){
+      $(this).addClass('scrollin');
+    }
+  });
+});
