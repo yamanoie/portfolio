@@ -5,7 +5,7 @@ class Message < ApplicationRecord
 
   validates :message, presence: true
 
-  scope :recent, -> { order(created_at: 'DESC') }
+  include Recent
 
   def create_notification_message!(current_user, message_id, visited_id)
     notification = current_user.active_notifications.new(

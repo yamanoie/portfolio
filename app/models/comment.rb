@@ -5,6 +5,6 @@ class Comment < ApplicationRecord
 
   validates :comment, presence: true
 
-  scope :recent, -> { order(created_at: 'DESC') }
+  include Recent
 
 end

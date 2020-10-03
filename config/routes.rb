@@ -6,8 +6,6 @@ Rails.application.routes.draw do
   devise_scope :user do
     post "/users/guest_sign_in" => "users/sessions#new_guest"
   end
-  # devise_for :users, :controllers => {:registrations => 'users/registrations',:sessions => 'users/sessions'} 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: 'homes#top'
   get "home/welcome" => "homes#welcome"
   resources :posts do
