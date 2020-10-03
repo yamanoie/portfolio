@@ -7,7 +7,7 @@ class PostsController < ApplicationController
   before_action :ensure_correct_post, only: %i[destroy edit update]
 
   def index
-    @posts = Post.includes(:user).order(created_at: 'DESC').page(params[:page]).per(8)
+    @posts = Post.includes(:user).recent.page(params[:page]).per(8)
     @all_ranks = Post.find(Like.group(:post_id).order(Arel.sql('count(post_id) desc')).limit(3).pluck(:post_id))
     @slider_posts = Post.where.not(image_id: nil).limit(8)
     @tokyo_weather = get_weather('q=Tokyo,jp')

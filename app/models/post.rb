@@ -8,6 +8,9 @@ class Post < ApplicationRecord
   validates :text, presence: true
   validates :text, length: { maximum: 141 }
 
+
+  scope :recent, -> { order(created_at: 'DESC') }
+
   def liked_by?(user)
     likes.where(user_id: user.id).exists?
   end

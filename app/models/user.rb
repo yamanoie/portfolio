@@ -35,4 +35,5 @@ class User < ApplicationRecord
       user.country = false
     end
   end
+
 end

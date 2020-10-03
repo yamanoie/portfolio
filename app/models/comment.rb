@@ -4,4 +4,7 @@ class Comment < ApplicationRecord
   belongs_to :post
 
   validates :comment, presence: true
+
+  scope :recent, -> { order(created_at: 'DESC') }
+
 end
