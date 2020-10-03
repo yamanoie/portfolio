@@ -5,7 +5,7 @@ class MatchesController < ApplicationController
 
   def index
     @search = Match.ransack(params[:q])
-    @matches = @search.result.includes(:user).page(params[:page]).per(5).order(created_at: 'DESC')
+    @matches = @search.result.includes(:user).page(params[:page]).per(5).recent
     @match = Match.new
   end
 
@@ -17,7 +17,7 @@ class MatchesController < ApplicationController
       redirect_to matches_path
     else
       @search = Match.ransack(params[:q])
-      @matches = @search.result.includes(:user).page(params[:page]).per(5).order(created_at: 'DESC')
+      @matches = @search.result.includes(:user).page(params[:page]).per(5).recent
       render :index
     end
   end
