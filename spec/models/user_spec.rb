@@ -1,4 +1,4 @@
-require 'rails_helper'
+
 
 RSpec.describe User, type: :model do
 	# 姓、名、メール、国、パスワードがあれば有効な状態であること
