@@ -11,7 +11,7 @@ class CommentsController < ApplicationController
     else
       flash.now[:danger] = comment.errors.messages[:comment].first
     end
-    comments = @post.comments.order(created_at: 'DESC')
+    comments = @post.comments.recent
     @comments_by_third = comments[0..2]
     @comments_from_third = comments[3..(comments.count - 1)]
     @comments_count = comments.count

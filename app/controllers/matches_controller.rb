@@ -1,6 +1,6 @@
 class MatchesController < ApplicationController
   before_action :authenticate_user!
-  include EnsureCorrectObjects
+  include EnsureCorrectUser
   before_action :ensure_correct_match, only: %i[destroy edit update]
 
   def index

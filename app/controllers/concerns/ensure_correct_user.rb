@@ -1,4 +1,4 @@
-module EnsureCorrectObjects
+module EnsureCorrectUser
   extend ActiveSupport::Concern
 
   def ensure_correct_user

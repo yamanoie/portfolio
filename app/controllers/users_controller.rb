@@ -1,12 +1,12 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  include EnsureCorrectObjects
+  include EnsureCorrectUser
   before_action :ensure_correct_user, only: %i[edit update]
 
   def show
     @user = User.find(params[:id])
     @posts = Post.where(user_id: @user.id).recent.page(params[:page]).per(4)
-    @matches = Match.where(user_id: @user.id).recent.page(params[:page]).per(4)
+    @matches = Match.includes(:user).where(user_id: @user.id).recent.page(params[:page]).per(4)
     @room = current_user.rooms.find_by(guest_id: @user.id)
     @room ||= @user.rooms.find_by(guest_id: current_user.id)
     # 通知
@@ -17,7 +17,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.page(params[:page]).per(8).order(current_sign_in_at: 'DESC')
+    @users = User.includes(:posts).page(params[:page]).per(8).order(current_sign_in_at: 'DESC')
   end
 
   def edit
