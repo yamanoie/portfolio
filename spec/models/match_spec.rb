@@ -1,4 +1,4 @@
-require 'rails_helper'
+
 
 RSpec.describe Match, type: :model do
 	# タイトル、テキスト、職業があれば有効な状態であること

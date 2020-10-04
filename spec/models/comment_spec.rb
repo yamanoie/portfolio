@@ -1,4 +1,4 @@
-require 'rails_helper'
+
 
 RSpec.describe Comment, type: :model do
 	# コメントがあれば有効な状態であること
