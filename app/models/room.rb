@@ -3,4 +3,7 @@ class Room < ApplicationRecord
   has_many :entries, dependent: :destroy
   belongs_to :user
   belongs_to :guest, class_name: 'User', foreign_key: 'guest_id', optional: true
+
+  include Recent
+
 end
